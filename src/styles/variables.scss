@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+  font-family: 'Montserrat';
+
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  --bg: #fff;
+  --text: #000;
+  --blue: #3F7ABF;
+  --white: #fff;
+}
+
+html[data-theme='dark'] {
+  --bg: #000;
+  --text: #fff;
+  --blue: #333;
+  --white: #fff;
+}
+
+$blue: var(--blue);
+$text: var(--text);
+$bg: var(--bg);
+$white: var(--white);
+
+
+
+

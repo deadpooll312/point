@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useCallback, useEffect, useState} from "react";
+import "antd/dist/antd.css";
+import "./styles/main.scss";
+import {Layout} from "antd";
+
+const {Header, Content, Sider} = Layout;
 
 function App() {
+  const [small, setSmall] = useState(true);
+  const click = useCallback((value) => {
+    document.documentElement.setAttribute("data-theme", value ? "dark" : "");
+  }, []);
+
+  useEffect(() => {
+    console.log("sma;;", small);
+  }, [small]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <Sider className={small ? "small" : ""}>
+          <div className="sider-header"></div>
+        </Sider>
+        <Layout>
+          <Header onClick={() => setSmall(!small)}>Header</Header>
+          <Content onClick={() => click(false)} className="content">
+            Content
+          </Content>
+        </Layout>
+      </Layout>
     </div>
   );
 }
