@@ -1,29 +1,66 @@
+// LIGHT THEME
 html {
-  height: 100%;
-  font-family: 'Montserrat';
-
-  display: grid;
-  align-items: center;
-  justify-items: center;
-
   --bg: #fff;
   --text: #000;
   --blue: #3F7ABF;
   --white: #fff;
+  --green: #58A621;
+  --grey: #747474;
+  --light-grey: #818E9B;
+  --red: #F26161;
 }
-
+// DARK THEME
 html[data-theme='dark'] {
   --bg: #000;
   --text: #fff;
   --blue: #333;
   --white: #fff;
+  --green: #58A621;
+  --grey: #747474;
+  --light-grey: #818E9B;
+  --red: #F26161;
 }
 
+// COLORS
 $blue: var(--blue);
 $text: var(--text);
 $bg: var(--bg);
 $white: var(--white);
+$green: var(--green);
+$grey: var(--grey);
+$light-grey: var(--light-grey);
+$red: var(--red);
 
+// =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
+.color-blue {
+  color: $blue;
+}
 
+.color-text {
+  color: $text;
+}
 
+.color-grey {
+  color: $grey;
+}
 
+.color-red {
+  color: $red;
+}
+
+.color-light-grey {
+  color: $light-grey;
+}
+
+// =============== КЛАССЫ ДЛЯ ЦВЕТ ФОНА ============ //
+.bg-green {
+  background-color: $green;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.bg-red {
+  background-color: $red;
+}
