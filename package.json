@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "REACT_APP_MODE=dev react-scripts start",
+    "start": "cross-env REACT_APP_MODE=dev react-scripts start",
     "start:preprod": "REACT_APP_MODE=preprod react-scripts start",
     "start:prod": "REACT_APP_MODE=prod react-scripts start",
     "build": "react-scripts build",
@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
