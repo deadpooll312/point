@@ -20,14 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml)\""
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -40,13 +33,18 @@
     "bracketSpacing": false,
     "trailingComma": "es5"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.+(js|jsx)": [
-      "eslint --fix",
-      "git add"
-    ],
     "*.+(js|json|css|md)": [
       "prettier --write",
+      "git add"
+    ],
+    "*.+(js|jsx)": [
+      "eslint .",
       "git add"
     ]
   },
