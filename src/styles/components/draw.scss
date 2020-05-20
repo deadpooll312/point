@@ -1,0 +1,10 @@
+.draw {
+  &__item {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: 5px 0;
+    padding: 5px 10px;
+    background: $light-green;
+  }
+}
