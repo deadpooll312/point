@@ -12,7 +12,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log("sma;;", small);
+    console.log("small");
   }, [small]);
 
   return (

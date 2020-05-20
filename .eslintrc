@@ -40,7 +40,11 @@
     "react"
   ],
   "rules": {
-    "no-console": "error",
+    "quotes": [0, "single", "double", {
+      "allowTemplateLiterals": true,
+      "avoidEscape": true
+    }],
+    "no-console": "warn",
     "no-eval": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
