@@ -40,7 +40,7 @@
     "react"
   ],
   "rules": {
-    "no-console": "warn",
+    "no-console": "error",
     "no-eval": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
