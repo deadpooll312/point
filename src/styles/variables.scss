@@ -14,7 +14,7 @@ html[data-theme='dark'] {
   --bg: #000;
   --text: #fff;
   --blue: #333;
-  --white: #fff;
+  --white: #000;
   --green: #58A621;
   --grey: #747474;
   --light-grey: #818E9B;
@@ -30,6 +30,20 @@ $green: var(--green);
 $grey: var(--grey);
 $light-grey: var(--light-grey);
 $red: var(--red);
+
+// BORDERS
+$radius3: 3px;
+$radius5: 5px;
+
+
+// =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
+.radius3{
+  border-radius: $radius3;
+}
+
+.radius5{
+  border-radius: $radius5;
+}
 
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
 .color-blue {
@@ -50,6 +64,10 @@ $red: var(--red);
 
 .color-light-grey {
   color: $light-grey;
+}
+
+.color-white {
+  color: $white;
 }
 
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ФОНА ============ //
