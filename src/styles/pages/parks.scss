@@ -1,0 +1,28 @@
+.parks {
+  background: $white;
+  padding: 15px;
+
+  h3 {
+    color: $text;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    button {
+      margin-right: 10px;
+    }
+
+    .icon {
+      margin-left: 10px;
+      font-size: 22px;
+      color: $light-grey;
+    }
+  }
+}

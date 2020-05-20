@@ -1,5 +1,14 @@
-import React, {useCallback, useEffect, useState} from "react";
-import {Table, Button, Pagination} from "antd";
+import React, {
+  // useCallback, useEffect,
+  useState,
+  // Fragment
+} from "react";
+import {
+  Table,
+  // Button
+} from "antd";
+import {ParksHeader} from "./components/parks.header";
+import {ParksActions} from "./components/parks.actions";
 
 const columns = [
   {
@@ -7,22 +16,27 @@ const columns = [
     dataIndex: "name",
   },
   {
-    title: "Age",
-    dataIndex: "age",
-  },
-  {
     title: "Address",
     dataIndex: "address",
+    // eslint-disable-next-line react/display-name
+    render: (value) => {
+      console.log(value);
+      return <span>Span London, Park Lane {value}</span>;
+    },
+  },
+  {
+    title: "Age",
+    dataIndex: "age",
   },
 ];
 
 const data = [];
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 10; i++) {
   data.push({
     key: i,
     name: `Edward King ${i}`,
     age: 32,
-    address: `London, Park Lane no. ${i}`,
+    address: i,
   });
 }
 
@@ -40,14 +54,15 @@ export const Parks = () => {
   };
 
   return (
-    <div>
+    <div className="parks">
+      <ParksHeader />
+      <ParksActions />
       <Table
-        pagination={false}
         rowSelection={rowSelection}
         columns={columns}
         dataSource={data}
+        pagination={false}
       />
-      <Pagination showSizeChanger pageSizeOptions={[10, 20, 40]} size="small" total={50}  />
     </div>
   );
 };
