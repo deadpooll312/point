@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "REACT_APP_MODE=dev craco start",
+    "start": "cross-env REACT_APP_MODE=dev craco start",
     "start:preprod": "REACT_APP_MODE=preprod craco start",
     "start:prod": "REACT_APP_MODE=prod craco start",
     "build": "craco build",
@@ -68,11 +68,13 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.4",
     "prettier": "^2.0.5"
   }
 }
