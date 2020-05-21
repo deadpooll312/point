@@ -2,7 +2,7 @@ import React from "react";
 import {Provider} from "mobx-react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {App} from "./App";
-import {Login} from "../pages/Login";
+import {LoginForm} from "../pages/parks/Login";
 import store from "../store";
 
 export default function Routes() {
@@ -14,7 +14,9 @@ export default function Routes() {
             <App />
           </Route>
           <Route path="/login">
-            <Login />
+            <div className="login-form-wrap-container">
+              <LoginForm />
+            </div>
           </Route>
         </Switch>
       </Router>
