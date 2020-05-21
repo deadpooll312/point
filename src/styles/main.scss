@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./loginWrapContainer";
 // components
 @import "./components/header";
 @import "./components/sidebar";
@@ -6,4 +7,4 @@
 @import "./components/button";
 // pages
 @import "./pages/parks";
-
+@import "./pages/login";

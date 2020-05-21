@@ -1,0 +1,51 @@
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    background-color: white;   
+
+    width: 385px;
+    height: 505px;
+    box-shadow: 0px 8px 16px rgba(8, 35, 48, 0.2);
+    border-radius: 8px;
+}
+
+.login-form-button {
+    margin-left: 30%; 
+}
+
+.login-form-support {
+    margin: 10px 0 0 0;
+    text-align: center;
+    
+}
+
+.login-form-support-link {
+    color: #3F7ABF;
+    font-weight: 500;
+}
+
+.login-coat-of-arms-logo {
+    background: url('../../static/login-coat-of-arms.png');
+    height: 84px;
+    width: 63px;
+}
+
+.login-emblem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.login-arm {
+    text-align: center;
+}
+
+.login-arm:last-child {
+    margin-top: 0px;
+}
