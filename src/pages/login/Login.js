@@ -1,10 +1,10 @@
-import React, {Fragment} from "react";
+import React from "react";
 import {LoginForm} from "./components/login.form";
 
 export const Login = () => {
   return (
-    <Fragment>
+    <div className="login-form-wrap-container">
       <LoginForm />
-    </Fragment>
+    </div>
   );
 };

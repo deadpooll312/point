@@ -1,3 +1,13 @@
+.login-form-wrap-container {
+    background: url('../../static/login-background-pic.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 800px;
+    width: 100%;
+}
+
 .login-form-container {
     display: flex;
     flex-direction: column;
@@ -6,7 +16,7 @@
     position: absolute;
     top: 20%;
     left: 40%;
-    background-color: white;   
+    background-color: white;
 
     width: 385px;
     height: 505px;
@@ -15,13 +25,13 @@
 }
 
 .login-form-button {
-    margin-left: 30%; 
+    margin-left: 30%;
 }
 
 .login-form-support {
     margin: 10px 0 0 0;
     text-align: center;
-    
+
 }
 
 .login-form-support-link {

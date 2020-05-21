@@ -7,6 +7,7 @@ export const ParksActions = inject("store")(
   observer(({store: {parks}}) => {
     const onChange = useCallback((page) => {
       parks.updateParams({page: page - 1});
+      parks.getParks();
     }, []);
 
     return (
