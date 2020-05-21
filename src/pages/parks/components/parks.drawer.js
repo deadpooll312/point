@@ -27,7 +27,7 @@ export const ParksDrawer = inject("store")(
         visible={sidebar.showDrawer}
       >
         {defaultArray.map((item) => (
-          <div className="draw__item">
+          <div className="draw__item" key={item}>
             <Checkbox checked={true} onChange={(e) => console.log(e)}>
               {item}
             </Checkbox>

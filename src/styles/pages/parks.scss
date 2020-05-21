@@ -8,6 +8,15 @@
 
   &__title {
     margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+      margin-left: 10px;
+      font-size: 22px;
+      color: $light-grey;
+    }
   }
 
   &__header {
@@ -15,14 +24,5 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
-    button {
-      margin-right: 10px;
-    }
-
-    .icon {
-      margin-left: 10px;
-      font-size: 22px;
-      color: $light-grey;
-    }
   }
 }

@@ -1,26 +1,20 @@
 import React, {useCallback} from "react";
-import {Button} from "antd";
-import {MoreOutlined, SaveOutlined} from "@ant-design/icons";
+import {Button, Pagination, Space} from "antd";
 import {inject, observer} from "mobx-react";
 
 export const ParksActions = inject("store")(
-  observer(({store: {sidebar}}) => {
-    const save = useCallback(() => {}, []);
-
-    const callMenu = useCallback(() => {
-      sidebar.toggleDrawer(true);
+  observer(({store: {parks}}) => {
+    const onChange = useCallback((page) => {
+      parks.updateParams({page: page - 1});
     }, []);
 
     return (
       <div className="parks__header">
-        <div>
+        <Space size={10}>
           <Button type="primary">Открыть выбранное</Button>
           <Button danger>Закрыть выбранные</Button>
-        </div>
-        <div>
-          <SaveOutlined onClick={save} className="icon" />
-          <MoreOutlined onClick={callMenu} className="icon" />
-        </div>
+        </Space>
+        <Pagination onChange={onChange} defaultCurrent={1} total={50} />
       </div>
     );
   })

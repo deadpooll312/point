@@ -1,5 +1,10 @@
-import React from "react";
+import React, {Fragment} from "react";
+import {LoginForm} from "./components/login.form";
 
 export const Login = () => {
-  return <h1>Hello Login </h1>;
+  return (
+    <Fragment>
+      <LoginForm />
+    </Fragment>
+  );
 };

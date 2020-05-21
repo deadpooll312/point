@@ -20,13 +20,16 @@
     "antd": "^4.2.4",
     "axios": "^0.19.2",
     "craco-less": "^1.16.0",
+    "formik": "^2.1.4",
+    "http-proxy-middleware": "^1.0.4",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "yup": "^0.29.0"
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +71,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "craco-alias": "^2.1.1",
     "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",

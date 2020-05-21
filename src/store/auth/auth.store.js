@@ -1,7 +1,7 @@
 import {AuthAction} from "./auth.action";
 import {decorate, observable} from "mobx";
 
-export class AuthStore extends AuthAction {
+class AuthStore extends AuthAction {
   user = null;
 }
 
