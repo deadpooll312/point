@@ -1,6 +1,7 @@
 import React, {useCallback} from "react";
-import {Button, Pagination, Space} from "antd";
+import {Button, Space} from "antd";
 import {inject, observer} from "mobx-react";
+import {PaginationComponent} from "../../../components/pagination";
 
 export const ParksActions = inject("store")(
   observer(({store: {parks}}) => {
@@ -14,7 +15,7 @@ export const ParksActions = inject("store")(
           <Button type="primary">Открыть выбранное</Button>
           <Button danger>Закрыть выбранные</Button>
         </Space>
-        <Pagination onChange={onChange} defaultCurrent={1} total={50} />
+        <PaginationComponent onChange={onChange} />
       </div>
     );
   })
