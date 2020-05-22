@@ -4,7 +4,7 @@
     background-size: cover;
     display: flex;
     justify-content: center;
-    height: 800px;
+    height: 900px;
     width: 100%;
 }
 
@@ -56,6 +56,17 @@
     text-align: center;
 }
 
-.login-arm:last-child {
-    margin-top: 0px;
+.login-arm-name {
+    margin: 0;
+}
+
+.login-divider-wrap {
+    display: flex;
+    align-self: center;
+    margin: 20px 0 20px 0;
+}
+
+.login-divider {
+    width: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
