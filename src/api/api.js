@@ -6,14 +6,16 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    return response;
+  },
   ({response}) => {
     const {status, config} = response;
     if (status === 401 && config.url !== "login") {
-      window.location.href = "/login";
+      window.location.href = "/#/login";
     }
     return Promise.reject(response);
-  },
+  }
 );
 
 export default axiosInstance;
