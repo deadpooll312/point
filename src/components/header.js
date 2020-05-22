@@ -1,6 +1,6 @@
 import {inject, observer} from "mobx-react";
 import React, {useCallback} from "react";
-import {MenuOutlined, BellOutlined} from "@ant-design/icons";
+import {MenuOutlined} from "@ant-design/icons";
 import {Layout} from "antd";
 const {Header} = Layout;
 
@@ -17,7 +17,7 @@ export const HeaderComponent = inject("store")(
     return (
       <Header>
         <MenuOutlined onClick={() => click(!sidebar.showBar)} />
-        <BellOutlined />
+        {/* <BellOutlined /> */}
       </Header>
     );
   })
