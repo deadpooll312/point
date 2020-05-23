@@ -42,6 +42,7 @@
     "react"
   ],
   "rules": {
+    "react/prop-types": 0,
     "quotes": [0, "single", "double", {
       "allowTemplateLiterals": true,
       "avoidEscape": true
