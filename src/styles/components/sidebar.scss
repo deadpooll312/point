@@ -1,9 +1,19 @@
 .ant-layout-sider {
   background: $bg;
   height: 100vh;
+  overflow: hidden;
   -webkit-box-shadow: 5px 0px 10px 2px rgba(0,0,0,0.24);
   -moz-box-shadow: 5px 0px 10px 2px rgba(0,0,0,0.24);
   box-shadow: 5px 0px 10px 2px rgba(0,0,0,0.24);
+  position: fixed;
+}
+
+.ant-space {
+  padding: 5px 0;
+  cursor: pointer;
+  span {
+    padding-right: 10px;
+  }
 }
 
 .sider-header {

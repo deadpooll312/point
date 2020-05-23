@@ -1,3 +1,12 @@
+.parks-content {
+  margin-left: 200px;
+}
+
+.no-margin {
+  transition: ease 0.3s;
+  margin-left: 50px;
+}
+
 .parks {
   background: $white;
   padding: 15px;
@@ -7,7 +16,7 @@
   }
 
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,6 +32,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }

@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect} from "react";
-import {Layout, Space} from "antd";
+import React, {useCallback, useEffect, useState} from "react";
+import {Layout, Space, Divider} from "antd";
 import {inject, observer} from "mobx-react";
 import {Map} from "../icons/map";
 import {ForestIcon} from "../icons/forest.icon";
@@ -12,49 +12,57 @@ import {InfoIcon} from "../icons/info.icon";
 import {SignOutIcon} from "../icons/signout.icon";
 import {ShowMenuIcon} from "../icons/show-menu.icon";
 import {sidebarOptions} from "../consts/sidebar.const";
+import {parkFilterTypes} from "../consts/park.filter.const";
 const {Sider} = Layout;
 
 export const Sidebar = inject("store")(
-  observer(({store: {sidebar, auth}}) => {
+  observer(({store: {sidebar, auth, parks}}) => {
+    const [data, setData] = useState();
     useEffect(() => {
       const user = localStorage.userInfo;
       if (user) {
         auth.updateUser(JSON.parse(user));
+        parks.getFilters(parkFilterTypes.groupType).then((res) => setData(res));
       }
     }, []);
 
-    const click = useCallback((value) => {
-      console.log("value", value);
+    const click = useCallback((groupType) => {
+      console.log("groupType", groupType);
+      parks.updateParams({groupType});
+      parks.getParks();
     }, []);
+
+    const getIcon = (id) => {
+      switch (id) {
+        case 1:
+          return <Map />;
+        case 2:
+          return <ForestIcon />;
+        case 3:
+          return <Forest2Icon />;
+        case 4:
+          return <OoptIcon />;
+        case 5:
+          return <ShoreIcon />;
+        case 6:
+          return <ShoreIcon />;
+        case 7:
+          return <TerritoryIcon />;
+      }
+    };
 
     return (
       <Sider className={sidebar.showBar ? "small" : ""}>
         <div className="sider-header"></div>
         <div className="options">
-          <Space onClick={() => click(sidebarOptions.ALL_TERRITORY)}>
-            <Map color="" />
-            {sidebarOptions.ALL_TERRITORY}
-          </Space>
-          <Space>
-            <ForestIcon />
-            {sidebarOptions.PARK_VIEW}
-          </Space>
-          <Space>
-            <Forest2Icon />
-            {sidebarOptions.PARKS}
-          </Space>
-          <Space>
-            <OoptIcon />
-            {sidebarOptions.OOPT}
-          </Space>
-          <Space>
-            <ShoreIcon />
-            {sidebarOptions.SHORE}
-          </Space>
-          <Space>
-            <TerritoryIcon />
-            {sidebarOptions.TERRITORY}
-          </Space>
+          {data &&
+            data.map(({sortOrder, description}) => (
+              <Space key={sortOrder} onClick={() => click(sortOrder)}>
+                {getIcon(sortOrder)}
+                <span>{description}</span>
+              </Space>
+            ))}
+          <Divider />
           <Space>
             <SettingsIcon />
             {sidebarOptions.SETTINGS}

@@ -13,8 +13,7 @@ export const ParksTable = inject("store")(
     }, []);
 
     useEffect(() => {
-      const elements =
-        parks.data && parks.data.map((item) => ({...item, key: item.territoryCode}));
+      const elements = parks.data && parks.data.map((item) => ({...item, key: item.id}));
 
       setData(elements);
     }, [parks.data]);
