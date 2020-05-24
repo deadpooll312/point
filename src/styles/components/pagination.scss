@@ -1,1 +1,8 @@
 // PAGINATION STYLES
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  .ant-select {
+    margin: 0 10px;
+  }
+}

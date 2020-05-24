@@ -19,7 +19,7 @@ export class AuthAction {
     axiosInstance.post("logout").then(() => {
       this.user = {};
       localStorage.removeItem("userInfo");
-      window.location.href = "/login";
+      window.location.href = "/#/login";
     });
   }
 
