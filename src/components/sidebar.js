@@ -51,8 +51,6 @@ export const Sidebar = inject("store")(
         case 5:
           return <ShoreIcon color={isActive(id)} />;
         case 6:
-          return <ShoreIcon color={isActive(id)} />;
-        case 7:
           return <TerritoryIcon color={isActive(id)} />;
       }
     };
