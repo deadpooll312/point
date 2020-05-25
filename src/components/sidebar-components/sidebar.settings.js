@@ -23,15 +23,15 @@ export const SidebarSettings = memo(() => {
         visible={visible}
       >
         <Tabs defaultActiveKey="1">
-          <TabPane tab="Общие" key="1">
+          {/* <TabPane tab="Общие" key="1">
             Общие
-          </TabPane>
+          </TabPane> */}
           <TabPane tab="Внешний вид" key="2">
             <SidebarTheme />
           </TabPane>
-          <TabPane tab="Дополнит-ый раздел" key="3">
+          {/* <TabPane tab="Дополнит-ый раздел" key="3">
             Дополнит-ый раздел
-          </TabPane>
+          </TabPane> */}
         </Tabs>
       </ModalComponent>
       <Space onClick={() => setVisible(true)}>
