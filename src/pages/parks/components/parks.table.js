@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState, Fragment} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
-import {emptyData} from "../../../consts/text.const";
-import {ModalComponent} from "../../../components/modal.component";
+import {emptyData} from "~/consts/text.const";
+import {ModalComponent} from "~/components/modal.component";
 import {ParkModalTab} from "./park.modal.tab";
 
 export const ParksTable = inject("store")(
@@ -22,10 +22,6 @@ export const ParksTable = inject("store")(
       setData(elements);
     }, [parks.data]);
 
-    const onChange = useCallback((select, filter, sorter) => {
-      console.log(select, filter, sorter);
-    });
-
     const rowSelection = {
       selectedRowKeys,
       onChange: (selectedRowKeys) => {
@@ -34,7 +30,6 @@ export const ParksTable = inject("store")(
     };
 
     const onRow = useCallback((record) => {
-      console.log(record);
       setModal(true);
       setItem(record);
     }, []);
@@ -62,7 +57,6 @@ export const ParksTable = inject("store")(
             onClick: () => onRow(record),
           })}
           pagination={false}
-          onChange={onChange}
         />
       </Fragment>
     );

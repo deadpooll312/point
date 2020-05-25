@@ -19,7 +19,42 @@
 .sider-header {
   background: $blue;
   width: 100%;
-  height: 200px;
+  height: 170px;
+  padding: 10px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 40px 0;
+    span {
+      margin-right: 15px;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+
+  .user {
+    .ant-avatar {
+      border: 1px solid #fff;
+      margin-right: 10px;
+      float: left;
+      margin-top: 5px;
+    }
+
+    &__text {
+      float: left;
+      color: #fff;
+      p {
+        font-size: 12px;
+      }
+
+      h3 {
+        color: #fff;
+        margin: 0;
+      }
+    }
+  }
+
 }
 
 .small {

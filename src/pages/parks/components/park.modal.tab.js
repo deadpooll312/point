@@ -1,7 +1,7 @@
-import {ParkInfo} from "./park.info";
-import {ParkCluster} from "../../../styles/components/park.cluster";
-import {Tabs} from "antd";
 import React from "react";
+import {Tabs} from "antd";
+import {ParkCluster} from "./park.cluster";
+import {ParkInfo} from "./park.info";
 const {TabPane} = Tabs;
 
 export const ParkModalTab = () => {
