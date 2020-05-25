@@ -3,6 +3,6 @@
   text-align: center;
 }
 
-.ant-table-thead th.ant-table-column-has-sorters {
+.ant-table-thead th.ant-table-column-has-sorters, .ant-table-thead > tr > th {
   text-align: center;
 }

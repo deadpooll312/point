@@ -4,25 +4,32 @@ import {Layout} from "antd";
 import {Parks} from "../pages/parks/Parks";
 import {Sidebar} from "../components/sidebar";
 import {HeaderComponent} from "../components/header";
+import {inject, observer} from "mobx-react";
 const {Content} = Layout;
 
-export const App = () => {
-  return (
-    <div className="App">
-      <Layout>
-        <Sidebar />
+export const App = inject("store")(
+  observer(({store: {sidebar}}) => {
+    return (
+      <div className="App">
         <Layout>
-          <HeaderComponent />
-          {/*content*/}
-          <Content className="content">
-            <Switch>
-              <Route path="/">
-                <Parks />
-              </Route>
-            </Switch>
-          </Content>
+          <Sidebar />
+          <Layout
+            className={`parks-content ${
+              sidebar.showBar ? "no-margin" : ""
+            }`}
+          >
+            <HeaderComponent />
+            {/*content*/}
+            <Content className="content">
+              <Switch>
+                <Route path="/">
+                  <Parks />
+                </Route>
+              </Switch>
+            </Content>
+          </Layout>
         </Layout>
-      </Layout>
-    </div>
-  );
-};
+      </div>
+    );
+  })
+);

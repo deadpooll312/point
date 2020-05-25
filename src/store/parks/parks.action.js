@@ -10,4 +10,8 @@ export class ParksAction {
   updateParams(param) {
     this.params = {...this.params, ...param};
   }
+
+  getFilters(group) {
+    return axiosInstance.get("reference/filter", {params: {group}}).then(({data}) => data);
+  }
 }

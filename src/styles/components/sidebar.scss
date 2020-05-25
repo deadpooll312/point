@@ -1,15 +1,61 @@
 .ant-layout-sider {
   background: $bg;
   height: 100vh;
+  overflow: hidden;
   -webkit-box-shadow: 5px 0px 10px 2px rgba(0,0,0,0.24);
   -moz-box-shadow: 5px 0px 10px 2px rgba(0,0,0,0.24);
   box-shadow: 5px 0px 10px 2px rgba(0,0,0,0.24);
+  position: fixed;
+}
+
+.ant-space {
+  padding: 5px 0;
+  cursor: pointer;
+  span {
+    padding-right: 10px;
+  }
 }
 
 .sider-header {
   background: $blue;
   width: 100%;
-  height: 200px;
+  height: 170px;
+  padding: 10px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 40px 0;
+    cursor: pointer;
+    span {
+      margin-right: 15px;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+
+  .user {
+    .ant-avatar {
+      border: 1px solid #fff;
+      margin-right: 10px;
+      float: left;
+      margin-top: 5px;
+    }
+
+    &__text {
+      float: left;
+      color: #fff;
+      p {
+        font-size: 12px;
+      }
+
+      h3 {
+        color: #fff;
+        margin: 0;
+      }
+    }
+  }
+
 }
 
 .small {
@@ -20,6 +66,7 @@
 
   .sider-header {
     border-radius: 0 0 50px 50px;
+    overflow: hidden;
   }
 }
 
@@ -27,4 +74,7 @@
   display: flex;
   padding: 10px;
   flex-direction: column;
+  span {
+    color: $text;
+  }
 }

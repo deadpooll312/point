@@ -10,13 +10,18 @@ export const ParksActions = inject("store")(
       parks.getParks();
     }, []);
 
+    const onSizeChange = useCallback((size) => {
+      parks.updateParams({size});
+      parks.getParks();
+    }, []);
+
     return (
       <div className="parks__header">
         <Space size={10}>
           <Button type="primary">Открыть выбранное</Button>
           <Button danger>Закрыть выбранные</Button>
         </Space>
-        <PaginationComponent onChange={onChange} />
+        <PaginationComponent onSize={onSizeChange} onChange={onChange} />
       </div>
     );
   })

@@ -2,14 +2,13 @@ import React from "react";
 import Icon from "@ant-design/icons";
 
 export const ShowMenuIcon = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {color} = props;
   const defaultColor = "#747474";
 
   const PandaSvg = () => (
     <svg
-      width="14"
-      height="14"
+      width="22"
+      height="22"
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

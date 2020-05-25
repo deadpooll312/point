@@ -1,5 +1,6 @@
 import axiosInstance from "~/api/api";
 import {showError} from "../../services/notifications.service";
+import {loginError} from "../../consts/text.const";
 
 export class AuthAction {
   login(data) {
@@ -11,7 +12,15 @@ export class AuthAction {
         localStorage.setItem("userInfo", JSON.stringify(user));
         window.location.href = "/";
       })
-      .catch(() => showError("Логин или пароль не верны"));
+      .catch(() => showError(loginError));
+  }
+
+  logout() {
+    axiosInstance.post("logout").then(() => {
+      this.user = {};
+      localStorage.removeItem("userInfo");
+      window.location.href = "/#/login";
+    });
   }
 
   updateUser(user) {

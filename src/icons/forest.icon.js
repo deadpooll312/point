@@ -3,13 +3,12 @@ import Icon from "@ant-design/icons";
 
 export const ForestIcon = (props) => {
   // eslint-disable-next-line react/prop-types
-  const {color} = props;
+  const {color, width, height} = props;
   const defaultColor = "#747474";
-
   const ICON = () => (
     <svg
-      width="24"
-      height="24"
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
