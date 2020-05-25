@@ -8,7 +8,6 @@ import {ParkModalTab} from "./park.modal.tab";
 export const ParksTable = inject("store")(
   observer(({store: {parks}}) => {
     const [showModal, setModal] = useState(false);
-    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [data, setData] = useState([]);
     const [item, setItem] = useState({});
 
@@ -23,10 +22,8 @@ export const ParksTable = inject("store")(
     }, [parks.data]);
 
     const rowSelection = {
-      selectedRowKeys,
-      onChange: (selectedRowKeys) => {
-        setSelectedRowKeys(selectedRowKeys);
-      },
+      selectedRowKeys: parks.selectedItems,
+      onChange: (selectedRowKeys) => parks.selectItems(selectedRowKeys),
     };
 
     const onRow = useCallback((record) => {

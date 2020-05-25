@@ -14,4 +14,8 @@ export class ParksAction {
   getFilters(group) {
     return axiosInstance.get("reference/filter", {params: {group}}).then(({data}) => data);
   }
+
+  selectItems(items) {
+    this.selectedItems = items;
+  }
 }
