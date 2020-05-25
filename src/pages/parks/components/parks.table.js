@@ -32,6 +32,7 @@ export const ParksTable = inject("store")(
     const onRow = useCallback((record) => {
       setModal(true);
       setItem(record);
+      parks.setSelectedPark(record);
     }, []);
 
     return (

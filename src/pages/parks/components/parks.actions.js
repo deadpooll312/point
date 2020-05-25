@@ -22,8 +22,10 @@ export const ParksActions = inject("store")(
 
     const onSelectedItems = useCallback(
       (open) => {
-        setOpening(open);
-        setVisible(true);
+        if (parks.selectedItems.length) {
+          setOpening(open);
+          setVisible(true);
+        }
       },
       [parks.selectedItems]
     );

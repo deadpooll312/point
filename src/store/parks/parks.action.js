@@ -24,4 +24,14 @@ export class ParksAction {
   selectItemIds(ids) {
     this.selectedIds = ids;
   }
+
+  setSelectedPark(park) {
+    this.selectedPark = park;
+  }
+
+  getSinglePark() {
+    axiosInstance
+      .get(`incident/card?id=${this.selectedPark.id}`)
+      .then(({data}) => (this.singlePark = data));
+  }
 }
