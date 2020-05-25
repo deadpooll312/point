@@ -3,13 +3,13 @@ import {Switch} from "antd";
 // eslint-disable-next-line
 export const SidebarTheme = memo(({}) => {
   const onChange = useCallback((value) => {
-    document.querySelector("html").setAttribute("theme", value ? "" : "dark");
+    document.querySelector("html").setAttribute("theme", value ? "dark" : "");
   }, []);
 
   return (
     <div className="sidebar-theme">
       <span>Светлый / Тёмный интерфейс</span>
-      <Switch defaultChecked onChange={onChange} />
+      <Switch onChange={onChange} />
     </div>
   );
 });
