@@ -21,6 +21,18 @@ export const tableColumns = [
     render: (value) => value || "-",
   },
   {
+    title: "Округ",
+    width: 200,
+    dataIndex: "сountyName",
+    render: (value) => value || "-",
+  },
+  {
+    title: "Район",
+    width: 200,
+    dataIndex: "districtName",
+    render: (value) => value || "-",
+  },
+  {
     title: "Тип объекта",
     width: 200,
     dataIndex: "type",
