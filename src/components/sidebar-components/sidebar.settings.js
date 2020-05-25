@@ -1,10 +1,10 @@
 import React, {memo, Fragment, useState} from "react";
 import {sidebarOptions} from "../../consts/sidebar.const";
-import {Space, Tabs, Switch} from "antd";
+import {Space} from "antd";
 import {SettingsIcon} from "../../icons/settings.icon";
 import {ModalComponent} from "../modal.component";
 import {SidebarTheme} from "./sidebar.theme";
-const {TabPane} = Tabs;
+
 // eslint-disable-next-line
 export const SidebarSettings = memo(() => {
   const [visible, setVisible] = useState(false);
@@ -22,11 +22,10 @@ export const SidebarSettings = memo(() => {
         title={"Настройки"}
         visible={visible}
       >
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="Внешний вид" key="2">
-            <SidebarTheme />
-          </TabPane>
-        </Tabs>
+        <React.Fragment>
+          <h3>Внешний вид</h3>
+          <SidebarTheme />
+        </React.Fragment>
       </ModalComponent>
       <Space onClick={() => setVisible(true)}>
         <SettingsIcon />
