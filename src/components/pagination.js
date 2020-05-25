@@ -9,14 +9,14 @@ export const PaginationComponent = ({onChange, onSize}) => {
   return (
     <div className="pagination-wrapper">
       <span>Показывать:</span>
-      <Select defaultValue={10} onChange={onSize}>
+      <Select defaultValue={10} onChange={onSize} bordered={false}>
         {options.map((value) => (
           <Option key={value} value={value}>
             {value}
           </Option>
         ))}
       </Select>
-      <Pagination onChange={onChange} defaultCurrent={1} total={50} />
+      <Pagination size="small" onChange={onChange} defaultCurrent={1} total={50} />
     </div>
   );
 };
