@@ -1,3 +1,14 @@
 .ant-modal-body {
   padding: 0 24px 24px;
 }
+
+.ant-modal-header {
+  background: $blue;
+  .ant-modal-title {
+    color: #fff;
+  }
+}
+
+.ant-modal-close-icon {
+  color: #fff;
+}

@@ -1,8 +1,9 @@
 import React, {memo, Fragment, useState} from "react";
 import {sidebarOptions} from "../../consts/sidebar.const";
-import {Space, Tabs} from "antd";
+import {Space, Tabs, Switch} from "antd";
 import {SettingsIcon} from "../../icons/settings.icon";
 import {ModalComponent} from "../modal.component";
+import {SidebarTheme} from "./sidebar.theme";
 const {TabPane} = Tabs;
 // eslint-disable-next-line
 export const SidebarSettings = memo(() => {
@@ -26,7 +27,7 @@ export const SidebarSettings = memo(() => {
             Общие
           </TabPane>
           <TabPane tab="Внешний вид" key="2">
-            Внешний вид
+            <SidebarTheme />
           </TabPane>
           <TabPane tab="Дополнит-ый раздел" key="3">
             Дополнит-ый раздел
@@ -35,7 +36,7 @@ export const SidebarSettings = memo(() => {
       </ModalComponent>
       <Space onClick={() => setVisible(true)}>
         <SettingsIcon />
-        {sidebarOptions.SETTINGS}
+        <span>{sidebarOptions.SETTINGS}</span>
       </Space>
     </Fragment>
   );

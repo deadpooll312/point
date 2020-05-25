@@ -1,14 +1,18 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {Avatar} from "antd";
 import {UserOutlined} from "@ant-design/icons";
 import {ForestIcon} from "../../icons/forest.icon";
 
-export const SidebarHeader = ({auth: {firstName, lastName}}) => {
+export const SidebarHeader = ({auth: {firstName, lastName}, parks}) => {
+  const onClick = useCallback(() => {
+    parks.updateParams({groupType: 1});
+    parks.getParks();
+  }, []);
   return (
     <div className="sider-header">
-      <div className="logo">
+      <div className="logo" onClick={onClick}>
         <ForestIcon width={32} height={32} color="#c5d7ec" />
-        <span>АРМ ЦУП</span>
+        <span>АРМ ЦОПД</span>
       </div>
       <div className="user">
         <Avatar style={{backgroundColor: "#3f79bf"}} icon={<UserOutlined />} />

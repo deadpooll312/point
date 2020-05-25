@@ -15,7 +15,7 @@ export const SidebarMenu = memo(({sidebar}) => {
   return (
     <Space onClick={showMenu}>
       <ShowMenuIcon color={color} />
-      {sidebarOptions.MENU}
+      <span>{sidebarOptions.MENU}</span>
     </Space>
   );
 });

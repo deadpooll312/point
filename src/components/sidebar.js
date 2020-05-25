@@ -36,7 +36,12 @@ export const Sidebar = inject("store")(
       parks.getParks();
     }, []);
 
-    const isActive = (sortOrder) => (active === sortOrder ? green : null);
+    const isActive = useCallback(
+      (sortOrder) => {
+        return parks.params.groupType === sortOrder ? green : null;
+      },
+      [parks.params.groupType]
+    );
 
     const getIcon = (id) => {
       switch (id) {
@@ -57,7 +62,7 @@ export const Sidebar = inject("store")(
 
     return (
       <Sider className={sidebar.showBar ? "small" : ""}>
-        <SidebarHeader auth={auth} />
+        <SidebarHeader auth={auth} parks={parks} />
         <div className="options">
           {data &&
             data.map(({sortOrder, description}) => (
@@ -70,7 +75,7 @@ export const Sidebar = inject("store")(
           <SidebarSettings />
           <Space>
             <InfoIcon />
-            {sidebarOptions.INFO}
+            <span>{sidebarOptions.INFO}</span>
           </Space>
           <SidebarExit auth={auth} />
           <SidebarMenu sidebar={sidebar} />

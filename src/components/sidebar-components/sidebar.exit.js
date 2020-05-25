@@ -19,7 +19,7 @@ export const SidebarExit = memo(({auth}) => {
     >
       <Space>
         <SignOutIcon />
-        {sidebarOptions.EXIT}
+        <span>{sidebarOptions.EXIT}</span>
       </Space>
     </Popconfirm>
   );
