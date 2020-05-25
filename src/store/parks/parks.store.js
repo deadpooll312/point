@@ -7,6 +7,7 @@ class ParksStore extends ParksAction {
   columns = tableColumns;
   params = {size: 10, page: 0};
   selectedItems = [];
+  selectedIds = [];
 }
 
 // eslint-disable-next-line no-class-assign
@@ -15,6 +16,7 @@ ParksStore = decorate(ParksStore, {
   columns: observable,
   params: observable,
   selectedItems: observable,
+  selectedIds: observable
 });
 
 export default new ParksStore();

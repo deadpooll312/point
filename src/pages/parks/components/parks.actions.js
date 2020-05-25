@@ -41,9 +41,10 @@ export const ParksActions = inject("store")(
           visible={visible}
           handleCancel={() => setVisible(false)}
           handleOk={openPark}
+          cancelText="Отмена"
         >
           <ParkModalWarning
-            isSingle={parks.selectedItems.length < 2}
+            selectedItems={parks.selectedItems}
             isForOpening={isForOpening}
           />
         </ModalComponent>

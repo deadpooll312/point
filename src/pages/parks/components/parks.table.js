@@ -22,8 +22,11 @@ export const ParksTable = inject("store")(
     }, [parks.data]);
 
     const rowSelection = {
-      selectedRowKeys: parks.selectedItems,
-      onChange: (selectedRowKeys) => parks.selectItems(selectedRowKeys),
+      selectedRowKeys: parks.selectedIds,
+      onChange: (selectedRowKeys) => {
+        parks.selectItems(data.filter((i) => selectedRowKeys.includes(i.id)));
+        parks.selectItemIds(selectedRowKeys);
+      },
     };
 
     const onRow = useCallback((record) => {
