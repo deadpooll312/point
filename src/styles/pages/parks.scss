@@ -10,6 +10,9 @@
 .parks {
   background: $white;
   padding: 15px;
+  tr {
+    cursor: pointer;
+  }
 
   h3 {
     color: $text;
