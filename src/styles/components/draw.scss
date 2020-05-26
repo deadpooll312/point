@@ -1,10 +1,24 @@
 .draw {
-  &__item {
-    justify-content: space-between;
-    align-items: center;
+  .buttons {
+    margin-top: 40px;
     display: flex;
-    margin: 5px 0;
-    padding: 5px 10px;
-    background: $light-green;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    button {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
   }
+}
+
+.draw-item {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin: 5px 0;
+  padding: 5px 10px;
+  cursor: move;
+  background: $light-green;
 }

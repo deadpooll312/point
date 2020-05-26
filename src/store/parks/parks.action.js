@@ -34,4 +34,8 @@ export class ParksAction {
       .get(`incident/card?id=${this.selectedPark.id}`)
       .then(({data}) => (this.singlePark = data));
   }
+
+  updateColumns(columns) {
+    this.columns = columns;
+  }
 }

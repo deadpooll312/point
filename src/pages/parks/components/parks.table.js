@@ -17,7 +17,6 @@ export const ParksTable = inject("store")(
 
     useEffect(() => {
       const elements = parks.data && parks.data.map((item) => ({...item, key: item.id}));
-
       setData(elements);
     }, [parks.data]);
 
@@ -54,7 +53,7 @@ export const ParksTable = inject("store")(
 
         <Table
           rowSelection={rowSelection}
-          columns={parks.columns}
+          columns={parks.columns.filter((i) => i.isActive)}
           locale={{emptyText: emptyData}}
           dataSource={data}
           onRow={(record) => ({

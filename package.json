@@ -20,16 +20,17 @@
     "antd": "^4.2.4",
     "axios": "^0.19.2",
     "craco-less": "^1.16.0",
-    "formik": "^2.1.4",
     "http-proxy-middleware": "^1.0.4",
+    "immutability-helper": "^3.0.2",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-dnd": "^11.1.0",
+    "react-dnd-html5-backend": "^11.1.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "yup": "^0.29.0"
+    "react-scripts": "3.4.1"
   },
   "eslintConfig": {
     "extends": [
