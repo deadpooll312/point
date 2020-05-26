@@ -11,7 +11,7 @@ export const ParkModalTab = inject("store")(
 
     useEffect(() => {
       parks.getSinglePark();
-    }, []);
+    }, [parks.selectedPark]);
 
     return (
       <Tabs defaultActiveKey={activeTab}>

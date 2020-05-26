@@ -10,7 +10,7 @@ export const SidebarMenu = memo(({sidebar}) => {
   const showMenu = useCallback(() => {
     sidebar.toggleModal(!sidebar.showBar);
     setColor(sidebar.showBar ? green : null);
-  }, [sidebar.showBar]);
+  }, [sidebar]);
 
   return (
     <Space onClick={showMenu}>

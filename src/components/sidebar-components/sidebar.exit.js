@@ -7,7 +7,7 @@ import {exitText} from "../../consts/text.const";
 export const SidebarExit = memo(({auth}) => {
   const confirm = useCallback(() => {
     auth.logout();
-  }, [auth.logout]);
+  }, [auth]);
 
   return (
     <Popconfirm

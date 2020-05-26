@@ -6,9 +6,12 @@ const {Title} = Typography;
 
 export const LoginForm = inject("store")(
   observer(({store: {auth}}) => {
-    const onFinish = useCallback((values) => {
-      auth.login(values);
-    }, []);
+    const onFinish = useCallback(
+      (values) => {
+        auth.login(values);
+      },
+      [auth]
+    );
 
     return (
       <div className="login-form-container">

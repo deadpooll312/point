@@ -10,7 +10,7 @@ export const ParksHeader = inject("store")(
 
     const callMenu = useCallback(() => {
       sidebar.toggleDrawer(true);
-    }, []);
+    }, [sidebar]);
 
     return (
       <div className="parks__title">

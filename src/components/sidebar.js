@@ -20,7 +20,6 @@ const {Sider} = Layout;
 export const Sidebar = inject("store")(
   observer(({store: {sidebar, auth, parks}}) => {
     const [data, setData] = useState();
-    const [active, setActive] = useState();
 
     useEffect(() => {
       const user = localStorage.userInfo;
@@ -31,7 +30,6 @@ export const Sidebar = inject("store")(
     }, []);
 
     const click = useCallback((groupType) => {
-      setActive(groupType);
       parks.updateParams({groupType});
       parks.getParks();
     }, []);

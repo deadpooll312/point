@@ -29,11 +29,15 @@ export const ParksTable = inject("store")(
       },
     };
 
-    const onRow = useCallback((record) => {
-      setModal(true);
-      setItem(record);
-      parks.setSelectedPark(record);
-    }, []);
+    const onRow = useCallback(
+      (record) => {
+        setModal(true);
+        setItem(record);
+        console.log('record', record);
+        parks.setSelectedPark(record);
+      },
+      [parks]
+    );
 
     return (
       <Fragment>

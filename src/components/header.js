@@ -11,7 +11,7 @@ export const HeaderComponent = inject("store")(
         // document.documentElement.setAttribute("data-theme", value ? "dark" : "");
         sidebar.toggleModal(value);
       },
-      [sidebar.showBar]
+      [sidebar]
     );
 
     return (
