@@ -19,7 +19,7 @@ export const tableColumns = [
   {
     title: "Статус",
     width: 150,
-    dataIndex: "status",
+    dataIndex: "available",
     isActive: true,
     render: (value) => {
       return value ? <PositiveIcon /> : <NegativeIcon />;
