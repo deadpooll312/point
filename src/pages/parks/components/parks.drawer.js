@@ -13,7 +13,7 @@ export const ParksDrawer = inject("store")(
   observer(({store: {sidebar, parks}}) => {
     const onClose = useCallback(() => {
       sidebar.toggleDrawer(false);
-    }, []);
+    }, [sidebar]);
 
     const [cards, setCards] = useState(
       tableColumns.slice().map((item, index) => ({...item, index}))

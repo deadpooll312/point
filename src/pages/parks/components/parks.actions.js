@@ -10,15 +10,21 @@ export const ParksActions = inject("store")(
     const [visible, setVisible] = useState(false);
     const [isForOpening, setOpening] = useState(false);
 
-    const onChange = useCallback((page) => {
-      parks.updateParams({page: page - 1});
-      parks.getParks();
-    }, []);
+    const onChange = useCallback(
+      (page) => {
+        parks.updateParams({page: page - 1});
+        parks.getParks();
+      },
+      [parks]
+    );
 
-    const onSizeChange = useCallback((size) => {
-      parks.updateParams({size});
-      parks.getParks();
-    }, []);
+    const onSizeChange = useCallback(
+      (size) => {
+        parks.updateParams({size});
+        parks.getParks();
+      },
+      [parks]
+    );
 
     const onSelectedItems = useCallback(
       (open) => {

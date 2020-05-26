@@ -21,7 +21,9 @@ export const tableColumns = [
     width: 150,
     dataIndex: "status",
     isActive: true,
-    render: (value) => value || "-",
+    render: (value) => {
+      return value ? <PositiveIcon /> : <NegativeIcon />;
+    },
   },
   {
     title: "Округ",
@@ -70,12 +72,12 @@ export const tableColumns = [
     render: (value) => value || "-",
   },
   {
-    title: "Операции",
+    title: "Требует акцепта",
     width: 10,
     dataIndex: "crowPoint",
     isActive: true,
     render: (value) => {
-      return value ? <PositiveIcon /> : <NegativeIcon />;
+      return <span>{value ? "Да" : "Нет"}</span>;
     },
   },
 ];
