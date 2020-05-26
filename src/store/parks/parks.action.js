@@ -11,6 +11,11 @@ export class ParksAction {
     this.params = {...this.params, ...param};
   }
 
+  updateActiveFilter(item) {
+    this.activeFilter = item;
+    this.updateParams({groupType: item.sortOrder});
+  }
+
   getFilters(group) {
     return axiosInstance
       .get("reference/filter", {params: {group}})

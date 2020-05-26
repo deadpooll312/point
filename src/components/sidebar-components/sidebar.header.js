@@ -5,9 +5,10 @@ import {ForestIcon} from "../../icons/forest.icon";
 
 export const SidebarHeader = ({auth: {firstName, lastName}, parks}) => {
   const onClick = useCallback(() => {
-    parks.updateParams({groupType: 1});
+    parks.updateActiveFilter({sortOrder: 1});
     parks.getParks();
   }, [parks]);
+
   return (
     <div className="sider-header">
       <div className="logo" onClick={onClick}>

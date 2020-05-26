@@ -5,18 +5,15 @@ import {inject, observer} from "mobx-react";
 const {Title} = Typography;
 
 export const ParksHeader = inject("store")(
-  observer(({store: {sidebar}}) => {
-    // const save = useCallback(() => {}, []);
-
+  observer(({store: {sidebar, parks}}) => {
     const callMenu = useCallback(() => {
       sidebar.toggleDrawer(true);
     }, [sidebar]);
 
     return (
       <div className="parks__title">
-        <Title level={3}>Парки видовые</Title>
+        <Title level={3}>{parks.activeFilter.description || "Все территории"}</Title>
         <div>
-          {/* <SaveOutlined onClick={save} className="icon" /> */}
           <MoreOutlined onClick={callMenu} className="icon" />
         </div>
       </div>

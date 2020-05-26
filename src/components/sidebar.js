@@ -29,10 +29,13 @@ export const Sidebar = inject("store")(
       }
     }, []);
 
-    const click = useCallback((groupType) => {
-      parks.updateParams({groupType});
-      parks.getParks();
-    }, []);
+    const click = useCallback(
+      (groupType) => {
+        parks.updateActiveFilter(data.find((i) => i.sortOrder === groupType));
+        parks.getParks();
+      },
+      [data]
+    );
 
     const isActive = useCallback(
       (sortOrder) => {
