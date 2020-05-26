@@ -13,11 +13,7 @@ export const App = inject("store")(
       <div className="App">
         <Layout>
           <Sidebar />
-          <Layout
-            className={`parks-content ${
-              sidebar.showBar ? "no-margin" : ""
-            }`}
-          >
+          <Layout className={`parks-content ${sidebar.showBar ? "no-margin" : ""}`}>
             <HeaderComponent />
             {/*content*/}
             <Content className="content">
