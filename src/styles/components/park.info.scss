@@ -1,9 +1,14 @@
 .park-info {
   p {
     color: #000;
+    margin: 0;
   }
 
   &__outline {
+    margin-bottom: 25px;
+  }
 
+  .ant-row {
+    margin-bottom: 20px;
   }
 }

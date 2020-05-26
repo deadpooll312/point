@@ -1,5 +1,6 @@
-import React, {memo, Fragment, useState, useEffect} from "react";
-import {Col, Row, Progress} from "antd";
+import React, {memo, useState, useEffect} from "react";
+import {Col, Row} from "antd";
+import {ProgressComponent} from "../../../components/progress";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = memo(({park}) => {
@@ -10,30 +11,30 @@ export const ParkInfo = memo(({park}) => {
   }, [park]);
 
   return (
-    <Fragment>
-      <Row className="park-info">
+    <div className="park-info">
+      <Row>
         <Col span={12}>
-          <div>
+          <div className="park-info__outline">
             <span>Округ/Район</span>
             <p>
               {data.countryName || "-"}/{data.districtName || "-"}.
             </p>
           </div>
-          <div>
+          <div className="park-info__outline">
             <span>Балансодержатель</span>
             <p>{data.organization || "-"}</p>
           </div>
-          <div>
+          <div className="park-info__outline">
             <span>Общая площадь</span>
             <p>{data.ssum || "-"}</p> // TODO
           </div>
         </Col>
         <Col span={12}>
-          <div>
+          <div className="park-info__outline">
             <span>Статус</span>
             <p>{data.status || "-"}</p> // TODO
           </div>
-          <div>
+          <div className="park-info__outline">
             <span>Состояние территории</span>
             <p>{"-"}</p> // TODO
           </div>
@@ -65,35 +66,44 @@ export const ParkInfo = memo(({park}) => {
       <h2>Оценка загруженности территории</h2>
       <Row gutter={16}>
         <Col span={12}>
-          <div>
+          <div className="park-info__outline">
             <span>Выявлено жителями</span>
             <p>{(data.percentInfo && data.percentInfo.user.totalTags) || 0} сообщений</p>
-            <Progress percent={30} />
+            <ProgressComponent
+              left={data.percentInfo && data.percentInfo.user.truePercent}
+              right={data.percentInfo && data.percentInfo.user.falsePercent}
+            />
           </div>
-          <div>
+          <div className="park-info__outline">
             <span>Выявлено инспектором</span>
             <p>
               {(data.percentInfo && data.percentInfo.inspector.totalTags) || 0} сообщений
             </p>
-            <Progress percent={70} />
+            <ProgressComponent
+              left={data.percentInfo && data.percentInfo.inspector.truePercent}
+              right={data.percentInfo && data.percentInfo.inspector.falsePercent}
+            />
           </div>
-          <div>
+          <div className="park-info__outline">
             <span>Выявлено балансодержателем</span>
             <p>{data.percentInfo && data.percentInfo.parkEmployee.totalTags} сообщений</p>
-            <Progress percent={20} />
+            <ProgressComponent
+              left={data.percentInfo && data.percentInfo.parkEmployee.truePercent}
+              right={data.percentInfo && data.percentInfo.parkEmployee.falsePercent}
+            />
           </div>
         </Col>
         <Col span={12}>
-          <div>
+          <div className="park-info__outline">
             <span>Выявлено камерами ИНС</span>
             <p>{data.percentInfo && data.percentInfo.camCount} сообщений</p>
           </div>
-          <div>
+          <div className="park-info__outline">
             <span>Выявлено системой Об.Конт-ля</span>
             <p>{data.percentInfo && data.percentInfo.cellularCount} сообщений</p>
           </div>
         </Col>
       </Row>
-    </Fragment>
+    </div>
   );
 });
