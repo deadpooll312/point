@@ -15,12 +15,13 @@ export const SelectComponent = ({
   type,
   defaultValue,
   labelInValue,
+  width,
 }) => {
   return (
     <Select
       className="simple-select"
       mode={type}
-      style={{width: 200}}
+      style={{width: width || 240}}
       placeholder={placeholder}
       defaultValue={defaultValue}
       onChange={handleChange}

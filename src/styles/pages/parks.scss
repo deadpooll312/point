@@ -11,6 +11,7 @@
 .parks {
   background: $white;
   padding: 15px;
+  overflow: auto;
   tr {
     cursor: pointer;
   }
