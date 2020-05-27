@@ -12,7 +12,11 @@ export const ModalComponent = memo(
     okText,
     cancelText,
     danger,
+    dangerCancel,
+    dangerEdit,
     width,
+    editText,
+    handleEdit,
   }) => {
     return (
       <Modal
@@ -22,12 +26,22 @@ export const ModalComponent = memo(
         onCancel={handleCancel}
         footer={[
           // !!! danger - ключ чтобы окрасить в красный цвет!!!
-          <Button key="submit" type={"primary"} danger={danger} onClick={handleOk}>
-            {okText}
-          </Button>,
-          <Button key="back" onClick={handleCancel}>
-            {cancelText}
-          </Button>,
+          okText && (
+            <Button key="submit" type={"primary"} danger={danger} onClick={handleOk}>
+              {okText}
+            </Button>
+          ),
+          editText && (
+            <Button key="edit" danger={dangerEdit} onClick={handleEdit}>
+              {editText}
+            </Button>
+          ),
+          // !!! dangerCancel - ключ чтобы окрасить border, color в красный цвет!!!
+          cancelText && (
+            <Button key="back" danger={dangerCancel} onClick={handleCancel}>
+              {cancelText}
+            </Button>
+          ),
         ]}
       >
         {children}

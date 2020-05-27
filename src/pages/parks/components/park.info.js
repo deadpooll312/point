@@ -19,7 +19,7 @@ export const ParkInfo = memo(({park}) => {
           <div className="park-info__outline">
             <span>Округ/Район</span>
             <p>
-              {data.countryName} {data.districtName || "-"}.
+              {data.regionName || "-"}/{data.districtName || "-"}.
             </p>
           </div>
           <div className="park-info__outline">
