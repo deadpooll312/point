@@ -28,7 +28,7 @@
   }
 
   h3 {
-    color: $text;
+    color: $headerText;
   }
 
   &__title {
@@ -40,7 +40,7 @@
     .icon {
       margin-left: 10px;
       font-size: 22px;
-      color: $light-grey;
+      color: $iconColor;
     }
   }
 

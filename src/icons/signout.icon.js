@@ -4,7 +4,7 @@ import Icon from "@ant-design/icons";
 export const SignOutIcon = (props) => {
   // eslint-disable-next-line react/prop-types
   const {color} = props;
-  const defaultColor = "#747474";
+  const defaultColor = "var(--iconColor)";
 
   const PandaSvg = () => (
     <svg

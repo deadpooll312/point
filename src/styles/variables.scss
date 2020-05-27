@@ -2,28 +2,36 @@
 html {
   --bg: #fff;
   --text: #5a5a5a;
+  --headerText: #5a5a5a;
+  --iconColor: #818E9B;
   --blue: #3F7ABF;
   --white: #fff;
   --green: #58A621;
   --grey: #747474;
   --light-grey: #818E9B;
   --red: #F26161;
+  --contentColor: #fff;
 }
 // DARK THEME
 html[theme='dark'] {
-  --bg: #000;
+  --bg: #5287c5;
   --text: #fff;
-  --blue: #333;
-  --white: #000;
+  --headerText: #000;
+  --iconColor: #fff;
+  --blue: #3F7ABF;
+  --white: #fff;
   --green: #58A621;
   --grey: #747474;
   --light-grey: #818E9B;
   --red: #F26161;
+  --contentColor: #3e7417;
 }
 
 // COLORS
 $blue: var(--blue);
 $text: var(--text);
+$headerText: var(--headerText);
+$iconColor: var(--iconColor);
 $bg: var(--bg);
 $white: var(--white);
 $green: var(--green);
@@ -31,6 +39,7 @@ $light-green: #eef6e9;
 $grey: var(--grey);
 $light-grey: var(--light-grey);
 $red: var(--red);
+$contentColor: var(--contentColor);
 
 // BORDERS
 $radius3: 3px;

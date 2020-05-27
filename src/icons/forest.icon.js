@@ -4,7 +4,7 @@ import Icon from "@ant-design/icons";
 export const ForestIcon = (props) => {
   // eslint-disable-next-line react/prop-types
   const {color, width, height} = props;
-  const defaultColor = "#747474";
+  const defaultColor = "var(--iconColor)";
   const ICON = () => (
     <svg
       width={width || 24}
