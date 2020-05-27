@@ -6,13 +6,17 @@ export const ParksActionButtons = ({parks, onSelectedItems}) => {
   const [actionType, setActionType] = useState("DISABLED");
 
   useEffect(() => {
-    parks.selectedItems.forEach((item) => {
-      if (item.sysViewName === sysViewNameNo) {
-        setActionType("DISABLED");
-      } else {
-        item.crowdColor === "red" ? setActionType("CLOSE") : setActionType("OPEN");
-      }
-    });
+    if (parks.selectedItems.length) {
+      parks.selectedItems.forEach((item) => {
+        if (item.sysViewName === sysViewNameNo) {
+          setActionType("DISABLED");
+        } else {
+          item.crowdColor === "red" ? setActionType("CLOSE") : setActionType("OPEN");
+        }
+      });
+    } else {
+      setActionType("DISABLED");
+    }
   }, [parks.selectedItems]);
 
   return (
