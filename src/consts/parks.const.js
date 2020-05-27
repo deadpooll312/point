@@ -78,3 +78,21 @@ export const tableColumns = [
     isActive: true,
   },
 ];
+
+export const crowdColorNames = [
+  {
+    value: "Низкий риск (Открыто)",
+    label: "Низкий риск (Открыто)",
+    className: "select-low",
+  },
+  {
+    value: "Высокий риск (Нарушения)",
+    label: "Высокий риск (Нарушения)",
+    className: "select-middle",
+  },
+  {
+    value: "Критическое (Только выход)",
+    label: "Критическое (Только выход)",
+    className: "select-critical",
+  },
+];

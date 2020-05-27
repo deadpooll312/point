@@ -1,6 +1,8 @@
 import React, {memo, useState, useEffect} from "react";
 import {Col, Row} from "antd";
 import {ProgressComponent} from "../../../components/progress";
+import {SelectComponent} from "../../../components/select";
+import {crowdColorNames} from "../../../consts/parks.const";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = memo(({park}) => {
@@ -36,7 +38,17 @@ export const ParkInfo = memo(({park}) => {
           </div>
           <div className="park-info__outline">
             <span>Состояние территории</span>
-            <p>{data.crowdColorName || "-"}</p>
+            {data.crowdColorName && (
+              <SelectComponent
+                data={crowdColorNames}
+                labelInValue={false}
+                defaultValue={[data.crowdColorName]}
+                handleChange={(value) => {
+                  console.log(value);
+                }}
+                placeholder={data.crowdColorName}
+              />
+            )}
           </div>
           <div className="park-info__outline">
             <span>MAX посетителей</span>
