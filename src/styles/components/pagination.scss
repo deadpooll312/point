@@ -2,7 +2,11 @@
 .pagination-wrapper {
   display: flex;
   align-items: center;
-  .ant-select {
+  .pagination {
     margin: 0 10px;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
   }
 }
