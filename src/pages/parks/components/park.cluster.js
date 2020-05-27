@@ -22,7 +22,7 @@ export const ParkCluster = ({park}) => {
         expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
         onExpand: (e, record) => console.log(record.key),
       }}
-      dataSource={park.clusters.map((item) => ({...item, key: item.recordId}))}
+      dataSource={[]}
       pagination={false}
     />
   );

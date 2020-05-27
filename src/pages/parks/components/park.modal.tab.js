@@ -14,7 +14,7 @@ export const ParkModalTab = inject("store")(
     }, [parks.selectedPark]);
 
     return (
-      <Tabs defaultActiveKey={activeTab}>
+      <Tabs hideAdd={false} animated={false} defaultActiveKey={activeTab} className="park-modal-tabs">
         <TabPane tab="Сведения" key="1">
           <ParkInfo park={parks.singlePark} />
         </TabPane>
