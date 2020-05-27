@@ -16,6 +16,9 @@ export const ParksTable = inject("store")(
 
     useEffect(() => {
       parks.getParks();
+      setInterval(() => {
+        parks.getParks();
+      }, 10000);
     }, []);
 
     useEffect(() => {
