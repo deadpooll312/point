@@ -108,11 +108,11 @@ export const ParkInfo = memo(({park}) => {
         <Col span={12}>
           <div className="park-info__outline">
             <span>Выявлено камерами ИНС</span>
-            <p>{data.percentInfo && data.percentInfo.camCount} сообщений</p>
+            <p>{data.percentInfo && data.percentInfo.camCount} чел.</p>
           </div>
           <div className="park-info__outline">
             <span>Выявлено системой Об.Конт-ля</span>
-            <p>{data.percentInfo && data.percentInfo.cellularCount} сообщений</p>
+            <p>{data.percentInfo && data.percentInfo.cellularCount} чел.</p>
           </div>
         </Col>
       </Row>
