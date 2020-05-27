@@ -4,6 +4,7 @@ import {inject, observer} from "mobx-react";
 import {emptyData} from "~/consts/text.const";
 import {ModalComponent} from "~/components/modal.component";
 import {ParkModalTab} from "./park.modal.tab";
+import {sysViewNameNo} from "../../../consts/text.const";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks}}) => {
@@ -38,9 +39,9 @@ export const ParksTable = inject("store")(
     );
 
     const isAvailableToChange = () =>
-      parks.singlePark.sysViewName !== "Нет" && parks.singlePark.crowdColor === "red";
+      parks.singlePark.sysViewName !== sysViewNameNo && parks.singlePark.crowdColor === "red";
 
-    const hideOkButton = () => parks.singlePark.sysViewName === "Нет";
+    const hideOkButton = () => parks.singlePark.sysViewName === sysViewNameNo;
 
     return (
       <Fragment>
