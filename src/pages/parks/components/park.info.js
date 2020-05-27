@@ -80,7 +80,7 @@ export const ParkInfo = memo(({park}) => {
         <Col span={12}>
           <div className="park-info__outline">
             <span>Выявлено жителями</span>
-            <p>{(data.percentInfo && data.percentInfo.user.totalTags) || 0} сообщений</p>
+            <p>{(data.percentInfo && data.percentInfo.user.totalTags) || 0} чел.</p>
             <ProgressComponent
               left={data.percentInfo && data.percentInfo.user.truePercent}
               right={data.percentInfo && data.percentInfo.user.falsePercent}
@@ -88,9 +88,7 @@ export const ParkInfo = memo(({park}) => {
           </div>
           <div className="park-info__outline">
             <span>Выявлено инспектором</span>
-            <p>
-              {(data.percentInfo && data.percentInfo.inspector.totalTags) || 0} сообщений
-            </p>
+            <p>{(data.percentInfo && data.percentInfo.inspector.totalTags) || 0} чел.</p>
             <ProgressComponent
               left={data.percentInfo && data.percentInfo.inspector.truePercent}
               right={data.percentInfo && data.percentInfo.inspector.falsePercent}
