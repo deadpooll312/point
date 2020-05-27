@@ -1,7 +1,8 @@
 import axiosInstance from "~/api/api";
 import {tableColumns} from "~/consts/parks.const";
-import {getStorage, setStorage} from "../../services/storage.service";
-import {columns} from "../../consts/storage.conts";
+import {getStorage, setStorage} from "~/services/storage.service";
+import {columns} from "~/consts/storage.conts";
+import {showSuccess} from "~/services/notifications.service";
 
 export class ParksAction {
   getParks() {
@@ -43,13 +44,27 @@ export class ParksAction {
       .then(({data}) => (this.singlePark = data));
   }
 
+  updateCrowdColorName(crowdColor) {
+    this.singlePark = {...this.singlePark, updatedColor: crowdColor};
+  }
+
   updateColumns(value) {
     setStorage(columns, value);
     this.columns = value;
   }
 
+  updateParkRepaint() {
+    axiosInstance
+      .post("park/repaint", {
+        crowdColor: this.singlePark.updatedColor,
+        territoryCode: this.selectedPark.id,
+      })
+      .then(() => {
+        showSuccess("Состояние территории изменено!");
+      });
+  }
+
   getColumns() {
     return getStorage(columns) || tableColumns;
   }
-
 }

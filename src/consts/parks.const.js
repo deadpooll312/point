@@ -81,17 +81,20 @@ export const tableColumns = [
 
 export const crowdColorNames = [
   {
-    value: "Низкий риск (Открыто)",
+    value: "green",
+    key: "green",
     label: "Низкий риск (Открыто)",
     className: "select-low",
   },
   {
-    value: "Высокий риск (Нарушения)",
+    value: "yellow",
+    key: "yellow",
     label: "Высокий риск (Нарушения)",
     className: "select-middle",
   },
   {
-    value: "Критическое (Только выход)",
+    value: "red",
+    key: "red",
     label: "Критическое (Только выход)",
     className: "select-critical",
   },

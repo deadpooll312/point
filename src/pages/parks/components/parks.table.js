@@ -4,11 +4,13 @@ import {inject, observer} from "mobx-react";
 import {emptyData} from "~/consts/text.const";
 import {ModalComponent} from "~/components/modal.component";
 import {ParkModalTab} from "./park.modal.tab";
-import {sysViewNameNo} from "../../../consts/text.const";
+import {sysViewNameNo} from "~/consts/text.const";
+import {ParkModalWarning} from "./park.modal.warnning";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks}}) => {
     const [showModal, setModal] = useState(false);
+    const [confirm, setConfirm] = useState(false);
     const [data, setData] = useState([]);
     const [item, setItem] = useState({});
 
@@ -39,7 +41,8 @@ export const ParksTable = inject("store")(
     );
 
     const isAvailableToChange = () =>
-      parks.singlePark.sysViewName !== sysViewNameNo && parks.singlePark.crowdColor === "red";
+      parks.singlePark.sysViewName !== sysViewNameNo &&
+      parks.singlePark.crowdColor === "red";
 
     const hideOkButton = () => parks.singlePark.sysViewName === sysViewNameNo;
 
@@ -58,8 +61,35 @@ export const ParksTable = inject("store")(
           danger={isAvailableToChange()}
           title={item.name || "title"}
           dangerEdit
+          editText={
+            parks.singlePark.updatedColor &&
+            parks.singlePark.crowdColor !== parks.singlePark.updatedColor
+              ? "Изменить состояние"
+              : null
+          }
+          handleEdit={() => {
+            setModal(false);
+            setConfirm(true);
+          }}
         >
           <ParkModalTab />
+        </ModalComponent>
+
+        <ModalComponent
+          title={"Изменить состояние"}
+          okText={"Да, открыть"}
+          danger
+          visible={confirm}
+          handleCancel={() => setConfirm(false)}
+          handleOk={() => {
+            setConfirm(false);
+            parks.updateParkRepaint();
+          }}
+          cancelText="Отмена"
+        >
+          <ParkModalWarning
+            text={`Вы собираетесь изменить Состояние территорий Вы уверены?`}
+          />
         </ModalComponent>
 
         <Table

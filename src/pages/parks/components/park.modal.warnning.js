@@ -15,17 +15,15 @@ const columns = [
   },
 ];
 
-export const ParkModalWarning = ({isForOpening, selectedItems}) => {
+export const ParkModalWarning = ({selectedItems, text}) => {
   return (
     <div className="park-modal-warning">
       <WarningIcon />
       <p>Внимание!</p>
-      <p>
-        Вы собираетесь {`${isForOpening ? "открыть" : "закрыть "}`}
-        {`${selectedItems.length < 1 ? " территорию" : " сразу несколько территорий"}`}!
-        Вы уверены?
-      </p>
-      <Table dataSource={selectedItems} columns={columns} pagination={false} />
+      <p>{text}</p>
+      {selectedItems && (
+        <Table dataSource={selectedItems} columns={columns} pagination={false} />
+      )}
     </div>
   );
 };

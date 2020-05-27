@@ -16,7 +16,7 @@ export const ParkModalTab = inject("store")(
     return (
       <Tabs animated={false} defaultActiveKey={activeTab} className="park-modal-tabs">
         <TabPane tab="Сведения" key="1">
-          <ParkInfo park={parks.singlePark} />
+          <ParkInfo parks={parks} />
         </TabPane>
         <TabPane tab="Скопление" key="2">
           <ParkCluster park={parks.singlePark} />

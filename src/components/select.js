@@ -21,20 +21,17 @@ export const SelectComponent = ({
     <Select
       className="simple-select"
       mode={type}
+      value={defaultValue}
       style={{width: width || 240}}
       placeholder={placeholder}
-      defaultValue={defaultValue}
       onChange={handleChange}
       labelInValue={labelInValue}
-      optionLabelProp="value"
     >
-      {data.map((item) => {
-        return (
-          <Option key={item.value} className={item.className}>
-            {item.label}
-          </Option>
-        );
-      })}
+      {data.map((item) => (
+        <Option key={item.value} className={item.className}>
+          {item.label}
+        </Option>
+      ))}
     </Select>
   );
 };

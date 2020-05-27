@@ -40,6 +40,12 @@ export const ParksActions = inject("store")(
       setVisible(true);
     }, []);
 
+    const text = () => {
+      return `Вы собираетесь ${isForOpening ? "открыть" : "закрыть "}
+      ${parks.selectedItems.length < 1 ? " территорию" : " сразу несколько территорий"}!
+        Вы уверены?`;
+    };
+
     return (
       <div className="parks__header">
         <ModalComponent
@@ -51,10 +57,7 @@ export const ParksActions = inject("store")(
           handleOk={openPark}
           cancelText="Отмена"
         >
-          <ParkModalWarning
-            selectedItems={parks.selectedItems}
-            isForOpening={isForOpening}
-          />
+          <ParkModalWarning selectedItems={parks.selectedItems} text={text()} />
         </ModalComponent>
 
         <ParksActionButtons parks={parks} onSelectedItems={onSelectedItems} />

@@ -1,16 +1,16 @@
-import React, {memo, useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {Col, Row} from "antd";
 import {ProgressComponent} from "../../../components/progress";
 import {SelectComponent} from "../../../components/select";
 import {crowdColorNames} from "../../../consts/parks.const";
 
 // eslint-disable-next-line react/display-name
-export const ParkInfo = memo(({park}) => {
+export const ParkInfo = ({parks}) => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    setData(park);
-  }, [park]);
+    setData(parks.singlePark);
+  }, [parks.singlePark]);
 
   return (
     <div className="park-info">
@@ -38,14 +38,12 @@ export const ParkInfo = memo(({park}) => {
           </div>
           <div className="park-info__outline">
             <span>Состояние (цвет) территории</span>
-            {data.crowdColorName && (
+            {data.crowdColor && (
               <SelectComponent
                 data={crowdColorNames}
-                labelInValue={false}
-                defaultValue={[data.crowdColorName]}
-                handleChange={(value) => {
-                  console.log(value);
-                }}
+                labelInValue={true}
+                defaultValue={{value: data.crowdColor}}
+                handleChange={({value}) => parks.updateCrowdColorName(value)}
                 placeholder={data.crowdColorName}
               />
             )}
@@ -118,4 +116,4 @@ export const ParkInfo = memo(({park}) => {
       </Row>
     </div>
   );
-});
+};
