@@ -37,7 +37,7 @@ export const ParkInfo = memo(({park}) => {
             <p>{data.availableName || "-"}</p>
           </div>
           <div className="park-info__outline">
-            <span>Состояние территории</span>
+            <span>Состояние (цвет) территории</span>
             {data.crowdColorName && (
               <SelectComponent
                 data={crowdColorNames}
