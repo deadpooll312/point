@@ -32,7 +32,7 @@ export const ParkInfo = memo(({park}) => {
         <Col span={12}>
           <div className="park-info__outline">
             <span>Статус</span>
-            <p>{data.status || "-"}</p> // TODO
+            <p>{data.availableName || "-"}</p>
           </div>
           <div className="park-info__outline">
             <span>Состояние территории</span>

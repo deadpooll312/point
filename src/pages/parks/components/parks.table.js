@@ -52,6 +52,7 @@ export const ParksTable = inject("store")(
         </ModalComponent>
 
         <Table
+          rowClassName={(record) => record.crowdColor}
           rowSelection={rowSelection}
           columns={parks.columns.filter((i) => i.isActive)}
           locale={{emptyText: emptyData}}

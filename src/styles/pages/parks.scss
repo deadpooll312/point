@@ -15,6 +15,18 @@
     cursor: pointer;
   }
 
+  tr.green {
+    background: #f2ffeb;
+  }
+
+  tr.red {
+    background: #ffe9ea;
+  }
+
+  tr.yellow {
+    background: #fff9dc;
+  }
+
   h3 {
     color: $text;
   }

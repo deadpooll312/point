@@ -28,7 +28,7 @@ export const tableColumns = [
   {
     title: "Округ",
     width: 200,
-    dataIndex: "сountyName",
+    dataIndex: "regionName",
     isActive: true,
     render: (value) => value || "-",
   },
@@ -74,10 +74,7 @@ export const tableColumns = [
   {
     title: "Требует акцепта",
     width: 10,
-    dataIndex: "crowPoint",
+    dataIndex: "sysViewName",
     isActive: true,
-    render: (value) => {
-      return <span>{value ? "Да" : "Нет"}</span>;
-    },
   },
 ];
