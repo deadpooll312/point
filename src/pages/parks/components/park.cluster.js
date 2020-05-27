@@ -3,7 +3,6 @@ import React from "react";
 
 const columns = [
   {title: "Материалы", dataIndex: "providerType"},
-  {title: "ID", dataIndex: "recordId"},
   {title: "Источник", dataIndex: "longitude"},
   {title: "Геоданные", dataIndex: "latitude"},
 ];
