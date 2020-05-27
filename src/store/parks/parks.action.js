@@ -1,4 +1,7 @@
-import axiosInstance from "../../api/api";
+import axiosInstance from "~/api/api";
+import {tableColumns} from "~/consts/parks.const";
+import {getStorage, setStorage} from "../../services/storage.service";
+import {columns} from "../../consts/storage.conts";
 
 export class ParksAction {
   getParks() {
@@ -40,7 +43,13 @@ export class ParksAction {
       .then(({data}) => (this.singlePark = data));
   }
 
-  updateColumns(columns) {
-    this.columns = columns;
+  updateColumns(value) {
+    setStorage(columns, value);
+    this.columns = value;
   }
+
+  getColumns() {
+    return getStorage(columns) || tableColumns;
+  }
+
 }

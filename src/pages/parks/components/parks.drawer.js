@@ -5,7 +5,6 @@ import update from "immutability-helper";
 import {Drawer} from "antd";
 import {inject, observer} from "mobx-react";
 // local files
-import {tableColumns} from "../../../consts/parks.const";
 import {DragCard} from "../../../components/drag.card";
 import {ParkDrawButtons} from "./park.draw.buttons";
 
@@ -16,7 +15,7 @@ export const ParksDrawer = inject("store")(
     }, [sidebar]);
 
     const [cards, setCards] = useState(
-      tableColumns.slice().map((item, index) => ({...item, index}))
+      parks.columns.slice().map((item, index) => ({...item, index}))
     );
 
     const moveCard = useCallback(

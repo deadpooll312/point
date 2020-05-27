@@ -1,10 +1,9 @@
 import {decorate, observable} from "mobx";
 import {ParksAction} from "./parks.action";
-import {tableColumns} from "~/consts/parks.const";
 
 class ParksStore extends ParksAction {
   data = [];
-  columns = tableColumns;
+  columns = this.getColumns();
   params = {size: 10, page: 0};
   selectedItems = [];
   selectedIds = [];

@@ -12,10 +12,7 @@ export const SidebarSettings = memo(() => {
     <Fragment>
       <ModalComponent
         handleCancel={() => setVisible(false)}
-        handleOk={() => {
-          console.log("setVisible(false)");
-          setVisible(false);
-        }}
+        handleOk={() => setVisible(false)}
         danger
         okText={"Сохранить"}
         cancelText="Отмена"

@@ -28,7 +28,7 @@ export const ParkInfo = memo(({park}) => {
           </div>
           <div className="park-info__outline">
             <span>Общая площадь</span>
-            <p>{data.ssum || "-"}</p> // TODO
+            <p>{data.ssum || "-"}</p>
           </div>
         </Col>
         <Col span={12}>
