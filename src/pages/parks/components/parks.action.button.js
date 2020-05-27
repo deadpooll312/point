@@ -14,6 +14,9 @@ export const ParksActionButtons = ({parks, onSelectedItems}) => {
           item.crowdColor === "red" ? setActionType("CLOSE") : setActionType("OPEN");
         }
       });
+      if (parks.selectedItems.some((item) => item.sysViewName === sysViewNameNo)) {
+        setActionType("DISABLED");
+      }
     } else {
       setActionType("DISABLED");
     }
