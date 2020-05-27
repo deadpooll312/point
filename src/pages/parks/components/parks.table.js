@@ -19,7 +19,7 @@ export const ParksTable = inject("store")(
       setInterval(() => {
         parks.getParks();
       }, 10000);
-    }, []);
+    }, [parks]);
 
     useEffect(() => {
       const elements = parks.data && parks.data.map((item) => ({...item, key: item.id}));

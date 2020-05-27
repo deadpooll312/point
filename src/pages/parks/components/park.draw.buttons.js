@@ -5,7 +5,7 @@ import {tableColumns} from "../../../consts/parks.const";
 export const ParkDrawButtons = ({parks, cards}) => {
   const redesign = useCallback(
     (value) => parks.updateColumns(value ? cards : tableColumns),
-    [cards]
+    [cards, parks]
   );
 
   return (

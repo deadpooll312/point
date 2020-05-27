@@ -27,14 +27,14 @@ export const Sidebar = inject("store")(
         auth.updateUser(JSON.parse(user));
         parks.getFilters(parkFilterTypes.groupType).then((res) => setData(res));
       }
-    }, []);
+    }, [auth, parks]);
 
     const click = useCallback(
       (groupType) => {
         parks.updateActiveFilter(data.find((i) => i.sortOrder === groupType));
         parks.getParks();
       },
-      [data]
+      [data, parks]
     );
 
     const isActive = useCallback(
