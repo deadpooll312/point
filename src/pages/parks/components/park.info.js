@@ -36,11 +36,11 @@ export const ParkInfo = memo(({park}) => {
           </div>
           <div className="park-info__outline">
             <span>Состояние территории</span>
-            <p>{"-"}</p> // TODO
+            <p>{data.crowdColorName || "-"}</p>
           </div>
           <div className="park-info__outline">
             <span>MAX посетителей</span>
-            <p>{data.standart || "-"}</p>
+            <p>{data.maxVisitor || "-"}</p>
           </div>
         </Col>
       </Row>

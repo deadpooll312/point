@@ -1,4 +1,5 @@
 import axios from "axios";
+import {showError} from "../services/notifications.service";
 const baseURL = `${window.location.origin}/rest`;
 
 const axiosInstance = axios.create({
@@ -13,7 +14,10 @@ axiosInstance.interceptors.response.use(
     const {status, config} = response;
     if (status === 401 && config.url !== "login") {
       window.location.href = "/#/login";
+    } else {
+      showError(response.data.message);
     }
+
     return Promise.reject(response);
   }
 );
