@@ -37,16 +37,26 @@ export const ParksTable = inject("store")(
       [parks]
     );
 
+    const isAvailableToChange = () =>
+      parks.singlePark.sysViewName !== "Нет" && parks.singlePark.crowdColor === "red";
+
+    const hideOkButton = () => parks.singlePark.sysViewName === "Нет";
+
     return (
       <Fragment>
         <ModalComponent
           handleCancel={() => setModal(false)}
           width={700}
-          okText={"Закрыть парк"}
+          okText={
+            hideOkButton()
+              ? null
+              : `${isAvailableToChange() ? "Закрыть" : "Открыть"} парк`
+          }
           handleOk={() => setModal(false)}
           visible={showModal}
-          danger
+          danger={isAvailableToChange()}
           title={item.name || "title"}
+          dangerEdit
         >
           <ParkModalTab />
         </ModalComponent>
