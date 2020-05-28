@@ -27,11 +27,26 @@ export const SelectComponent = ({
       onChange={handleChange}
       labelInValue={labelInValue}
     >
-      {data.map((item) => (
-        <Option key={item.value} className={item.className}>
-          {item.label}
-        </Option>
-      ))}
+      {data.map((item) => {
+        //let className = "";
+        //className = "select-low";
+        // switch (item.label) {
+        //   case "Низкий риск (Открыто)":
+        //     className = "select-low";
+        //     break;
+        //   case "Высокий риск (Нарушения)":
+        //     className = "select-high";
+        //     break;
+        //   case "Критическое (Только выход!)":
+        //     className = "select-critical";
+        //     break;
+        // }
+        return (
+          <Option key={item.value} className="select-low">
+            {item.label}
+          </Option>
+        );
+      })}
     </Select>
   );
 };
