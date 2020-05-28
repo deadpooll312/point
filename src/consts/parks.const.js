@@ -9,6 +9,7 @@ export const tableColumns = [
     width: 80,
     dataIndex: "sysViewName",
     isActive: true,
+    render: value => value === "Да" ? <b>{value}</b> : value
   },
   {
     title: "ID",
