@@ -44,7 +44,7 @@ export const ParksActions = inject("store")(
       setTimeout(() => {
         parks.setWarningModalName(null);
       }, 5000);
-    }, [parks]);
+    }, [parks, isForOpening]);
 
     return (
       <div className="parks__header">
