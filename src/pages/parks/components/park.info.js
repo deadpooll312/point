@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Row} from "antd";
 import {ProgressComponent} from "../../../components/progress";
 import {SelectComponent} from "../../../components/select";
@@ -9,11 +9,14 @@ import {inject, observer} from "mobx-react";
 export const ParkInfo = inject("store")(
   observer(({store: {parks}}) => {
     const [data, setData] = useState({});
-
+    const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
+    const colorClass = tempItem ? tempItem.className : "";
+    
     useEffect(() => {
       setData(parks.singlePark);
     }, [parks.singlePark]);
-
+    
+    
     return (
       <div className="park-info">
         <Row>
@@ -40,15 +43,17 @@ export const ParkInfo = inject("store")(
             </div>
             <div className="park-info__outline">
               <span>Состояние (цвет) территории</span>
-              {data.crowdColor && (
-                <SelectComponent
-                  data={crowdColorNames}
-                  labelInValue={true}
-                  defaultValue={{value: data.crowdColor}}
-                  handleChange={({value}) => parks.updateCrowdColorName(value)}
-                  placeholder={data.crowdColorName}
-                />
-              )}
+              <div className={colorClass}>
+                {data.crowdColor && (
+                  <SelectComponent
+                    data={crowdColorNames}
+                    labelInValue={true}
+                    defaultValue={{value: data.crowdColor}}
+                    handleChange={({value}) => parks.updateCrowdColorName(value)}
+                    placeholder={data.crowdColorName}
+                  />
+                )}
+              </div>
             </div>
             <div className="park-info__outline">
               <span>MAX посетителей</span>
@@ -56,7 +61,7 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
         </Row>
-        <br />
+        <br/>
         <h2>Ответственные лица</h2>
         <Row>
           <Col span={12}>
@@ -74,7 +79,7 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
         </Row>
-        <br />
+        <br/>
         <h2>Оценка загруженности территории</h2>
         <Row gutter={16}>
           <Col span={12}>
@@ -123,5 +128,5 @@ export const ParkInfo = inject("store")(
         </Row>
       </div>
     );
-  })
+  }),
 );

@@ -1,3 +1,7 @@
+$color-low: #58A621;
+$color-middle: #F2994A;
+$color-critical: #F26161;
+
 .park-info {
   p {
     color: #000;
@@ -11,3 +15,44 @@
     margin-bottom: 20px;
   }
 }
+
+.select-low {
+  color: $color-low;
+
+  &.ant-select-item-option-selected {
+    background-color: rgba($color-low, .25);
+    color: $color-low;
+  }
+
+  & .ant-select-selection-item{
+    color: $color-low;
+  }
+}
+
+.select-middle {
+  color: $color-middle;
+
+  &.ant-select-item-option-selected {
+    background-color: rgba( $color-middle, .25);
+    color: $color-middle;
+  }
+
+  & .ant-select-selection-item{
+    color: $color-middle;
+  }
+}
+
+.select-critical {
+  color: $color-critical;
+
+  &.ant-select-item-option-selected {
+    background-color: rgba($color-critical, .25);
+    color: $color-critical;
+  }
+
+  & .ant-select-selection-item{
+    color: $color-critical;
+  }
+}
+
+
