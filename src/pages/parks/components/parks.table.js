@@ -52,7 +52,7 @@ export const ParksTable = inject("store")(
       <Fragment>
         <ModalComponent
           handleCancel={() => setModal(false)}
-          width={700}
+          width={800}
           okText={
             hideOkButton()
               ? null
