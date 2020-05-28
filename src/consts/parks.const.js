@@ -86,7 +86,6 @@ export const tableColumns = [
     width: 80,
     dataIndex: "maxVisitor",
     isActive: true,
-    
     render: (value) => value || "-",
   },
 ];
