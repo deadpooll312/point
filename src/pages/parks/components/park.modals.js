@@ -21,6 +21,7 @@ export const ParkModals = inject("store")(
           cancelText="Отмена"
         >
           <ParkModalWarning
+            parks={parks}
             text={`Вы собираетесь изменить Состояние территорий Вы уверены?`}
           />
         </ModalComponent>
@@ -42,6 +43,7 @@ export const ParkModals = inject("store")(
           cancelText="Отмена"
         >
           <ParkModalWarning
+            parks={parks}
             selectedItems={
               parks.warningModalName === warningModalNames.openCouple
                 ? parks.selectedItems
@@ -69,6 +71,7 @@ export const ParkModals = inject("store")(
           cancelText="Отмена"
         >
           <ParkModalWarning
+            parks={parks}
             selectedItems={
               parks.warningModalName === warningModalNames.closedCouple
                 ? parks.selectedItems

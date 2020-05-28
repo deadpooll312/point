@@ -87,6 +87,19 @@ export const tableColumns = [
   },
 ];
 
+export const warningColumns = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "Название обьекта",
+    dataIndex: "name",
+    key: "id",
+  },
+];
+
 export const crowdColorNames = [
   {
     value: "green",

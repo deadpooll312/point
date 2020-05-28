@@ -40,10 +40,6 @@ export const ParksActions = inject("store")(
       } else {
         parks.setWarningModalName(warningModalNames.openCouple);
       }
-
-      setTimeout(() => {
-        parks.setWarningModalName(null);
-      }, 5000);
     }, [parks, isForOpening]);
 
     return (

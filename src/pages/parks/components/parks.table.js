@@ -48,12 +48,6 @@ export const ParksTable = inject("store")(
 
     const hideOkButton = () => parks.singlePark.sysViewName === sysViewNameNo;
 
-    const hideModal = () => {
-      setTimeout(() => {
-        parks.setWarningModalName(null);
-      }, 5000);
-    };
-
     return (
       <Fragment>
         <ModalComponent
@@ -71,7 +65,6 @@ export const ParksTable = inject("store")(
             } else {
               parks.setWarningModalName(warningModalNames.open);
             }
-            hideModal();
           }}
           visible={showModal}
           danger={isAvailableToChange()}
@@ -86,7 +79,6 @@ export const ParksTable = inject("store")(
           handleEdit={() => {
             setModal(false);
             parks.setWarningModalName(warningModalNames.edit);
-            hideModal();
           }}
         >
           <ParkModalTab />
