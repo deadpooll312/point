@@ -8,7 +8,7 @@ export class ParksAction {
   getParks() {
     axiosInstance
       .get("incident", {params: this.params})
-      .then(({data}) => (this.data = data));
+      .then(({data: {elements}}) => (this.data = elements));
   }
 
   getClusters() {
