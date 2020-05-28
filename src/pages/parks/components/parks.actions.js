@@ -42,12 +42,20 @@ export const ParksActions = inject("store")(
       }
     }, [parks, isForOpening]);
 
+    const getTotalItems = () => {
+      if (parks.data.length < 9) {
+        return (parks.params.page + 1) * 10;
+      } else {
+        return 450;
+      }
+    };
+
     return (
       <div className="parks__header">
         <ParksActionButtons parks={parks} onSelectedItems={onSelectedItems} />
         <PaginationComponent
           parks={parks}
-          totalItemsCount={parks.data.length < 9 ? 1 : 450}
+          totalItemsCount={getTotalItems()}
           onSize={onSizeChange}
           onChange={onChange}
         />
