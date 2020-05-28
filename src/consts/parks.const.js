@@ -19,7 +19,7 @@ export const tableColumns = [
   },
   {
     title: "Статус",
-    width: 150,
+    width: 80,
     dataIndex: "available",
     isActive: true,
     render: (value) => {
@@ -28,21 +28,21 @@ export const tableColumns = [
   },
   {
     title: "Округ",
-    width: 200,
+    width: 80,
     dataIndex: "regionName",
     isActive: true,
     render: (value) => value || "-",
   },
   {
     title: "Район",
-    width: 200,
+    width: 150,
     isActive: true,
     dataIndex: "districtName",
     render: (value) => value || "-",
   },
   {
     title: "Тип объекта",
-    width: 200,
+    width: 80,
     dataIndex: "type",
     isActive: true,
     render: (value) => value || "-",
@@ -58,7 +58,7 @@ export const tableColumns = [
   },
   {
     title: "Возм. места скопления людей",
-    width: 250,
+    width: 150,
     dataIndex: "crowPoint",
     isActive: true,
     render: (value) => {
@@ -67,14 +67,21 @@ export const tableColumns = [
   },
   {
     title: "Количество входов",
-    width: 150,
+    width: 80,
     dataIndex: "enterCount",
     isActive: true,
     render: (value) => value || "-",
   },
   {
+    title: "MAX посетителей",
+    width: 80,
+    dataIndex: "maxVisitor",
+    isActive: true,
+    render: (value) => value || "-",
+  },
+  {
     title: "Требует акцепта",
-    width: 10,
+    width: 80,
     dataIndex: "sysViewName",
     isActive: true,
   },

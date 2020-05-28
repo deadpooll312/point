@@ -99,6 +99,7 @@ export const ParksTable = inject("store")(
         </ModalComponent>
 
         <Table
+          scroll={{x: 2000}}
           rowClassName={(record) => record.crowdColor}
           rowSelection={rowSelection}
           columns={parks.columns.filter((i) => i.isActive)}
