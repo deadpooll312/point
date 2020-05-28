@@ -45,6 +45,9 @@ $contentColor: var(--contentColor);
 $radius3: 3px;
 $radius5: 5px;
 
+body {
+  background-color: $contentColor;
+}
 
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
 .radius3{
