@@ -80,7 +80,7 @@ export const ParksTable = inject("store")(
 
         <ModalComponent
           title={"Изменить состояние"}
-          okText={"Да, открыть"}
+          okText={"Да"}
           danger
           visible={confirm}
           handleCancel={() => setConfirm(false)}
