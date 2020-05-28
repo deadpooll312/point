@@ -73,6 +73,9 @@ export const ParksTable = inject("store")(
           handleEdit={() => {
             setModal(false);
             setConfirm(true);
+            setTimeout(() => {
+              setConfirm(false);
+            }, 5000);
           }}
         >
           <ParkModalTab />
