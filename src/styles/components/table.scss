@@ -5,4 +5,13 @@
 
 .ant-table-thead th.ant-table-column-has-sorters, .ant-table-thead > tr > th {
   text-align: center;
+  background: $white;
+}
+
+.ant-table-content {
+  background: $white;
+}
+
+.ant-table-row {
+  border: 1px solid $white;
 }

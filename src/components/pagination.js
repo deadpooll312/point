@@ -10,7 +10,7 @@ export const PaginationComponent = ({onChange, onSize, parks}) => {
 
   return (
     <div className="pagination-wrapper">
-      <span>Показывать:</span>
+      <span className="pagination-color">Показывать:</span>
       <Select
         defaultValue={10}
         onChange={(size) => {
@@ -20,7 +20,7 @@ export const PaginationComponent = ({onChange, onSize, parks}) => {
         bordered={false}
       >
         {options.map((value) => (
-          <Option key={value} value={value}>
+          <Option key={value} value={value} className="pagination-color">
             {value}
           </Option>
         ))}

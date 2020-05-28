@@ -1,20 +1,20 @@
 .ant-tabs-nav  {
   .ant-tabs-tab-active {
-    color: $blue;
+    color: $green;
   }
   .ant-tabs-tab-active, .ant-tabs-tab {
     &:hover {
-      color: $blue;
+      color: $green;
     }
     &:active {
-      color: $blue;
+      color: $green;
     }
     &:focus {
-      color: $blue;
+      color: $green;
     }
   }
 }
 
 .ant-tabs-ink-bar {
-  background-color: $blue;
+  background-color: $green;
 }

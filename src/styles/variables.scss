@@ -3,7 +3,13 @@ html {
   --bg: #fff;
   --text: #5a5a5a;
   --headerText: #5a5a5a;
+  --headerColor: #3F7ABF;
+  --paginationColor: #333;
+  --paginationActiveColor: #ecf2fa;
   --iconColor: #818E9B;
+  --modalBackground: #fff;
+  --modalText: #818E9B;
+  --modalSubHeader: #000;
   --blue: #3F7ABF;
   --white: #fff;
   --green: #58A621;
@@ -14,17 +20,23 @@ html {
 }
 // DARK THEME
 html[theme='dark'] {
-  --bg: #5287c5;
+  --bg: #2c5586;
   --text: #fff;
-  --headerText: #000;
+  --headerText: #fff;
+  --headerColor: #2c5586;
+  --paginationColor: #494c50;
+  --paginationActiveColor: #707070;
+  --modalBackground: #000;
+  --modalText: #fff;
+  --modalSubHeader: #818E9B;
   --iconColor: #fff;
   --blue: #3F7ABF;
-  --white: #fff;
+  --white: #333333;
   --green: #58A621;
   --grey: #747474;
   --light-grey: #818E9B;
   --red: #F26161;
-  --contentColor: #3e7417;
+  --contentColor: #000;
 }
 
 // COLORS
@@ -32,6 +44,12 @@ $blue: var(--blue);
 $text: var(--text);
 $headerText: var(--headerText);
 $iconColor: var(--iconColor);
+$headerColor: var(--headerColor);
+$paginationColor: var(--paginationColor);
+$paginationActiveColor: var(--paginationActiveColor);
+$modalBackground: var(--modalBackground);
+$modalText: var(--modalText);
+$modalSubHeader: var(--modalSubHeader);
 $bg: var(--bg);
 $white: var(--white);
 $green: var(--green);

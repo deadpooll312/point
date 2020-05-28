@@ -11,6 +11,13 @@
       margin-bottom: 20px;
     }
   }
+  .ant-drawer-wrapper-body, .ant-drawer-header {
+    background: $modalBackground;
+  }
+  .ant-drawer-header {
+    background: $modalBackground;
+    border: 1px solid $modalBackground;
+  }
 }
 
 .draw-item {
@@ -22,3 +29,4 @@
   cursor: move;
   background: $light-green;
 }
+

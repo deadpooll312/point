@@ -2,6 +2,10 @@
  border-bottom: 1px solid #eee;
 }
 
+.ant-select-selector {
+  background: $modalBackground;
+}
+
 .select-low {
   span {
     color: #6ab03d;
