@@ -63,6 +63,20 @@ export class ParksAction {
     this.columns = value;
   }
 
+  colorAccept() {
+    const {crowdColor} = this.singlePark;
+    axiosInstance
+      .post("/park/color/accept", {
+        crowdColor,
+        territoryCode: this.selectedPark.id,
+      })
+      .then(() => showSuccess());
+  }
+
+  setWarningModalName(name) {
+    this.warningModalName = name;
+  }
+
   updateParkRepaint() {
     axiosInstance
       .post("park/repaint", {
