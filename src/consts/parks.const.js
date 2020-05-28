@@ -1,6 +1,7 @@
 import React from "react";
 import {PositiveIcon} from "../icons/positive.icon";
 import {NegativeIcon} from "../icons/negative.icon";
+import {PhotoIcon} from "../icons/photo.icon";
 export const tableColumns = [
   {
     title: "ID",
@@ -97,5 +98,25 @@ export const crowdColorNames = [
     key: "red",
     label: "Критическое (Только выход)",
     className: "select-critical",
+  },
+];
+
+export const clusterColumns = [
+  {
+    title: "Материалы",
+    key: "recordId",
+    dataIndex: "recordId",
+    render: () => <PhotoIcon />,
+  },
+  {
+    title: "Источник",
+    key: "providerType",
+    dataIndex: "providerType",
+  },
+  {
+    title: "Геоданные",
+    key: "latitude",
+    dataIndex: "latitude",
+    render: (value, row) => `[${row.latitude}, ${row.longitude}]`,
   },
 ];

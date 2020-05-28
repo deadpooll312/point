@@ -11,6 +11,16 @@ export class ParksAction {
       .then(({data}) => (this.data = data));
   }
 
+  getClusters() {
+    axiosInstance
+      .get("incident/clusters", {params: this.clusterParams})
+      .then(({data}) => (this.clusters = data));
+  }
+
+  updateClusterParams(params) {
+    this.clusterParams = {...this.clusterParams, ...params};
+  }
+
   updateParams(param) {
     this.params = {...this.params, ...param};
   }

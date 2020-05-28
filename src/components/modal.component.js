@@ -17,6 +17,7 @@ export const ModalComponent = memo(
     width,
     editText,
     handleEdit,
+    destroyOnClose,
   }) => {
     return (
       <Modal
@@ -24,6 +25,7 @@ export const ModalComponent = memo(
         title={title}
         visible={visible}
         onCancel={handleCancel}
+        destroyOnClose={destroyOnClose || true}
         footer={[
           // !!! danger - ключ чтобы окрасить в красный цвет!!!
           okText && (

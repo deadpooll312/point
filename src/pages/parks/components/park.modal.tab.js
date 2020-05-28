@@ -19,7 +19,7 @@ export const ParkModalTab = inject("store")(
           <ParkInfo parks={parks} />
         </TabPane>
         <TabPane tab="Скопление" key="2">
-          <ParkCluster park={parks.singlePark} />
+          <ParkCluster />
         </TabPane>
       </Tabs>
     );

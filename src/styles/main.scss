@@ -5,7 +5,7 @@
 @import "./components/content";
 @import "./components/button";
 @import "./components/draw";
-@import "./components/pagination";
+@import "./components/paginate";
 @import "./components/table";
 @import "./components/modal";
 @import "./components/sidebar.settings";
@@ -15,6 +15,7 @@
 @import "./components/progress";
 @import "./components/select";
 @import "./components/park.modal.tabs";
+@import "./components/park.cluster";
 // pages
 @import "./pages/parks";
 @import "./pages/login";
