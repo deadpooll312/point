@@ -15,7 +15,9 @@ export const ParkDrawButtons = ({parks, cards}) => {
       <Button type="primary" onClick={() => redesign(true)}>
         Переоформить
       </Button>
-      <Button onClick={() => redesign(false)}>По умолчанию</Button>
+      <Button className="filter-button-default" onClick={() => redesign(false)}>
+        По умолчанию
+      </Button>
     </div>
   );
 };

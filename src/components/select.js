@@ -33,19 +33,6 @@ export const SelectComponent = ({
       labelInValue={labelInValue}
     >
       {data.map((item) => {
-        //let className = "";
-        //className = "select-low";
-        // switch (item.label) {
-        //   case "Низкий риск (Открыто)":
-        //     className = "select-low";
-        //     break;
-        //   case "Высокий риск (Нарушения)":
-        //     className = "select-high";
-        //     break;
-        //   case "Критическое (Только выход!)":
-        //     className = "select-critical";
-        //     break;
-        // }
         return (
           <Option key={item.value} className="select-low">
             {item.label}

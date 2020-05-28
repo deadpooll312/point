@@ -10,6 +10,11 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
+    .filter-button-default {
+        border: 1px solid $green;
+        color: $green;
+        background: $modalBackground;
+    }
   }
   .ant-drawer-wrapper-body, .ant-drawer-header {
     background: $modalBackground;
@@ -17,6 +22,9 @@
   .ant-drawer-header {
     background: $modalBackground;
     border: 1px solid $modalBackground;
+    .ant-drawer-title {
+      color: $modalText;
+    }
   }
 }
 
@@ -27,6 +35,6 @@
   margin: 5px 0;
   padding: 5px 10px;
   cursor: move;
-  background: $light-green;
+  background: $light-green2;
 }
 
