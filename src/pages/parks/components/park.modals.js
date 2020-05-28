@@ -26,13 +26,17 @@ export const ParkModals = inject("store")(
         </ModalComponent>
 
         <ModalComponent
-          title={"Открытик"}
+          title={"Открытие"}
           okText={"Да, открыть"}
-          danger
-          visible={parks.warningModalName === warningModalNames.open}
+          visible={
+            parks.warningModalName === warningModalNames.open ||
+            parks.warningModalName === warningModalNames.openCouple
+          }
           handleCancel={() => parks.setWarningModalName(null)}
           handleOk={() => {
-            parks.colorAccept();
+            if (parks.warningModalName === warningModalNames.open) {
+              parks.colorAccept();
+            }
             parks.setWarningModalName(null);
           }}
           cancelText="Отмена"
@@ -51,10 +55,15 @@ export const ParkModals = inject("store")(
           title={"Закрытие"}
           okText={"Да, закрыть"}
           danger
-          visible={parks.warningModalName === warningModalNames.closed}
+          visible={
+            parks.warningModalName === warningModalNames.closed ||
+            parks.warningModalName === warningModalNames.closedCouple
+          }
           handleCancel={() => parks.setWarningModalName(null)}
           handleOk={() => {
-            parks.colorAccept();
+            if (parks.warningModalName === warningModalNames.closed) {
+              parks.colorAccept();
+            }
             parks.setWarningModalName(null);
           }}
           cancelText="Отмена"

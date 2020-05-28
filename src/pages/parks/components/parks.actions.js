@@ -1,13 +1,11 @@
 import React, {useCallback, useState} from "react";
 import {inject, observer} from "mobx-react";
-import {PaginationComponent} from "../../../components/pagination";
-import {ModalComponent} from "../../../components/modal.component";
-import {ParkModalWarning} from "./park.modal.warnning";
+import {PaginationComponent} from "~/components/pagination";
 import {ParksActionButtons} from "./parks.action.button";
+import {warningModalNames} from "~/consts/modal.const";
 
 export const ParksActions = inject("store")(
   observer(({store: {parks}}) => {
-    const [visible, setVisible] = useState(false);
     const [isForOpening, setOpening] = useState(false);
 
     const onChange = useCallback(
@@ -30,38 +28,27 @@ export const ParksActions = inject("store")(
       (open) => {
         if (parks.selectedItems.length) {
           setOpening(open);
-          setVisible(true);
+          openPark();
         }
       },
       [parks.selectedItems]
     );
 
     const openPark = useCallback(() => {
-      setVisible(true);
-    }, []);
+      if (isForOpening) {
+        parks.setWarningModalName(warningModalNames.closedCouple);
+      } else {
+        parks.setWarningModalName(warningModalNames.openCouple);
+      }
 
-    const text = () => {
-      return `Вы собираетесь ${isForOpening ? "открыть" : "закрыть "}
-      ${parks.selectedItems.length < 1 ? " территорию" : " сразу несколько территорий"}!
-        Вы уверены?`;
-    };
+      setTimeout(() => {
+        parks.setWarningModalName(null);
+      }, 5000);
+    }, [parks]);
 
     return (
       <div className="parks__header">
-        <ModalComponent
-          title={isForOpening ? "Открытие" : "Закрытие"}
-          okText={isForOpening ? "Да, открыть" : "Да, закрыть территорию"}
-          danger={!isForOpening}
-          visible={visible}
-          handleCancel={() => setVisible(false)}
-          handleOk={openPark}
-          cancelText="Отмена"
-        >
-          <ParkModalWarning selectedItems={parks.selectedItems} text={text()} />
-        </ModalComponent>
-
         <ParksActionButtons parks={parks} onSelectedItems={onSelectedItems} />
-
         <PaginationComponent parks={parks} onSize={onSizeChange} onChange={onChange} />
       </div>
     );
