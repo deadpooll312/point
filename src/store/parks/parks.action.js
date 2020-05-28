@@ -27,7 +27,7 @@ export class ParksAction {
 
   updateActiveFilter(item) {
     this.activeFilter = item;
-    this.updateParams({groupType: item.sortOrder});
+    this.updateParams({groupType: item.sortOrder, page: 0});
   }
 
   getFilters(group) {

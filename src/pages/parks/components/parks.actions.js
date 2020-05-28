@@ -18,7 +18,7 @@ export const ParksActions = inject("store")(
 
     const onSizeChange = useCallback(
       (size) => {
-        parks.updateParams({size});
+        parks.updateParams({size, page: 0});
         parks.getParks();
       },
       [parks]
