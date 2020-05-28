@@ -4,6 +4,12 @@ import {NegativeIcon} from "../icons/negative.icon";
 import {PhotoIcon} from "../icons/photo.icon";
 export const tableColumns = [
   {
+    title: "Требует акцепта",
+    width: 80,
+    dataIndex: "sysViewName",
+    isActive: true,
+  },
+  {
     title: "ID",
     dataIndex: "id",
     width: 10,
@@ -78,12 +84,6 @@ export const tableColumns = [
     dataIndex: "maxVisitor",
     isActive: true,
     render: (value) => value || "-",
-  },
-  {
-    title: "Требует акцепта",
-    width: 80,
-    dataIndex: "sysViewName",
-    isActive: true,
   },
 ];
 
