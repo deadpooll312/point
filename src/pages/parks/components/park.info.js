@@ -9,14 +9,12 @@ import {inject, observer} from "mobx-react";
 export const ParkInfo = inject("store")(
   observer(({store: {parks}}) => {
     const [data, setData] = useState({});
+    const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
+    const colorClass = tempItem ? tempItem.className : "";
     
     useEffect(() => {
       setData(parks.singlePark);
     }, [parks.singlePark]);
-    
-    
-    const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
-    const colorClass = tempItem ? tempItem.className : "";
     
     
     return (
