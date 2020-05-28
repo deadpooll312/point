@@ -43,8 +43,8 @@ export const ParksActions = inject("store")(
     }, [parks, isForOpening]);
 
     const getTotalItems = () => {
-      if (parks.data.length < 9) {
-        return (parks.params.page + 1) * 10;
+      if (parks.data.length < parks.params.size) {
+        return (parks.params.page + 1) * parks.params.size;
       } else {
         return 450;
       }
