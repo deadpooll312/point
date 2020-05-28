@@ -8,7 +8,7 @@ export class ParksAction {
   getParks() {
     axiosInstance
       .get("incident", {params: this.params})
-      .then(({data}) => (this.data = data));
+      .then(({data: {elements}}) => (this.data = elements));
   }
 
   getClusters() {
@@ -61,6 +61,20 @@ export class ParksAction {
   updateColumns(value) {
     setStorage(columns, value);
     this.columns = value;
+  }
+
+  colorAccept() {
+    const {crowdColor} = this.singlePark;
+    axiosInstance
+      .post("/park/color/accept", {
+        crowdColor,
+        territoryCode: this.selectedPark.id,
+      })
+      .then(() => showSuccess());
+  }
+
+  setWarningModalName(name) {
+    this.warningModalName = name;
   }
 
   updateParkRepaint() {

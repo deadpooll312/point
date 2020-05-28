@@ -4,6 +4,12 @@ import {NegativeIcon} from "../icons/negative.icon";
 import {PhotoIcon} from "../icons/photo.icon";
 export const tableColumns = [
   {
+    title: "Требует акцепта",
+    width: 80,
+    dataIndex: "sysViewName",
+    isActive: true,
+  },
+  {
     title: "ID",
     dataIndex: "id",
     width: 10,
@@ -79,11 +85,18 @@ export const tableColumns = [
     isActive: true,
     render: (value) => value || "-",
   },
+];
+
+export const warningColumns = [
   {
-    title: "Требует акцепта",
-    width: 80,
-    dataIndex: "sysViewName",
-    isActive: true,
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "Название обьекта",
+    dataIndex: "name",
+    key: "id",
   },
 ];
 

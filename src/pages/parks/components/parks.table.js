@@ -5,12 +5,11 @@ import {emptyData} from "~/consts/text.const";
 import {ModalComponent} from "~/components/modal.component";
 import {ParkModalTab} from "./park.modal.tab";
 import {sysViewNameNo} from "~/consts/text.const";
-import {ParkModalWarning} from "./park.modal.warnning";
+import {warningModalNames} from "~/consts/modal.const";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks}}) => {
     const [showModal, setModal] = useState(false);
-    const [confirm, setConfirm] = useState(false);
     const [data, setData] = useState([]);
     const [item, setItem] = useState({});
 
@@ -18,7 +17,7 @@ export const ParksTable = inject("store")(
       parks.getParks();
       setInterval(() => {
         parks.getParks();
-      }, 10000);
+      }, 20000);
     }, [parks]);
 
     useEffect(() => {
@@ -59,7 +58,14 @@ export const ParksTable = inject("store")(
               ? null
               : `${isAvailableToChange() ? "Закрыть" : "Открыть"} парк`
           }
-          handleOk={() => setModal(false)}
+          handleOk={() => {
+            setModal(false);
+            if (parks.singlePark.crowdColor === "red") {
+              parks.setWarningModalName(warningModalNames.closed);
+            } else {
+              parks.setWarningModalName(warningModalNames.open);
+            }
+          }}
           visible={showModal}
           danger={isAvailableToChange()}
           title={item.name || "title"}
@@ -72,30 +78,10 @@ export const ParksTable = inject("store")(
           }
           handleEdit={() => {
             setModal(false);
-            setConfirm(true);
-            setTimeout(() => {
-              setConfirm(false);
-            }, 5000);
+            parks.setWarningModalName(warningModalNames.edit);
           }}
         >
           <ParkModalTab />
-        </ModalComponent>
-
-        <ModalComponent
-          title={"Изменить состояние"}
-          okText={"Да"}
-          danger
-          visible={confirm}
-          handleCancel={() => setConfirm(false)}
-          handleOk={() => {
-            setConfirm(false);
-            parks.updateParkRepaint();
-          }}
-          cancelText="Отмена"
-        >
-          <ParkModalWarning
-            text={`Вы собираетесь изменить Состояние территорий Вы уверены?`}
-          />
         </ModalComponent>
 
         <Table

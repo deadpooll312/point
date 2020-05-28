@@ -11,12 +11,12 @@ export const ParkModalTab = inject("store")(
 
     useEffect(() => {
       parks.getSinglePark();
-    }, [parks, parks.selectedPark]);
+    }, [parks]);
 
     return (
       <Tabs animated={false} defaultActiveKey={activeTab} className="park-modal-tabs">
         <TabPane tab="Сведения" key="1">
-          <ParkInfo parks={parks} />
+          <ParkInfo />
         </TabPane>
         <TabPane tab="Скопление" key="2">
           <ParkCluster />
