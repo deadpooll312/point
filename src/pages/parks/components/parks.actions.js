@@ -45,7 +45,12 @@ export const ParksActions = inject("store")(
     return (
       <div className="parks__header">
         <ParksActionButtons parks={parks} onSelectedItems={onSelectedItems} />
-        <PaginationComponent parks={parks} onSize={onSizeChange} onChange={onChange} />
+        <PaginationComponent
+          parks={parks}
+          totalItemsCount={parks.data.length < 9 ? 1 : 450}
+          onSize={onSizeChange}
+          onChange={onChange}
+        />
       </div>
     );
   })

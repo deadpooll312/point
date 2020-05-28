@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Select} from "antd";
 import {PaginateComponent} from "./paginate.component";
 const {Option} = Select;
 
 // eslint-disable-next-line react/prop-types
-export const PaginationComponent = ({onChange, onSize, parks}) => {
+export const PaginationComponent = ({onChange, onSize, parks, totalItemsCount}) => {
   const options = [10, 20, 50];
   const [count, setCount] = useState(options[0]);
 
@@ -26,7 +26,7 @@ export const PaginationComponent = ({onChange, onSize, parks}) => {
         ))}
       </Select>
       <PaginateComponent
-        totalItemsCount={parks.data.left < 9 ? 9 : 450}
+        totalItemsCount={totalItemsCount}
         onChange={onChange}
         count={count}
       />
