@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 import update from "immutability-helper";
@@ -10,13 +10,13 @@ import {ParkDrawButtons} from "./park.draw.buttons";
 
 export const ParksDrawer = inject("store")(
   observer(({store: {sidebar, parks}}) => {
+    const setIndex = (data) => data.slice().map((item, index) => ({...item, index}));
+
+    const [cards, setCards] = useState(setIndex(parks.columns));
+
     const onClose = useCallback(() => {
       sidebar.toggleDrawer(false);
     }, [sidebar]);
-
-    const [cards, setCards] = useState(
-      parks.columns.slice().map((item, index) => ({...item, index}))
-    );
 
     const moveCard = useCallback(
       (dragIndex, hoverIndex) => {
@@ -43,6 +43,10 @@ export const ParksDrawer = inject("store")(
       },
       [cards]
     );
+
+    useEffect(() => {
+      setCards(setIndex(parks.columns));
+    }, [parks.columns]);
 
     return (
       <Drawer

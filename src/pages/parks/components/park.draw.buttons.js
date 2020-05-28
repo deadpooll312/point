@@ -1,10 +1,12 @@
 import React, {useCallback} from "react";
 import {Button} from "antd";
-import {tableColumns} from "../../../consts/parks.const";
+import {tableColumns} from "~/consts/parks.const";
 
 export const ParkDrawButtons = ({parks, cards}) => {
   const redesign = useCallback(
-    (value) => parks.updateColumns(value ? cards : tableColumns),
+    (value) => {
+      parks.updateColumns(value ? cards : tableColumns);
+    },
     [cards, parks]
   );
 
