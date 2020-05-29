@@ -9,3 +9,9 @@
 .header-menu-icon {
   color: $iconColor;
 }
+
+.parks__title {
+  .ant-typography {
+    color: $filtersHeader;
+  }
+}

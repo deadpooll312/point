@@ -12,7 +12,11 @@ export const ParkDrawButtons = ({parks, cards}) => {
 
   return (
     <div className="buttons">
-      <Button type="primary" onClick={() => redesign(true)}>
+      <Button
+        type="primary"
+        className="filter-button-rename"
+        onClick={() => redesign(true)}
+      >
         Переоформить
       </Button>
       <Button className="filter-button-default" onClick={() => redesign(false)}>

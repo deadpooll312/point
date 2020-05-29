@@ -10,11 +10,14 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-    .filter-button-default {
-      border: 1px solid $green;
-      color: $green;
-      background: $modalBackground;
-    }
+  }
+  .filter-button-default {
+    border: 1px solid $green;
+    color: $green;
+    background: $modalBackground;
+  }
+  .filter-button-rename {
+    color: $white;
   }
   .ant-drawer-wrapper-body,
   .ant-drawer-header {
@@ -24,7 +27,7 @@
     background: $modalBackground;
     border: 1px solid $modalBackground;
     .ant-drawer-title {
-      color: $modalText;
+      color: $filtersHeader;
     }
   }
 }
@@ -36,10 +39,14 @@
   margin: 5px 0;
   padding: 5px 10px;
   cursor: move;
-  background: $light-green2;
+  background: $drawItemColor;
 }
 
 .ant-checkbox-checked .ant-checkbox-inner {
   background: $checkboxColor;
   border-color: $checkboxColor;
+}
+
+.ant-checkbox-wrapper {
+  color: #000;
 }
