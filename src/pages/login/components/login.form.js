@@ -18,8 +18,8 @@ export const LoginForm = inject("store")(
         <div className="login-emblem">
           <div className="login-coat-of-arms-logo" />
           <div className="login-arm">
-            <h2 className="login-arm-name"> АРМ </h2>
-            <h2 className="login-arm-name"> ЦОПД </h2>
+            <h2 className="login-arm-name"> Ситуационный Центр</h2>
+            <h2 className="login-arm-name"> ПАРК </h2>
           </div>
         </div>
         <div className="login-divider-wrap">
