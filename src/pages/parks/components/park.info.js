@@ -131,15 +131,23 @@ export const ParkInfo = inject("store")(
         </Row>
         <Row>
           <Col span={12}>
-            <div className="park-info__outline">
+            <div>
               <span>Выявлено камерами ИНС</span>
-              <p>{data.percentInfo && data.percentInfo.camCount} чел.</p>
+              <p>
+                {data.percentInfo && data.percentInfo.camCount
+                  ? `${data.percentInfo.camCount} чел.`
+                  : "Данные отсутствуют"}{" "}
+              </p>
             </div>
           </Col>
           <Col span={12}>
-            <div className="park-info__outline">
+            <div>
               <span>Выявлено системой Об.Конт-ля</span>
-              <p>{data.percentInfo && data.percentInfo.cellularCount} чел.</p>
+              <p>
+                {data.percentInfo && data.percentInfo.cellularCount
+                  ? `${data.percentInfo.cellularCount} чел.`
+                  : "Данные отсутствуют"}
+              </p>
             </div>
           </Col>
         </Row>
