@@ -1,22 +1,22 @@
-import React, {useState} from "react";
-import Pagination from "react-js-pagination";
+import React from "react";
+import {Typography} from "antd";
+import {LeftOutlined, RightOutlined} from "@ant-design/icons";
+const {Text} = Typography;
 
-export const PaginateComponent = ({onChange, count, totalItemsCount}) => {
-  const [page, setPage] = useState(1);
-
+export const PaginateComponent = ({onChange, hasNextPage}) => {
   return (
-    <div className="pagination-wrapper">
-      <Pagination
-        activePage={page}
-        itemsCountPerPage={count}
-        totalItemsCount={totalItemsCount}
-        hideFirstLastPages
-        pageRangeDisplayed={5}
-        onChange={(page) => {
-          setPage(page);
-          onChange(page);
-        }}
-      />
+    <div className="paginate">
+      <Text onClick={() => onChange()}>
+        <LeftOutlined />
+        Пред. страница
+      </Text>
+      <Text
+        disabled={!hasNextPage}
+        onClick={() => (hasNextPage ? onChange(true) : undefined)}
+      >
+        След. страница
+        <RightOutlined />
+      </Text>
     </div>
   );
 };

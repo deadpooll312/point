@@ -8,13 +8,19 @@ export class ParksAction {
   getParks() {
     axiosInstance
       .get("incident", {params: this.params})
-      .then(({data: {elements}}) => (this.data = elements));
+      .then(({data: {elements, hasNextPage}}) => {
+        this.data = elements;
+        this.hasParksNextPage = hasNextPage;
+      });
   }
 
   getClusters() {
     axiosInstance
       .get("incident/clusters", {params: this.clusterParams})
-      .then(({data}) => (this.clusters = data));
+      .then(({data: {elements, hasNextPage}}) => {
+        this.clusters = elements;
+        this.hasClustersNextPage = hasNextPage;
+      });
   }
 
   updateClusterParams(params) {
@@ -27,7 +33,7 @@ export class ParksAction {
 
   updateActiveFilter(item) {
     this.activeFilter = item;
-    this.updateParams({groupType: item.sortOrder});
+    this.updateParams({groupType: item.sortOrder, page: 0});
   }
 
   getFilters(group) {

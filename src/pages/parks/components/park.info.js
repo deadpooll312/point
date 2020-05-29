@@ -16,32 +16,25 @@ export const ParkInfo = inject("store")(
       setData(parks.singlePark);
     }, [parks.singlePark]);
     
-    
     return (
       <div className="park-info">
         <Row>
-          <Col span={12}>
-            <div className="park-info__outline">
+          <Col span={10}>
+            <div>
               <span>Округ/Район</span>
               <p>
                 {data.regionName || "-"}/{data.districtName || "-"}.
               </p>
             </div>
-            <div className="park-info__outline">
-              <span>Балансодержатель</span>
-              <p>{data.organization || "-"}</p>
-            </div>
-            <div className="park-info__outline">
-              <span>Общая площадь</span>
-              <p>{data.ssum || "-"}</p>
-            </div>
           </Col>
-          <Col span={12}>
-            <div className="park-info__outline">
+          <Col span={5}>
+            <div>
               <span>Статус</span>
               <p>{data.availableName || "-"}</p>
             </div>
-            <div className="park-info__outline">
+          </Col>
+          <Col span={9}>
+            <div>
               <span>Состояние (цвет) территории</span>
               <div className={colorClass}>
                 {data.crowdColor && (
@@ -55,13 +48,29 @@ export const ParkInfo = inject("store")(
                 )}
               </div>
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={10}>
+            <div className="park-info__outline">
+              <span>Балансодержатель</span>
+              <p>{data.organization || "-"}</p>
+            </div>
+          </Col>
+          <Col span={5}>
+            <div className="park-info__outline">
+              <span>Общая площадь</span>
+              <p>{data.ssum || "-"}</p>
+            </div>
+          </Col>
+          <Col span={9}>
             <div className="park-info__outline">
               <span>MAX посетителей</span>
               <p>{data.maxVisitor || "-"}</p>
             </div>
           </Col>
         </Row>
-        <br/>
+        
         <h2>Ответственные лица</h2>
         <Row>
           <Col span={12}>
@@ -79,10 +88,11 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
         </Row>
-        <br/>
+        
         <h2>Оценка загруженности территории</h2>
-        <Row gutter={16}>
-          <Col span={12}>
+        <Row gutter={24}>
+          
+          <Col span={8}>
             <div className="park-info__outline">
               <span>Выявлено жителями</span>
               <p>
@@ -93,6 +103,8 @@ export const ParkInfo = inject("store")(
                 right={data.percentInfo && data.percentInfo.user.falsePercent}
               />
             </div>
+          </Col>
+          <Col span={8}>
             <div className="park-info__outline">
               <span>Выявлено инспектором</span>
               <p>
@@ -104,6 +116,8 @@ export const ParkInfo = inject("store")(
                 right={data.percentInfo && data.percentInfo.inspector.falsePercent}
               />
             </div>
+          </Col>
+          <Col span={8}>
             <div className="park-info__outline">
               <span>Выявлено балансодержателем</span>
               <p>
@@ -115,14 +129,18 @@ export const ParkInfo = inject("store")(
               />
             </div>
           </Col>
+        </Row>
+        <Row>
           <Col span={12}>
-            <div className="park-info__outline">
+            <div>
               <span>Выявлено камерами ИНС</span>
-              <p>{data.percentInfo && data.percentInfo.camCount} чел.</p>
+              <p>{data.percentInfo && data.percentInfo.camCount ? `${data.percentInfo.camCount} чел.` : "Данные отсутствуют"} </p>
             </div>
-            <div className="park-info__outline">
+          </Col>
+          <Col span={12}>
+            <div>
               <span>Выявлено системой Об.Конт-ля</span>
-              <p>{data.percentInfo && data.percentInfo.cellularCount} чел.</p>
+              <p>{data.percentInfo && data.percentInfo.cellularCount ? `${data.percentInfo.cellularCount} чел.` : "Данные отсутствуют"}</p>
             </div>
           </Col>
         </Row>

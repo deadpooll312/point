@@ -3,6 +3,7 @@ import {Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {clusterColumns} from "~/consts/parks.const";
 import {PaginateComponent} from "../../../components/paginate.component";
+import {getPageCount} from "../../../services/pagination.helper";
 
 export const ParkCluster = inject("store")(
   observer(({store: {parks}}) => {
@@ -12,8 +13,10 @@ export const ParkCluster = inject("store")(
     }, [parks]);
 
     const onPaginate = useCallback(
-      (value) => {
-        parks.updateClusterParams({page: value - 1});
+      (isNext) => {
+        const page = getPageCount(parks.clusterParams.page, isNext);
+
+        parks.updateClusterParams({page});
         parks.getClusters();
       },
       [parks]
@@ -35,7 +38,10 @@ export const ParkCluster = inject("store")(
           dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
           pagination={false}
         />
-        <PaginateComponent count={10} totalItemsCount={750} onChange={onPaginate} />
+        <PaginateComponent
+          hasNextPage={parks.hasClustersNextPage}
+          onChange={onPaginate}
+        />
       </div>
     );
   })

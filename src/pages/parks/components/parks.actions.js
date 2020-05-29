@@ -8,22 +8,6 @@ export const ParksActions = inject("store")(
   observer(({store: {parks}}) => {
     const [isForOpening, setOpening] = useState(false);
 
-    const onChange = useCallback(
-      (page) => {
-        parks.updateParams({page: page - 1});
-        parks.getParks();
-      },
-      [parks]
-    );
-
-    const onSizeChange = useCallback(
-      (size) => {
-        parks.updateParams({size});
-        parks.getParks();
-      },
-      [parks]
-    );
-
     const onSelectedItems = useCallback(
       (open) => {
         if (parks.selectedItems.length) {
@@ -45,12 +29,7 @@ export const ParksActions = inject("store")(
     return (
       <div className="parks__header">
         <ParksActionButtons parks={parks} onSelectedItems={onSelectedItems} />
-        <PaginationComponent
-          parks={parks}
-          totalItemsCount={parks.data.length < 9 ? 1 : 450}
-          onSize={onSizeChange}
-          onChange={onChange}
-        />
+        <PaginationComponent />
       </div>
     );
   })

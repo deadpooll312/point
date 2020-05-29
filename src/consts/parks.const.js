@@ -2,17 +2,19 @@ import React from "react";
 import {PositiveIcon} from "../icons/positive.icon";
 import {NegativeIcon} from "../icons/negative.icon";
 import {PhotoIcon} from "../icons/photo.icon";
+
 export const tableColumns = [
   {
     title: "Требует акцепта",
     width: 80,
     dataIndex: "sysViewName",
     isActive: true,
+    render: value => value === "Да" ? <b>{value}</b> : value
   },
   {
     title: "ID",
     dataIndex: "id",
-    width: 10,
+    width: 80,
     isActive: true,
     defaultSortOrder: "descend",
   },
@@ -21,6 +23,7 @@ export const tableColumns = [
     dataIndex: "name",
     width: 200,
     isActive: true,
+    ellipsis: true,
     render: (value) => value || "-",
   },
   {
@@ -29,7 +32,7 @@ export const tableColumns = [
     dataIndex: "available",
     isActive: true,
     render: (value) => {
-      return value ? <PositiveIcon /> : <NegativeIcon />;
+      return value ? <PositiveIcon/> : <NegativeIcon/>;
     },
   },
   {
@@ -55,7 +58,7 @@ export const tableColumns = [
   },
   {
     title: "Наличие ограждений",
-    width: 100,
+    width: 80,
     dataIndex: "fence",
     isActive: true,
     render: (value) => {
@@ -64,16 +67,17 @@ export const tableColumns = [
   },
   {
     title: "Возм. места скопления людей",
-    width: 150,
+    width: 80,
     dataIndex: "crowPoint",
     isActive: true,
+    textWrap: "word-break",
     render: (value) => {
       return <span>{value ? "Есть" : "Нет"}</span>;
     },
   },
   {
     title: "Количество входов",
-    width: 80,
+    width: 70,
     dataIndex: "enterCount",
     isActive: true,
     render: (value) => value || "-",

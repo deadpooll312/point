@@ -13,6 +13,8 @@ class ParksStore extends ParksAction {
   activeFilter = {};
   clusters = [];
   warningModalName = null;
+  hasParksNextPage = false;
+  hasClustersNextPage = false;
 }
 
 // eslint-disable-next-line no-class-assign
@@ -28,6 +30,8 @@ ParksStore = decorate(ParksStore, {
   activeFilter: observable,
   clusters: observable,
   warningModalName: observable,
+  hasParksNextPage: observable,
+  hasClustersNextPage: observable,
 });
 
 export default new ParksStore();

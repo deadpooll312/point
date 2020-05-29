@@ -19,6 +19,15 @@
   .active {
     background: $paginationActiveColor;
     border-radius: 3px;
+}
+}
+
+.paginate {
+  display: flex;
+  align-items: center;
+  .ant-typography {
+    cursor: pointer;
+    margin: 0 5px;
   }
 
 }
