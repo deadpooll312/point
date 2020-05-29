@@ -69,6 +69,10 @@ export class ParksAction {
     this.singlePark = {...this.singlePark, updatedColor: crowdColor};
   }
 
+  clearSinglePark() {
+    this.singlePark = {};
+  }
+
   updateColumns(value) {
     setStorage(columns, value);
     this.columns = value;
