@@ -65,7 +65,7 @@ export const Sidebar = inject("store")(
     };
 
     return (
-      <Sider className={sidebar.showBar ? "small" : ""}>
+      <Sider className={sidebar.showBar ? "small" : ""} width={256}>
         <SidebarHeader auth={auth} parks={parks} />
         <div className="options">
           {data &&

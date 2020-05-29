@@ -13,7 +13,7 @@ export const SidebarHeader = ({auth: {firstName, lastName}, parks}) => {
     <div className="sider-header">
       <div className="logo" onClick={onClick}>
         <ForestIcon width={32} height={32} color="#c5d7ec" />
-        <span>АРМ ЦОПД</span>
+        <span>Ситуационный Центр ПАРК</span>
       </div>
       <div className="user">
         <Avatar style={{backgroundColor: "#3f79bf"}} icon={<UserOutlined />} />
