@@ -21,11 +21,12 @@ export const SelectComponent = ({
 
   return (
     <Select
-      className="simple-select"
+      className={`simple-select simple-select-${value.value}`}
       mode={type}
       value={value}
       style={{width: width || 240}}
       placeholder={placeholder}
+      bordered={false}
       onChange={(v) => {
         setValue(v);
         handleChange(v);
