@@ -3,6 +3,7 @@ import {tableColumns} from "~/consts/parks.const";
 import {getStorage, setStorage} from "~/services/storage.service";
 import {columns} from "~/consts/storage.conts";
 import {showSuccess} from "~/services/notifications.service";
+import {modalParkStatuses} from "~/consts/modal.const";
 
 export class ParksAction {
   getParks() {
@@ -25,6 +26,10 @@ export class ParksAction {
 
   updateClusterParams(params) {
     this.clusterParams = {...this.clusterParams, ...params};
+  }
+
+  onParkUpdated(value) {
+    this.isParkUpdated = value;
   }
 
   updateParams(param) {
@@ -93,7 +98,8 @@ export class ParksAction {
         showSuccess(
           "Состояние территории изменено! Данные обновятся в течении 10 секунд."
         );
-      });
+      })
+      .catch(() => this.onParkUpdated(modalParkStatuses.canceled));
   }
 
   getColumns() {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Select} from "antd";
 const {Option} = Select;
 
@@ -13,34 +13,24 @@ export const SelectComponent = ({
   placeholder,
   data,
   type,
-  defaultValue,
+  value,
   labelInValue,
   width,
+  selectClassName,
 }) => {
-  const [value, setValue] = useState(defaultValue);
-
   return (
     <Select
-      className={`simple-select simple-select-${value.value}`}
+      className={`simple-select ${selectClassName}`}
       mode={type}
       value={value}
       style={{width: width || 240}}
       placeholder={placeholder}
       bordered={false}
-      onChange={(v) => {
-        setValue(v);
-        handleChange(v);
-      }}
+      onChange={handleChange}
       labelInValue={labelInValue}
     >
       {data.map((item) => (
-        <Option
-          key={item.value}
-          onClick={() => {
-            console.log(item);
-          }}
-          className={item.className}
-        >
+        <Option key={item.value} className={item.className}>
           {item.label}
         </Option>
       ))}
