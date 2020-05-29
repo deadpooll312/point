@@ -25,6 +25,15 @@ export const ParksTable = inject("store")(
       setData(elements);
     }, [parks.data]);
 
+    useEffect(() => {
+      if (
+        parks.singlePark.updatedColor &&
+        parks.singlePark.crowdColor !== parks.singlePark.updatedColor
+      ) {
+        parks.setWarningModalName(warningModalNames.edit);
+      }
+    }, [parks.singlePark]);
+
     const rowSelection = {
       selectedRowKeys: parks.selectedIds,
       onChange: (selectedRowKeys) => {
@@ -69,17 +78,6 @@ export const ParksTable = inject("store")(
           visible={showModal}
           danger={isAvailableToChange()}
           title={item.name || "title"}
-          dangerEdit
-          editText={
-            parks.singlePark.updatedColor &&
-            parks.singlePark.crowdColor !== parks.singlePark.updatedColor
-              ? "Изменить состояние"
-              : null
-          }
-          handleEdit={() => {
-            setModal(false);
-            parks.setWarningModalName(warningModalNames.edit);
-          }}
         >
           <ParkModalTab />
         </ModalComponent>
