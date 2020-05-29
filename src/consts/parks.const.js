@@ -9,7 +9,8 @@ export const tableColumns = [
     width: 80,
     dataIndex: "sysViewName",
     isActive: true,
-    render: value => value === "Да" ? <b>{value}</b> : value
+    // eslint-disable-next-line react/display-name
+    render: (value) => (value === "Да" ? <b>{value}</b> : value),
   },
   {
     title: "ID",
@@ -31,8 +32,9 @@ export const tableColumns = [
     width: 80,
     dataIndex: "available",
     isActive: true,
+    // eslint-disable-next-line react/display-name
     render: (value) => {
-      return value ? <PositiveIcon/> : <NegativeIcon/>;
+      return value ? <PositiveIcon /> : <NegativeIcon />;
     },
   },
   {
@@ -61,6 +63,7 @@ export const tableColumns = [
     width: 80,
     dataIndex: "fence",
     isActive: true,
+    // eslint-disable-next-line react/display-name
     render: (value) => {
       return <span>{value ? "Есть" : "Нет"}</span>;
     },
@@ -71,6 +74,7 @@ export const tableColumns = [
     dataIndex: "crowPoint",
     isActive: true,
     textWrap: "word-break",
+    // eslint-disable-next-line react/display-name
     render: (value) => {
       return <span>{value ? "Есть" : "Нет"}</span>;
     },
@@ -130,6 +134,7 @@ export const clusterColumns = [
     title: "Материалы",
     key: "recordId",
     dataIndex: "recordId",
+    // eslint-disable-next-line react/display-name
     render: () => <PhotoIcon />,
   },
   {
