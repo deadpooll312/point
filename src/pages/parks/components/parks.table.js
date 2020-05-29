@@ -3,10 +3,10 @@ import {Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {emptyData} from "~/consts/text.const";
 import {ModalComponent} from "~/components/modal.component";
-import {ParkModalTab} from "./park.modal.tab";
 import {sysViewNameNo} from "~/consts/text.const";
 import {warningModalNames} from "~/consts/modal.const";
-import {getStorage} from "../../../services/storage.service";
+import {getStorage} from "~/services/storage.service";
+import {ParkModalTab} from "./park.modal.tab";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks}}) => {
@@ -41,9 +41,29 @@ export const ParksTable = inject("store")(
     const rowSelection = {
       selectedRowKeys: parks.selectedIds,
       onChange: (selectedRowKeys) => {
-        parks.selectItems(data.filter((i) => selectedRowKeys.includes(i.id)));
-        parks.selectItemIds(selectedRowKeys);
+        // TODO hardcode сделать как будет массовое закрытие парка
+        const isSingle = true;
+        if (isSingle) {
+          selectSingle(selectedRowKeys);
+        } else {
+          parks.selectItems(data.filter((i) => selectedRowKeys.includes(i.id)));
+          parks.selectItemIds(selectedRowKeys);
+        }
       },
+    };
+
+    const selectSingle = (selectedRowKeys) => {
+      if (selectedRowKeys.length) {
+        const selectedId = selectedRowKeys[selectedRowKeys.length - 1];
+        parks.selectItems(data.filter((i) => i.id === selectedId));
+        parks.selectItemIds([selectedId]);
+        // TODO hardcode сделать как будет массовое закрытие парка
+        parks.setSelectedPark(data.find((item) => item.id === selectedId));
+        parks.updateSinglePark(data.find((item) => item.id === selectedId));
+      } else {
+        parks.selectItems([]);
+        parks.selectItemIds([]);
+      }
     };
 
     const onRow = useCallback(
