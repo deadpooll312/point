@@ -1,4 +1,9 @@
-.ant-table-tbody > tr > td,
+.ant-table-tbody > tr > td {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid $white;
+}
+
 .ant-table-column-sorters {
   padding: 5px;
   text-align: center;
@@ -7,4 +12,20 @@
 .ant-table-thead th.ant-table-column-has-sorters,
 .ant-table-thead > tr > th {
   text-align: center;
+  background: $white;
+  border-bottom: 1px solid $white;
+}
+
+.ant-table-content {
+  background: $white;
+}
+
+.ant-table-row {
+  //border: 1px solid $white;
+  color: $filtersHeader;
+}
+
+.ant-table-thead > tr > th {
+  color: $tableHeader;
+  background: $tableHeaderColor;
 }

@@ -20,7 +20,7 @@ export const SidebarSettings = memo(() => {
         visible={visible}
       >
         <React.Fragment>
-          <h3>Внешний вид</h3>
+          <h3 className="sidebar-theme-header">Внешний вид</h3>
           <SidebarTheme />
         </React.Fragment>
       </ModalComponent>

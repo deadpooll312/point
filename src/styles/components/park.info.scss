@@ -1,7 +1,16 @@
 .park-info {
   p {
-    color: #000;
+    color: $modalText;
     margin: 0;
+  }
+
+  span {
+    color: $modalSubHeader;
+  }
+
+  h3,
+  h2 {
+    color: $filtersHeader;
   }
 
   &__outline {

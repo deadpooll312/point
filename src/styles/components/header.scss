@@ -1,7 +1,17 @@
 .ant-layout-header {
-  background: $blue;
+  background: $headerColor;
   color: $white;
   justify-content: space-between;
   display: flex;
   align-items: center;
+}
+
+.header-menu-icon {
+  color: $iconColor;
+}
+
+.parks__title {
+  .ant-typography {
+    color: $filtersHeader;
+  }
 }
