@@ -90,7 +90,7 @@ export class ParksAction {
         territoryCode: this.selectedPark.id,
       })
       .then(() => {
-        showSuccess("Состояние территории изменено!");
+        showSuccess("<p>Состояние территории изменено!</p><p>Данные обновятся в течении 10 секунд.</p>");
       });
   }
 
