@@ -38,3 +38,8 @@
   cursor: move;
   background: $light-green2;
 }
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background: $checkboxColor;
+  border-color: $checkboxColor;
+}
