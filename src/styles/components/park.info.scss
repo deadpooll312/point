@@ -1,6 +1,6 @@
-$color-low: #58A621;
-$color-middle: #F2994A;
-$color-critical: #F26161;
+$color-low: #58a621;
+$color-middle: #f2994a;
+$color-critical: #f26161;
 
 .park-info {
   p {
@@ -20,11 +20,11 @@ $color-critical: #F26161;
   color: $color-low;
 
   &.ant-select-item-option-selected {
-    background-color: rgba($color-low, .25);
+    background-color: rgba($color-low, 0.25);
     color: $color-low;
   }
 
-  & .ant-select-selection-item{
+  & .ant-select-selection-item {
     color: $color-low;
   }
 }
@@ -33,11 +33,11 @@ $color-critical: #F26161;
   color: $color-middle;
 
   &.ant-select-item-option-selected {
-    background-color: rgba( $color-middle, .25);
+    background-color: rgba($color-middle, 0.25);
     color: $color-middle;
   }
 
-  & .ant-select-selection-item{
+  & .ant-select-selection-item {
     color: $color-middle;
   }
 }
@@ -46,13 +46,11 @@ $color-critical: #F26161;
   color: $color-critical;
 
   &.ant-select-item-option-selected {
-    background-color: rgba($color-critical, .25);
+    background-color: rgba($color-critical, 0.25);
     color: $color-critical;
   }
 
-  & .ant-select-selection-item{
+  & .ant-select-selection-item {
     color: $color-critical;
   }
 }
-
-
