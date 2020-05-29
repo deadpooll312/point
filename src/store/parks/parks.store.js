@@ -15,6 +15,7 @@ class ParksStore extends ParksAction {
   warningModalName = null;
   hasParksNextPage = false;
   hasClustersNextPage = false;
+  isParkUpdated = null;
 }
 
 // eslint-disable-next-line no-class-assign
@@ -32,6 +33,7 @@ ParksStore = decorate(ParksStore, {
   warningModalName: observable,
   hasParksNextPage: observable,
   hasClustersNextPage: observable,
+  isParkUpdated: observable,
 });
 
 export default new ParksStore();

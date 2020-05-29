@@ -2,7 +2,7 @@ import React from "react";
 import {inject, observer} from "mobx-react";
 import {ParkModalWarning} from "./park.modal.warnning";
 import {ModalComponent} from "~/components/modal.component";
-import {warningModalNames} from "../../../consts/modal.const";
+import {modalParkStatuses, warningModalNames} from "~/consts/modal.const";
 
 export const ParkModals = inject("store")(
   observer(({store: {parks}}) => {
@@ -13,7 +13,10 @@ export const ParkModals = inject("store")(
           okText={"Да"}
           danger
           visible={parks.warningModalName === warningModalNames.edit}
-          handleCancel={() => parks.setWarningModalName(null)}
+          handleCancel={() => {
+            parks.onParkUpdated(modalParkStatuses.canceled);
+            parks.setWarningModalName(null);
+          }}
           handleOk={() => {
             parks.setWarningModalName(null);
             parks.updateParkRepaint();

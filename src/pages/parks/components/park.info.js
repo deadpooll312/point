@@ -1,20 +1,31 @@
 import React, {useEffect, useState} from "react";
 import {Col, Row} from "antd";
-import {ProgressComponent} from "../../../components/progress";
-import {SelectComponent} from "../../../components/select";
-import {crowdColorNames} from "../../../consts/parks.const";
 import {inject, observer} from "mobx-react";
+import {ProgressComponent} from "~/components/progress";
+import {SelectComponent} from "~/components/select";
+import {crowdColorNames} from "~/consts/parks.const";
+import {modalParkStatuses} from "../../../consts/modal.const";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = inject("store")(
   observer(({store: {parks}}) => {
     const [data, setData] = useState({});
+    const [value, setValue] = useState();
     const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
     const colorClass = tempItem ? tempItem.className : "";
 
     useEffect(() => {
       setData(parks.singlePark);
+      if (!value && parks.singlePark.crowdColor) {
+        setValue({value: parks.singlePark.crowdColor});
+      }
     }, [parks.singlePark]);
+
+    useEffect(() => {
+      if (parks.isParkUpdated === modalParkStatuses.canceled) {
+        setValue({value: parks.singlePark.crowdColor});
+      }
+    }, [parks.isParkUpdated]);
 
     return (
       <div className="park-info">
@@ -40,9 +51,14 @@ export const ParkInfo = inject("store")(
                 {data.crowdColor && (
                   <SelectComponent
                     data={crowdColorNames}
+                    selectClassName={`simple-select-${value.value}`}
                     labelInValue={true}
-                    defaultValue={{value: data.crowdColor}}
-                    handleChange={({value}) => parks.updateCrowdColorName(value)}
+                    value={value}
+                    handleChange={({value}) => {
+                      setValue({value});
+                      parks.updateCrowdColorName(value);
+                      parks.onParkUpdated(null);
+                    }}
                     placeholder={data.crowdColorName}
                   />
                 )}

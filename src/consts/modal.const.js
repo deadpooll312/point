@@ -5,3 +5,8 @@ export const warningModalNames = {
   open: "OPEN",
   edit: "EDIT",
 };
+
+export const modalParkStatuses = {
+  updated: "UPDATED",
+  canceled: "CANCELED",
+};
