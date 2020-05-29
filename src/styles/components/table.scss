@@ -8,3 +8,15 @@
 .ant-table-thead > tr > th {
   text-align: center;
 }
+
+.ant-table-tbody > tr.ant-table-row-selected.green > td{
+  background-color: darker(#f2ffeb, 3)
+}
+
+.ant-table-tbody > tr.ant-table-row-selected.red > td{
+  background-color: darker(#ffe9ea, 2);
+}
+
+.ant-table-tbody > tr.ant-table-row-selected.yellow > td{
+  background-color: darker(#fff9dc, 2);
+}
