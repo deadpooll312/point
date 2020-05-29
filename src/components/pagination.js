@@ -29,10 +29,10 @@ export const PaginationComponent = inject("store")(
 
     return (
       <div className="pagination-wrapper">
-        <span>Показывать:</span>
+        <span className="pagination-color">Показывать:</span>
         <Select defaultValue={10} onChange={onSizeChange} bordered={false}>
           {options.map((value) => (
-            <Option key={value} value={value}>
+            <Option key={value} value={value} className="pagination-color">
               {value}
             </Option>
           ))}

@@ -5,6 +5,11 @@
   .pagination {
     margin: 0 10px;
   }
+  span.ant-select-selection-item,
+  span.ant-select-arrow,
+  .pagination-color {
+    color: $paginationColor;
+  }
 }
 
 .paginate {
@@ -13,5 +18,6 @@
   .ant-typography {
     cursor: pointer;
     margin: 0 5px;
+    color: $paginationColor;
   }
 }

@@ -2,6 +2,10 @@
   border-bottom: 1px solid #eee;
 }
 
+.ant-select-selector {
+  background: $modalBackground;
+}
+
 .simple-select-yellow {
   .ant-select-selection-item {
     color: $color-middle;

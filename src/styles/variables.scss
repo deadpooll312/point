@@ -3,7 +3,21 @@ html {
   --bg: #fff;
   --text: #5a5a5a;
   --headerText: #5a5a5a;
+  --headerColor: #3f7abf;
+  --paginationColor: #333;
+  --paginationActiveColor: #ecf2fa;
   --iconColor: #818e9b;
+  --modalBackground: #fff;
+  --modalText: #818e9b;
+  --modalSubHeader: #000;
+  --tableHeader: #909090;
+  --iconColor: #818e9b;
+  --checkboxColor: #3f7abf;
+  --drawItemColor: #eef6e9;
+  --filtersHeader: #000;
+  --tableRowGreen: #f2ffeb;
+  --tableRowYellow: #fff9dc;
+  --tableRowRed: #ffe9ea; 
   --blue: #3f7abf;
   --white: #fff;
   --green: #58a621;
@@ -14,17 +28,31 @@ html {
 }
 // DARK THEME
 html[theme="dark"] {
-  --bg: #5287c5;
+  --bg: #2c5586;
   --text: #fff;
-  --headerText: #000;
+  --headerText: #fff;
+  --headerColor: #2c5586;
+  --paginationColor: #6c757e;
+  --paginationActiveColor: #707070;
+  --modalBackground: #000;
+  --modalText: #fff;
+  --modalSubHeader: #818e9b;
+  --tableHeader: #909090;
+  --tableHeaderColor: #222222;
   --iconColor: #fff;
+  --checkboxColor: #3f7abf;
+  --drawItemColor: #abd390;
+  --filtersHeader: #fff;
+  --tableRowGreen: 	#254200;
+  --tableRowYellow: #453f07;
+  --tableRowRed: #370e0e; 
   --blue: #3f7abf;
-  --white: #fff;
+  --white: #333333;
   --green: #58a621;
   --grey: #747474;
   --light-grey: #818e9b;
   --red: #f26161;
-  --contentColor: #3e7417;
+  --contentColor: #000;
 }
 
 // COLORS
@@ -32,10 +60,25 @@ $blue: var(--blue);
 $text: var(--text);
 $headerText: var(--headerText);
 $iconColor: var(--iconColor);
+$headerColor: var(--headerColor);
+$paginationColor: var(--paginationColor);
+$paginationActiveColor: var(--paginationActiveColor);
+$modalBackground: var(--modalBackground);
+$modalText: var(--modalText);
+$modalSubHeader: var(--modalSubHeader);
+$tableHeader: var(--tableHeader);
+$tableHeaderColor: var(--tableHeaderColor);
+$checkboxColor: var(--checkboxColor);
+$drawItemColor: var(--drawItemColor);
+$filtersHeader: var(--filtersHeader);
+$tableRowGreen: var(--tableRowGreen);
+$tableRowYellow: var(--tableRowYellow);
+$tableRowRed: var(--tableRowRed);
 $bg: var(--bg);
 $white: var(--white);
 $green: var(--green);
 $light-green: #eef6e9;
+$light-green2: #abd390;
 $grey: var(--grey);
 $light-grey: var(--light-grey);
 $red: var(--red);
