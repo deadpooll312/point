@@ -5,19 +5,13 @@
   .pagination {
     margin: 0 10px;
   }
-  ul {
-    list-style-type: none;
-    display: flex;
-  }
-  li {
-    padding: 3px 5px;
-    a {
-      color: #333;
-    }
-  }
+}
 
-  .active {
-    background: #ecf2fa;
-    border-radius: 3px;
+.paginate {
+  display: flex;
+  align-items: center;
+  .ant-typography {
+    cursor: pointer;
+    margin: 0 5px;
   }
 }

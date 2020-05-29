@@ -130,7 +130,7 @@ export const clusterColumns = [
     title: "Материалы",
     key: "recordId",
     dataIndex: "recordId",
-    render: () => <PhotoIcon/>,
+    render: () => <PhotoIcon />,
   },
   {
     title: "Источник",

@@ -3,7 +3,7 @@ import Icon from "@ant-design/icons";
 
 export const PhotoIcon = (props) => {
   const {color} = props;
-  const defaultColor = "var(--iconColor)";
+  const defaultColor = "#3f79bf";
 
   const PandaSvg = () => (
     <svg
