@@ -1,3 +1,21 @@
 .simple-select {
   border-bottom: 1px solid #eee;
 }
+
+.simple-select-yellow {
+  .ant-select-selection-item {
+    color: $color-middle;
+  }
+}
+
+.simple-select-green {
+  .ant-select-selection-item {
+    color: $color-low;
+  }
+}
+
+.simple-select-red {
+  .ant-select-selection-item {
+    color: $color-critical;
+  }
+}
