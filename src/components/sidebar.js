@@ -15,6 +15,7 @@ import {green} from "../consts/colors.const";
 import {SidebarHeader} from "./sidebar-components/sidebar.header";
 import {SidebarSettings} from "./sidebar-components/sidebar.settings";
 import {SidebarExit} from "./sidebar-components/sidebar.exit";
+import {setStorage} from "../services/storage.service";
 const {Sider} = Layout;
 
 export const Sidebar = inject("store")(
@@ -31,7 +32,9 @@ export const Sidebar = inject("store")(
 
     const click = useCallback(
       (groupType) => {
-        parks.updateActiveFilter(data.find((i) => i.sortOrder === groupType));
+        const activeFilter = data.find((i) => i.sortOrder === groupType);
+        setStorage("activeFilter", activeFilter);
+        parks.updateActiveFilter(activeFilter);
         parks.getParks();
       },
       [data, parks]

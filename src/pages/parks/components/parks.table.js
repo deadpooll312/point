@@ -6,6 +6,7 @@ import {ModalComponent} from "~/components/modal.component";
 import {ParkModalTab} from "./park.modal.tab";
 import {sysViewNameNo} from "~/consts/text.const";
 import {warningModalNames} from "~/consts/modal.const";
+import {getStorage} from "../../../services/storage.service";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks}}) => {
@@ -14,6 +15,9 @@ export const ParksTable = inject("store")(
     const [item, setItem] = useState({});
 
     useEffect(() => {
+      if (getStorage("activeFilter")) {
+        parks.updateActiveFilter(getStorage("activeFilter"));
+      }
       parks.getParks();
       setInterval(() => {
         parks.getParks();
