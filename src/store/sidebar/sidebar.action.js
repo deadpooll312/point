@@ -6,4 +6,8 @@ export class SidebarAction {
   toggleDrawer(value) {
     this.showDrawer = value;
   }
+
+  toggleDrawerFilters(value) {
+    this.showDrawerFilters = value;
+  }
 }
