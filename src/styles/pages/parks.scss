@@ -17,15 +17,15 @@
   }
 
   tr.green {
-    background: #f2ffeb;
+    background: $tableRowGreen;
   }
 
   tr.red {
-    background: #ffe9ea;
+    background: $tableRowRed;
   }
 
   tr.yellow {
-    background: #fff9dc;
+    background: $tableRowYellow;
   }
 
   h3 {
