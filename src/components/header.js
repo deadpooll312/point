@@ -16,7 +16,10 @@ export const HeaderComponent = inject("store")(
 
     return (
       <Header>
-        <MenuOutlined onClick={() => click(!sidebar.showBar)} />
+        <MenuOutlined
+          onClick={() => click(!sidebar.showBar)}
+          className="header-menu-icon"
+        />
         {/* <BellOutlined /> */}
       </Header>
     );

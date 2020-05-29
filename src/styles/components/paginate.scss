@@ -5,21 +5,9 @@
   .pagination {
     margin: 0 10px;
   }
-  ul {
-    list-style-type: none;
-    display: flex;
+  span.ant-select-selection-item, span.ant-select-arrow, .pagination-color {
+    color: $paginationColor;
   }
-  li {
-    padding: 3px 5px;
-    a {
-      color: $paginationColor;
-    }
-  }
-
-  .active {
-    background: $paginationActiveColor;
-    border-radius: 3px;
-}
 }
 
 .paginate {
@@ -28,6 +16,6 @@
   .ant-typography {
     cursor: pointer;
     margin: 0 5px;
+    color: $paginationColor;
   }
-
 }
