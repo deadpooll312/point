@@ -1,8 +1,9 @@
-.ant-tabs-nav  {
+.ant-tabs-nav {
   .ant-tabs-tab-active {
     color: $green;
   }
-  .ant-tabs-tab-active, .ant-tabs-tab {
+  .ant-tabs-tab-active,
+  .ant-tabs-tab {
     &:hover {
       color: $green;
     }

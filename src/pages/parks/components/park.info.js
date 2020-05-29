@@ -11,11 +11,11 @@ export const ParkInfo = inject("store")(
     const [data, setData] = useState({});
     const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
     const colorClass = tempItem ? tempItem.className : "";
-    
+
     useEffect(() => {
       setData(parks.singlePark);
     }, [parks.singlePark]);
-    
+
     return (
       <div className="park-info">
         <Row>
@@ -70,7 +70,7 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
         </Row>
-        
+
         <h2>Ответственные лица</h2>
         <Row>
           <Col span={12}>
@@ -88,10 +88,9 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
         </Row>
-        
+
         <h2>Оценка загруженности территории</h2>
         <Row gutter={24}>
-          
           <Col span={8}>
             <div className="park-info__outline">
               <span>Выявлено жителями</span>
@@ -134,17 +133,25 @@ export const ParkInfo = inject("store")(
           <Col span={12}>
             <div>
               <span>Выявлено камерами ИНС</span>
-              <p>{data.percentInfo && data.percentInfo.camCount ? `${data.percentInfo.camCount} чел.` : "Данные отсутствуют"} </p>
+              <p>
+                {data.percentInfo && data.percentInfo.camCount
+                  ? `${data.percentInfo.camCount} чел.`
+                  : "Данные отсутствуют"}{" "}
+              </p>
             </div>
           </Col>
           <Col span={12}>
             <div>
               <span>Выявлено системой Об.Конт-ля</span>
-              <p>{data.percentInfo && data.percentInfo.cellularCount ? `${data.percentInfo.cellularCount} чел.` : "Данные отсутствуют"}</p>
+              <p>
+                {data.percentInfo && data.percentInfo.cellularCount
+                  ? `${data.percentInfo.cellularCount} чел.`
+                  : "Данные отсутствуют"}
+              </p>
             </div>
           </Col>
         </Row>
       </div>
     );
-  }),
+  })
 );

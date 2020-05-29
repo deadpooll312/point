@@ -11,17 +11,18 @@ html {
   --modalText: #818E9B;
   --modalSubHeader: #000;
   --tableHeader: #909090;
-  --blue: #3F7ABF;
+  --iconColor: #818e9b;
+  --blue: #3f7abf;
   --white: #fff;
-  --green: #58A621;
+  --green: #58a621;
   --grey: #747474;
-  --light-grey: #818E9B;
-  --red: #F26161;
+  --light-grey: #818e9b;
+  --red: #f26161;
   --contentColor: #e6ede0;
 }
 // DARK THEME
-html[theme='dark'] {
-  --bg: #2c5586;
+html[theme="dark"] {
+  --bg: #2c5586;;
   --text: #fff;
   --headerText: #fff;
   --headerColor: #2c5586;
@@ -32,12 +33,12 @@ html[theme='dark'] {
   --modalSubHeader: #818E9B;
   --tableHeader: #909090;
   --iconColor: #fff;
-  --blue: #3F7ABF;
+  --blue: #3f7abf;
   --white: #333333;
-  --green: #58A621;
+  --green: #58a621;
   --grey: #747474;
-  --light-grey: #818E9B;
-  --red: #F26161;
+  --light-grey: #818e9b;
+  --red: #f26161;
   --contentColor: #000;
 }
 
@@ -72,11 +73,11 @@ body {
 }
 
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
-.radius3{
+.radius3 {
   border-radius: $radius3;
 }
 
-.radius5{
+.radius5 {
   border-radius: $radius5;
 }
 

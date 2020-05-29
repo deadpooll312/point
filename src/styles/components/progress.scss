@@ -14,13 +14,13 @@
     }
   }
 
-  &__percent, &__line {
+  &__percent,
+  &__line {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 5px;
   }
-
 
   &__line {
     width: 100%;
