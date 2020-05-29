@@ -44,6 +44,12 @@
     "bracketSpacing": false,
     "trailingComma": "es5"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
   "lint-staged": {
     "*.+(js|json|css|md)": [
       "prettier --write",
