@@ -38,7 +38,11 @@ export const ParkModals = inject("store")(
           }
           handleCancel={() => parks.setWarningModalName(null)}
           handleOk={() => {
-            if (parks.warningModalName === warningModalNames.open) {
+            // TODO разделить когда будет массовое подтверждение
+            if (
+              parks.warningModalName === warningModalNames.open ||
+              parks.warningModalName === warningModalNames.openCouple
+            ) {
               parks.colorAccept();
             }
             parks.setWarningModalName(null);
@@ -66,7 +70,10 @@ export const ParkModals = inject("store")(
           }
           handleCancel={() => parks.setWarningModalName(null)}
           handleOk={() => {
-            if (parks.warningModalName === warningModalNames.closed) {
+            if (
+              parks.warningModalName === warningModalNames.closed ||
+              parks.warningModalName === warningModalNames.closedCouple
+            ) {
               parks.colorAccept();
             }
             parks.setWarningModalName(null);

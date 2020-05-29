@@ -4,7 +4,7 @@ import {inject, observer} from "mobx-react";
 import {ProgressComponent} from "~/components/progress";
 import {SelectComponent} from "~/components/select";
 import {crowdColorNames} from "~/consts/parks.const";
-import {modalParkStatuses} from "../../../consts/modal.const";
+import {modalParkStatuses} from "~/consts/modal.const";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = inject("store")(
@@ -13,6 +13,10 @@ export const ParkInfo = inject("store")(
     const [value, setValue] = useState();
     const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
     const colorClass = tempItem ? tempItem.className : "";
+
+    useEffect(() => {
+      parks.clearSinglePark();
+    }, []);
 
     useEffect(() => {
       setData(parks.singlePark);

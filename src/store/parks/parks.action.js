@@ -1,6 +1,6 @@
 import axiosInstance from "~/api/api";
 import {tableColumns} from "~/consts/parks.const";
-import {getStorage, setStorage} from "~/services/storage.service";
+import {getStorage} from "~/services/storage.service";
 import {columns} from "~/consts/storage.conts";
 import {showSuccess} from "~/services/notifications.service";
 import {modalParkStatuses} from "~/consts/modal.const";
@@ -15,6 +15,20 @@ export class ParksAction {
       });
   }
 
+  updateParkRepaint() {
+    axiosInstance
+      .post("park/repaint", {
+        crowdColor: this.singlePark.updatedColor,
+        territoryCode: this.selectedPark.id,
+      })
+      .then(() => {
+        showSuccess(
+          "Состояние территории изменено! Данные обновятся в течении 10 секунд."
+        );
+      })
+      .catch(() => this.onParkUpdated(modalParkStatuses.canceled));
+  }
+
   getClusters() {
     axiosInstance
       .get("incident/clusters", {params: this.clusterParams})
@@ -22,6 +36,12 @@ export class ParksAction {
         this.clusters = elements;
         this.hasClustersNextPage = hasNextPage;
       });
+  }
+
+  getSinglePark() {
+    axiosInstance
+      .get(`incident/card?id=${this.selectedPark.id}`)
+      .then(({data}) => (this.singlePark = data));
   }
 
   updateClusterParams(params) {
@@ -59,19 +79,21 @@ export class ParksAction {
     this.selectedPark = park;
   }
 
-  getSinglePark() {
-    axiosInstance
-      .get(`incident/card?id=${this.selectedPark.id}`)
-      .then(({data}) => (this.singlePark = data));
-  }
-
   updateCrowdColorName(crowdColor) {
     this.singlePark = {...this.singlePark, updatedColor: crowdColor};
   }
 
+  clearSinglePark() {
+    this.singlePark = {};
+  }
+
   updateColumns(value) {
-    setStorage(columns, value);
+    // setStorage(columns, value);
     this.columns = value;
+  }
+
+  updateSinglePark(park) {
+    this.singlePark = park;
   }
 
   colorAccept() {
@@ -86,20 +108,6 @@ export class ParksAction {
 
   setWarningModalName(name) {
     this.warningModalName = name;
-  }
-
-  updateParkRepaint() {
-    axiosInstance
-      .post("park/repaint", {
-        crowdColor: this.singlePark.updatedColor,
-        territoryCode: this.selectedPark.id,
-      })
-      .then(() => {
-        showSuccess(
-          "Состояние территории изменено! Данные обновятся в течении 10 секунд."
-        );
-      })
-      .catch(() => this.onParkUpdated(modalParkStatuses.canceled));
   }
 
   getColumns() {
