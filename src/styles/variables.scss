@@ -3,12 +3,12 @@ html {
   --bg: #fff;
   --text: #5a5a5a;
   --headerText: #5a5a5a;
-  --headerColor: #3F7ABF;
+  --headerColor: #3f7abf;
   --paginationColor: #333;
   --paginationActiveColor: #ecf2fa;
-  --iconColor: #818E9B;
+  --iconColor: #818e9b;
   --modalBackground: #fff;
-  --modalText: #818E9B;
+  --modalText: #818e9b;
   --modalSubHeader: #000;
   --tableHeader: #909090;
   --iconColor: #818e9b;
@@ -22,7 +22,7 @@ html {
 }
 // DARK THEME
 html[theme="dark"] {
-  --bg: #2c5586;;
+  --bg: #2c5586;
   --text: #fff;
   --headerText: #fff;
   --headerColor: #2c5586;
@@ -30,7 +30,7 @@ html[theme="dark"] {
   --paginationActiveColor: #707070;
   --modalBackground: #000;
   --modalText: #fff;
-  --modalSubHeader: #818E9B;
+  --modalSubHeader: #818e9b;
   --tableHeader: #909090;
   --iconColor: #fff;
   --blue: #3f7abf;

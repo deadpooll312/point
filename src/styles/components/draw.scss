@@ -11,12 +11,13 @@
       margin-bottom: 20px;
     }
     .filter-button-default {
-        border: 1px solid $green;
-        color: $green;
-        background: $modalBackground;
+      border: 1px solid $green;
+      color: $green;
+      background: $modalBackground;
     }
   }
-  .ant-drawer-wrapper-body, .ant-drawer-header {
+  .ant-drawer-wrapper-body,
+  .ant-drawer-header {
     background: $modalBackground;
   }
   .ant-drawer-header {
@@ -37,4 +38,3 @@
   cursor: move;
   background: $light-green2;
 }
-
