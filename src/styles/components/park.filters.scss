@@ -1,0 +1,13 @@
+.park-filters label{
+  display: block;
+  margin-bottom: 16px;
+
+  & span{
+    color: $iconColor;
+    font-size: 11px;
+  }
+
+  & .ant-select {
+    margin-top: 8px;
+  }
+}
