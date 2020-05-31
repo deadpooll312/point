@@ -8,19 +8,19 @@
   margin-left: 50px;
 }
 
-.ant-table-thead > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
-.ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
-.ant-table-thead > tr:hover:not(.ant-table-expanded-row) > td,
-.ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
-  background: unset;
-  opacity: 0.5;
-}
-
 .parks {
   background: $white;
   border-radius: 3px;
   padding: 15px;
   overflow: auto;
+  .ant-table-thead > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+  .ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+  .ant-table-thead > tr:hover:not(.ant-table-expanded-row) > td,
+  .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
+    background: unset;
+    opacity: 0.5;
+  }
+
   tr {
     cursor: pointer;
   }
