@@ -1,4 +1,9 @@
-.ant-table-tbody > tr > td,
+.ant-table-tbody > tr > td {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid $white;
+}
+
 .ant-table-column-sorters {
   padding: 5px;
   text-align: center;
@@ -8,6 +13,7 @@
 .ant-table-thead > tr > th {
   text-align: center;
   background: $white;
+  border-bottom: 1px solid $white;
 }
 
 .ant-table-content {
@@ -15,10 +21,28 @@
 }
 
 .ant-table-row {
-  border: 1px solid $white;
+  //border: 1px solid $white;
+  color: $filtersHeader;
 }
 
 .ant-table-thead > tr > th {
   color: $tableHeader;
   background: $tableHeaderColor;
+}
+
+.ant-table-tbody > tr.ant-table-row-selected.green > td{
+  background-color: $tableRowGreen;
+  filter:brightness(.85) saturate(4);
+}
+
+.ant-table-tbody > tr.ant-table-row-selected.red > td{
+  background-color: $tableRowRed;
+
+  filter:brightness(.85) saturate(4);
+}
+
+.ant-table-tbody > tr.ant-table-row-selected.yellow > td{
+  background-color: $tableRowYellow;
+
+  filter:brightness(.85) saturate(4);
 }
