@@ -1,8 +1,8 @@
 import React, {useCallback} from "react";
 import {inject, observer} from "mobx-react";
-import {PaginationComponent} from "~/components/pagination";
+import {PaginationComponent} from "../../../components/pagination";
 import {ParksActionButtons} from "./parks.action.button";
-import {warningModalNames} from "~/consts/modal.const";
+import {warningModalNames} from "../../../consts/modal.const";
 
 export const ParksActions = inject("store")(
   observer(({store: {parks}}) => {

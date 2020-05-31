@@ -1,8 +1,8 @@
 import React from "react";
 import {inject, observer} from "mobx-react";
 import {ParkModalWarning} from "./park.modal.warnning";
-import {ModalComponent} from "~/components/modal.component";
-import {modalParkStatuses, warningModalNames} from "~/consts/modal.const";
+import {ModalComponent} from "../../../components/modal.component";
+import {modalParkStatuses, warningModalNames} from "../../../consts/modal.const";
 
 export const ParkModals = inject("store")(
   observer(({store: {parks}}) => {

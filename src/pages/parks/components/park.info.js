@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Col, Row} from "antd";
 import {inject, observer} from "mobx-react";
-import {ProgressComponent} from "~/components/progress";
-import {SelectComponent} from "~/components/select";
-import {crowdColorNames} from "~/consts/parks.const";
-import {modalParkStatuses} from "~/consts/modal.const";
+import {ProgressComponent} from "../../../components/progress";
+import {SelectComponent} from "../../../components/select";
+import {crowdColorNames} from "../../../consts/parks.const";
+import {modalParkStatuses} from "../../../consts/modal.const";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = inject("store")(

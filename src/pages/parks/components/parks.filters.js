@@ -45,7 +45,7 @@ export const ParksFilters = () => {
         <SelectComponent
           data={area}
           labelInValue={true}
-          handleChange={({value}) => console.log(value)}
+          handleChange={({value}) => value}
           placeholder="Выберите округ"
         />
       </label>
@@ -55,7 +55,7 @@ export const ParksFilters = () => {
         <SelectComponent
           data={region}
           labelInValue={true}
-          handleChange={({value}) => console.log(value)}
+          handleChange={({value}) => value}
           placeholder="Выберите район"
         />
       </label>

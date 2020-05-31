@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Table} from "antd";
-import {WarningIcon} from "~/icons/warning.icon";
-import {warningColumns} from "~/consts/parks.const";
+import {WarningIcon} from "../../../icons/warning.icon";
+import {warningColumns} from "../../../consts/parks.const";
 import {modalParkStatuses} from "../../../consts/modal.const";
 
 export const ParkModalWarning = ({selectedItems, text, parks}) => {
