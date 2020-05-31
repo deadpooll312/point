@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useState, Fragment} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
-import {emptyData} from "~/consts/text.const";
-import {ModalComponent} from "~/components/modal.component";
-import {sysViewNameNo} from "~/consts/text.const";
-import {warningModalNames} from "~/consts/modal.const";
-import {getStorage} from "~/services/storage.service";
+import {emptyData} from "../../../consts/text.const";
+import {ModalComponent} from "../../../components/modal.component";
+import {sysViewNameNo} from "../../../consts/text.const";
+import {warningModalNames} from "../../../consts/modal.const";
+import {getStorage} from "../../../services/storage.service";
 import {ParkModalTab} from "./park.modal.tab";
 
 export const ParksTable = inject("store")(

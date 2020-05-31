@@ -1,4 +1,4 @@
-import axiosInstance from "~/api/api";
+import axiosInstance from "../../api/api";
 import {showError} from "../../services/notifications.service";
 import {loginError} from "../../consts/text.const";
 

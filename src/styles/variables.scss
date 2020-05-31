@@ -17,7 +17,7 @@ html {
   --filtersHeader: #000;
   --tableRowGreen: #f2ffeb;
   --tableRowYellow: #fff9dc;
-  --tableRowRed: #ffe9ea; 
+  --tableRowRed: #ffe9ea;
   --blue: #3f7abf;
   --white: #fff;
   --green: #58a621;
@@ -43,9 +43,9 @@ html[theme="dark"] {
   --checkboxColor: #3f7abf;
   --drawItemColor: #abd390;
   --filtersHeader: #fff;
-  --tableRowGreen: 	#254200;
+  --tableRowGreen: #254200;
   --tableRowYellow: #453f07;
-  --tableRowRed: #370e0e; 
+  --tableRowRed: #370e0e;
   --blue: #3f7abf;
   --white: #333333;
   --green: #58a621;
@@ -140,4 +140,3 @@ body {
 .bg-red {
   background-color: $red;
 }
-
