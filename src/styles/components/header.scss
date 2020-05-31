@@ -1,9 +1,11 @@
-.ant-layout-header {
-  background: $headerColor;
-  color: $white;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
+body {
+  .ant-layout-header {
+    background: $headerColor;
+    color: $white;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .header-menu-icon {
