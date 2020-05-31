@@ -1,11 +1,17 @@
 import React from "react";
 import {Button} from "antd";
 
-export const ParkDrawButtonsFiltres = () => {
+export const ParkDrawButtonsFiltres = ({submit, refresh, params}) => {
   return (
     <div className="buttons">
-      <Button type="primary">Показать</Button>
-      <Button>Сбросить фильтры</Button>
+      <Button
+        type="primary"
+        onClick={submit}
+        disabled={!params.groupType && !params.regionCode}
+      >
+        Показать
+      </Button>
+      <Button onClick={refresh}>Сбросить фильтры</Button>
     </div>
   );
 };

@@ -1,64 +1,73 @@
-import React from "react";
+import React, {useCallback, useEffect, useState} from "react";
+import {inject, observer} from "mobx-react";
+// local files
 import {SelectComponent} from "../../../components/select";
+import {filterNames} from "../../../consts/filter.const";
 
-export const ParksFilters = () => {
-  const area = [
-    {
-      key: "value1",
-      value: "value1",
-      label: "Округ 1",
-    },
-    {
-      key: "value2",
-      value: "value2",
-      label: "Округ 2",
-    },
-    {
-      key: "value3",
-      value: "value3",
-      label: "Округ 3",
-    },
-  ];
+export const ParksFilters = inject("store")(
+  observer(({store: {parks}}) => {
+    const [regions, setRegions] = useState([]);
+    const [groups, setGroups] = useState([]);
+    const [region, setRegion] = useState();
+    const [group, setGroup] = useState();
 
-  const region = [
-    {
-      key: "value1",
-      value: "value1",
-      label: "Регион 1",
-    },
-    {
-      key: "value2",
-      value: "value2",
-      label: "Регион 2",
-    },
-    {
-      key: "value3",
-      value: "value3",
-      label: "Регион 3",
-    },
-  ];
+    useEffect(() => {
+      Promise.all([
+        parks.getFilters(filterNames.group),
+        parks.getFilters(filterNames.region),
+      ]).then(([groups, regions]) => {
+        setRegions(setLabel(regions));
+        setGroups(setLabel(groups));
+      });
 
-  return (
-    <div className="park-filters">
-      <label>
-        <span>По округу</span>
-        <SelectComponent
-          data={area}
-          labelInValue={true}
-          handleChange={({value}) => value}
-          placeholder="Выберите округ"
-        />
-      </label>
+      setParams(setRegion, "regionCode");
+      setParams(setGroup, "groupType");
+    }, [parks.params]);
 
-      <label>
-        <span>По району</span>
-        <SelectComponent
-          data={region}
-          labelInValue={true}
-          handleChange={({value}) => value}
-          placeholder="Выберите район"
-        />
-      </label>
-    </div>
-  );
-};
+    const setParams = (set, key) => {
+      set(parks.params[key] ? {value: parks.params[key]} : undefined);
+    };
+
+    const setLabel = (data) => data.map((item) => ({...item, label: item.description}));
+
+    const changeGroup = useCallback(
+      (groupType) => {
+        parks.updateParams({groupType: `${groupType}`});
+      },
+      [parks]
+    );
+
+    const changeRegion = useCallback(
+      (regionCode) => {
+        parks.updateParams({regionCode: `${regionCode}`});
+      },
+      [parks]
+    );
+
+    return (
+      <div className="park-filters">
+        <label>
+          <span>По округу</span>
+          <SelectComponent
+            data={groups}
+            value={group}
+            labelInValue={true}
+            handleChange={({value}) => changeGroup(value)}
+            placeholder="Выберите округ"
+          />
+        </label>
+
+        <label>
+          <span>По району</span>
+          <SelectComponent
+            data={regions}
+            value={region}
+            labelInValue={true}
+            handleChange={({value}) => changeRegion(value)}
+            placeholder="Выберите район"
+          />
+        </label>
+      </div>
+    );
+  })
+);
