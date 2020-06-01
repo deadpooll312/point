@@ -97,14 +97,14 @@ export const ParkInfo = inject("store")(
             <h3>{data.respName1 || "-"}</h3>
             <div>
               <span>Телефон</span>
-              <p>+{data.phone1 || "-"}</p>
+              <p>{data.phone1 || "-"}</p>
             </div>
           </Col>
           <Col span={12}>
             <h3>{data.respName2 || "-"}</h3>
             <div>
               <span>Телефон</span>
-              <p>+{data.phone2 || "-"}</p>
+              <p>{data.phone2 || "-"}</p>
             </div>
           </Col>
         </Row>
