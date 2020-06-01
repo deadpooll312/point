@@ -1,16 +1,16 @@
 .progress {
   span {
-    color: $green;
+    color: $red;
     &:first-child {
-      color: $red;
+      color: $green;
     }
   }
   i {
-    background: $green;
+    background: $red;
     height: 7px;
 
     &:first-child {
-      background: $red;
+      background: $green;
     }
   }
 
