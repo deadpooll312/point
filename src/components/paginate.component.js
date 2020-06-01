@@ -5,13 +5,14 @@ import {LeftOutlined, RightOutlined} from "@ant-design/icons";
 const {Text} = Typography;
 
 export const PaginateComponent = ({onChange, hasNextPage, currentPage}) => {
-  console.log(currentPage !== 0);
   return (
     <div className="paginate">
-      <Text onClick={() => onChange()} disabled={currentPage === 0}>
-        <LeftOutlined />
-        Пред. страница
-      </Text>
+      {!!currentPage && (
+        <Text onClick={() => onChange()}>
+          <LeftOutlined />
+          Пред. страница
+        </Text>
+      )}
       <Text
         disabled={!hasNextPage}
         onClick={() => (hasNextPage ? onChange(true) : undefined)}
