@@ -63,10 +63,8 @@ export class ParksAction {
     this.updateParams({groupType: item.sortOrder, page: 0});
   }
 
-  getFilters(group) {
-    return axiosInstance
-      .get("reference/filter", {params: {group}})
-      .then(({data}) => data);
+  getFilters(params) {
+    return axiosInstance.get("reference/filter", {params}).then(({data}) => data);
   }
 
   selectItems(items) {

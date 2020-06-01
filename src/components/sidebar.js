@@ -26,7 +26,7 @@ export const Sidebar = inject("store")(
       const user = localStorage.userInfo;
       if (user) {
         auth.updateUser(JSON.parse(user));
-        parks.getFilters(parkFilterTypes.groupType).then((res) => setData(res));
+        parks.getFilters({group: parkFilterTypes.groupType}).then((res) => setData(res));
       }
     }, [auth, parks]);
 
