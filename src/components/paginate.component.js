@@ -7,12 +7,13 @@ const {Text} = Typography;
 export const PaginateComponent = ({onChange, hasNextPage, currentPage}) => {
   return (
     <div className="paginate">
-      {!!currentPage && (
-        <Text onClick={() => onChange()}>
-          <LeftOutlined />
-          Пред. страница
-        </Text>
-      )}
+      <Text
+        disabled={!currentPage}
+        onClick={() => (!currentPage ? undefined : onChange())}
+      >
+        <LeftOutlined />
+        Пред. страница
+      </Text>
       <Text
         disabled={!hasNextPage}
         onClick={() => (hasNextPage ? onChange(true) : undefined)}

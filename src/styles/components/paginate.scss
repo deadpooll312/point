@@ -15,9 +15,15 @@
 .paginate {
   display: flex;
   align-items: center;
-  .ant-typography {
+  span {
     cursor: pointer;
     margin: 0 5px;
     color: $paginationColor;
+  }
+
+  .ant-typography-disabled {
+    span {
+      color: #bfbfbf;
+    }
   }
 }
