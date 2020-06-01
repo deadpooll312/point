@@ -118,8 +118,8 @@ export const ParkInfo = inject("store")(
                 {(data.percentInfo && data.percentInfo.user.totalTags) || 0} сообщений
               </p>
               <ProgressComponent
-                left={data.percentInfo && data.percentInfo.user.truePercent}
-                right={data.percentInfo && data.percentInfo.user.falsePercent}
+                left={data.percentInfo && data.percentInfo.user.falsePercent}
+                right={data.percentInfo && data.percentInfo.user.truePercent}
               />
             </div>
           </Col>
@@ -131,8 +131,8 @@ export const ParkInfo = inject("store")(
                 сообщений
               </p>
               <ProgressComponent
-                left={data.percentInfo && data.percentInfo.inspector.truePercent}
-                right={data.percentInfo && data.percentInfo.inspector.falsePercent}
+                left={data.percentInfo && data.percentInfo.inspector.falsePercent}
+                right={data.percentInfo && data.percentInfo.inspector.truePercent}
               />
             </div>
           </Col>
@@ -143,8 +143,8 @@ export const ParkInfo = inject("store")(
                 {data.percentInfo && data.percentInfo.parkEmployee.totalTags} сообщений
               </p>
               <ProgressComponent
-                left={data.percentInfo && data.percentInfo.parkEmployee.truePercent}
-                right={data.percentInfo && data.percentInfo.parkEmployee.falsePercent}
+                left={data.percentInfo && data.percentInfo.parkEmployee.falsePercent}
+                right={data.percentInfo && data.percentInfo.parkEmployee.truePercent}
               />
             </div>
           </Col>
