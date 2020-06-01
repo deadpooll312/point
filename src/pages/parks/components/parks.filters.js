@@ -49,10 +49,10 @@ export const ParksFilters = inject("store")(
         <label>
           <span>По округу</span>
           <SelectComponent
-            data={groups}
-            value={group}
+            data={regions}
+            value={region}
             labelInValue={true}
-            handleChange={({value}) => changeGroup(value)}
+            handleChange={({value}) => changeRegion(value)}
             placeholder="Выберите округ"
           />
         </label>
@@ -60,10 +60,10 @@ export const ParksFilters = inject("store")(
         <label>
           <span>По району</span>
           <SelectComponent
-            data={regions}
-            value={region}
+            data={groups}
+            value={group}
             labelInValue={true}
-            handleChange={({value}) => changeRegion(value)}
+            handleChange={({value}) => changeGroup(value)}
             placeholder="Выберите район"
           />
         </label>
