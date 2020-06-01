@@ -21,3 +21,8 @@
     color: $paginationColor;
   }
 }
+body {
+  .ant-typography-disabled{
+    display: none;
+  }
+}
