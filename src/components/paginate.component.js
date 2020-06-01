@@ -1,12 +1,16 @@
 import React from "react";
 import {Typography} from "antd";
 import {LeftOutlined, RightOutlined} from "@ant-design/icons";
+
 const {Text} = Typography;
 
-export const PaginateComponent = ({onChange, hasNextPage}) => {
+export const PaginateComponent = ({onChange, hasNextPage, currentPage}) => {
   return (
     <div className="paginate">
-      <Text onClick={() => onChange()}>
+      <Text
+        disabled={!currentPage}
+        onClick={() => (!currentPage ? undefined : onChange())}
+      >
         <LeftOutlined />
         Пред. страница
       </Text>

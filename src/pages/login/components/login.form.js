@@ -56,7 +56,10 @@ export const LoginForm = inject("store")(
               ВОЙТИ
             </Button>
             <div className="login-form-support">
-              <a className="login-form-support-link" href="#">
+              <a
+                className="login-form-support-link"
+                href="mailto:helpdesk-monitor@mos.ru"
+              >
                 Техническая поддержка
               </a>
             </div>
