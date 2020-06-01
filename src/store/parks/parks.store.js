@@ -1,9 +1,8 @@
-import {decorate, observable} from "mobx";
+import {computed, decorate, observable} from "mobx";
 import {ParksAction} from "./parks.action";
 
 class ParksStore extends ParksAction {
   data = [];
-  columns = this.getColumns();
   params = {size: 10, page: 0};
   clusterParams = {size: 10, page: 0};
   selectedItems = [];
@@ -16,12 +15,17 @@ class ParksStore extends ParksAction {
   hasParksNextPage = false;
   hasClustersNextPage = false;
   isParkUpdated = null;
+  columns = this.getColumns();
+  get parkTableColumns() {
+    return this.columns.filter((i) => i.isActive);
+  }
 }
 
 // eslint-disable-next-line no-class-assign
 ParksStore = decorate(ParksStore, {
   data: observable,
   columns: observable,
+  parkTableColumns: computed,
   params: observable,
   clusterParams: observable,
   selectedItems: observable,

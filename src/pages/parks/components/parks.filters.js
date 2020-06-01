@@ -7,21 +7,23 @@ import {filterNames} from "../../../consts/filter.const";
 export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
     const [regions, setRegions] = useState([]);
-    const [groups, setGroups] = useState([]);
+    const [districts, setDistricts] = useState([]);
     const [region, setRegion] = useState();
-    const [group, setGroup] = useState();
+    const [district, setDistrict] = useState();
 
     useEffect(() => {
       Promise.all([
-        parks.getFilters(filterNames.group),
+        parks.getFilters(filterNames.district),
         parks.getFilters(filterNames.region),
       ]).then(([groups, regions]) => {
         setRegions(setLabel(regions));
-        setGroups(setLabel(groups));
+        setDistricts(setLabel(groups));
       });
+    }, []);
 
+    useEffect(() => {
       setParams(setRegion, "regionCode");
-      setParams(setGroup, "groupType");
+      setParams(setDistrict, "districtCode");
     }, [parks.params]);
 
     const setParams = (set, key) => {
@@ -30,9 +32,9 @@ export const ParksFilters = inject("store")(
 
     const setLabel = (data) => data.map((item) => ({...item, label: item.description}));
 
-    const changeGroup = useCallback(
+    const changeDistrict = useCallback(
       (groupType) => {
-        parks.updateParams({groupType: `${groupType}`});
+        parks.updateParams({districtCode: `${groupType}`});
       },
       [parks]
     );
@@ -60,10 +62,10 @@ export const ParksFilters = inject("store")(
         <label>
           <span>По району</span>
           <SelectComponent
-            data={groups}
-            value={group}
+            data={districts}
+            value={district}
             labelInValue={true}
-            handleChange={({value}) => changeGroup(value)}
+            handleChange={({value}) => changeDistrict(value)}
             placeholder="Выберите район"
           />
         </label>

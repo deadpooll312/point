@@ -7,7 +7,7 @@ export const ParkDrawButtonsFiltres = ({submit, refresh, params}) => {
       <Button
         type="primary"
         onClick={submit}
-        disabled={!params.groupType && !params.regionCode}
+        disabled={!params.districtCode && !params.regionCode}
       >
         Показать
       </Button>

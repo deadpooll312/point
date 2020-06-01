@@ -110,7 +110,7 @@ export const ParksTable = inject("store")(
           scroll={{x: 2000}}
           rowClassName={(record) => record.crowdColor}
           rowSelection={rowSelection}
-          columns={parks.columns.filter((i) => i.isActive)}
+          columns={parks.parkTableColumns}
           locale={{emptyText: emptyData}}
           dataSource={data}
           onRow={(record) => ({
