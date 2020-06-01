@@ -14,8 +14,6 @@ export const ParksHeader = inject("store")(
       sidebar.toggleDrawerFilters(true);
     }, [sidebar]);
 
-    callMenuFilters();
-
     return (
       <div className="parks__title">
         <Title level={3}>{parks.activeFilter.description || "Все территории"}</Title>
