@@ -1,0 +1,27 @@
+body {
+  .parks-search .simple-select {
+    border: 1px solid $color-border;
+  }
+
+  .parks-search .ant-input-affix-wrapper{
+    height: 34px;
+    border-color: $color-border;
+  }
+
+  .parks-search {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: left;
+
+    & > div{
+      margin-right: 20px;
+    }
+
+    & .search-input{
+      width: 200px;
+    }
+  }
+
+}
+
+
