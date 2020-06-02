@@ -3,7 +3,6 @@ import {computed, decorate, observable} from "mobx";
 
 class AuthStore extends AuthAction {
   user = {};
-
   get firstName() {
     return this.user.firstName;
   }

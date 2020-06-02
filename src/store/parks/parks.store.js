@@ -1,5 +1,6 @@
-import {computed, decorate, observable} from "mobx";
+import {computed, decorate, observable, reaction} from "mobx";
 import {ParksAction} from "./parks.action";
+import AuthStore from "../auth/auth.store";
 
 class ParksStore extends ParksAction {
   data = [];
@@ -14,10 +15,21 @@ class ParksStore extends ParksAction {
   warningModalName = null;
   hasParksNextPage = false;
   hasClustersNextPage = false;
+  isLoggedIn = false;
   isParkUpdated = null;
   columns = this.getColumns();
+
   get parkTableColumns() {
     return this.columns.filter((i) => i.isActive);
+  }
+
+  constructor() {
+    super();
+
+    reaction(
+      () => AuthStore.id,
+      (id) => (this.isLoggedIn = !!id)
+    );
   }
 }
 
@@ -38,6 +50,7 @@ ParksStore = decorate(ParksStore, {
   hasParksNextPage: observable,
   hasClustersNextPage: observable,
   isParkUpdated: observable,
+  isLoggedIn: observable,
 });
 
 export default new ParksStore();

@@ -7,12 +7,14 @@ import {modalParkStatuses} from "../../consts/modal.const";
 
 export class ParksAction {
   getParks() {
-    axiosInstance
-      .get("incident", {params: this.params})
-      .then(({data: {elements, hasNextPage}}) => {
-        this.data = elements;
-        this.hasParksNextPage = hasNextPage;
-      });
+    if (this.isLoggedIn) {
+      axiosInstance
+        .get("incident", {params: this.params})
+        .then(({data: {elements, hasNextPage}}) => {
+          this.data = elements;
+          this.hasParksNextPage = hasNextPage;
+        });
+    }
   }
 
   updateParkRepaint() {
@@ -61,10 +63,8 @@ export class ParksAction {
     this.updateParams({groupType: item.sortOrder, page: 0});
   }
 
-  getFilters(group) {
-    return axiosInstance
-      .get("reference/filter", {params: {group}})
-      .then(({data}) => data);
+  getFilters(params) {
+    return axiosInstance.get("reference/filter", {params}).then(({data}) => data);
   }
 
   selectItems(items) {

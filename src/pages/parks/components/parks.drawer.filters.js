@@ -17,6 +17,7 @@ export const ParksDrawerFilters = inject("store")(
 
     const refresh = useCallback(() => {
       parks.updateParams({regionCode: undefined, districtCode: undefined});
+      parks.getParks();
     }, []);
 
     return (

@@ -12,18 +12,18 @@ export const ParksFilters = inject("store")(
     const [district, setDistrict] = useState();
 
     useEffect(() => {
-      Promise.all([
-        parks.getFilters(filterNames.district),
-        parks.getFilters(filterNames.region),
-      ]).then(([groups, regions]) => {
-        setRegions(setLabel(regions));
-        setDistricts(setLabel(groups));
-      });
+      parks
+        .getFilters({group: filterNames.region})
+        .then((districts) => setRegions(setLabel(districts)));
     }, []);
 
     useEffect(() => {
       setParams(setRegion, "regionCode");
       setParams(setDistrict, "districtCode");
+
+      if (!parks.params.regionCode) {
+        setDistricts([]);
+      }
     }, [parks.params]);
 
     const setParams = (set, key) => {
@@ -33,15 +33,19 @@ export const ParksFilters = inject("store")(
     const setLabel = (data) => data.map((item) => ({...item, label: item.description}));
 
     const changeDistrict = useCallback(
-      (groupType) => {
-        parks.updateParams({districtCode: `${groupType}`});
+      (districtCode) => {
+        parks.updateParams({districtCode});
       },
       [parks]
     );
 
     const changeRegion = useCallback(
       (regionCode) => {
-        parks.updateParams({regionCode: `${regionCode}`});
+        parks.updateParams({regionCode});
+        parks.updateParams({districtCode: undefined});
+        parks
+          .getFilters({group: filterNames.district, type: regionCode})
+          .then((districts) => setDistricts(setLabel(districts)));
       },
       [parks]
     );
@@ -62,6 +66,7 @@ export const ParksFilters = inject("store")(
         <label>
           <span>По району</span>
           <SelectComponent
+            disabled={!districts.length}
             data={districts}
             value={district}
             labelInValue={true}

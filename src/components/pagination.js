@@ -37,7 +37,11 @@ export const PaginationComponent = inject("store")(
             </Option>
           ))}
         </Select>
-        <PaginateComponent onChange={onChange} hasNextPage={parks.hasParksNextPage} />
+        <PaginateComponent
+          onChange={onChange}
+          hasNextPage={parks.hasParksNextPage}
+          currentPage={parks.params.page}
+        />
       </div>
     );
   })
