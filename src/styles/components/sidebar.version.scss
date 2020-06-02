@@ -1,0 +1,12 @@
+.sidebar-version {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  color: $text;
+  opacity: .3;
+}
+
+.small .sidebar-version {
+  right: 3px;
+}

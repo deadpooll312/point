@@ -16,6 +16,7 @@ import {SidebarHeader} from "./sidebar-components/sidebar.header";
 import {SidebarSettings} from "./sidebar-components/sidebar.settings";
 import {SidebarExit} from "./sidebar-components/sidebar.exit";
 import {setStorage} from "../services/storage.service";
+import {SidebarVersion} from "./sidebar-components/sidebar.verison";
 const {Sider} = Layout;
 
 export const Sidebar = inject("store")(
@@ -83,6 +84,7 @@ export const Sidebar = inject("store")(
           </Space>
           <SidebarExit auth={auth} />
           <SidebarMenu sidebar={sidebar} />
+          <SidebarVersion />
         </div>
       </Sider>
     );
