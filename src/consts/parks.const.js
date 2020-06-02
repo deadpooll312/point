@@ -30,11 +30,16 @@ export const tableColumns = [
   {
     title: "Положение ворот",
     width: 80,
-    dataIndex: "available",
+    dataIndex: "availableName",
     isActive: true,
-    // eslint-disable-next-line react/display-name
     render: (value) => {
-      return value ? <PositiveIcon /> : <NegativeIcon />;
+      if (value === "Открыто") {
+        return <PositiveIcon />;
+      } else if (value === "Закрыто") {
+        return <NegativeIcon />;
+      } else {
+        return "-";
+      }
     },
   },
   {
