@@ -28,7 +28,7 @@ export const tableColumns = [
     render: (value) => value || "-",
   },
   {
-    title: "Статус",
+    title: "Положение ворот",
     width: 80,
     dataIndex: "available",
     isActive: true,
