@@ -138,7 +138,7 @@ export const ParkInfo = inject("store")(
           </Col>
           <Col span={8}>
             <div className="park-info__outline">
-              <span>Выявлено балансодержателем</span>
+              <span>Выявлено сотрудником парка</span>
               <p>
                 {data.percentInfo && data.percentInfo.parkEmployee.totalTags} сообщений
               </p>
