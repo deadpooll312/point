@@ -40,6 +40,7 @@ export const ParksTable = inject("store")(
 
     const rowSelection = {
       selectedRowKeys: parks.selectedIds,
+      hideSelectAll: true,
       onChange: (selectedRowKeys) => {
         // TODO hardcode сделать как будет массовое закрытие парка
         const isSingle = true;
