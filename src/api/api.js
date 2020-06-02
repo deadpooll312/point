@@ -14,6 +14,7 @@ axiosInstance.interceptors.response.use(
     const {status, config} = response;
     if (status === 401 && config.url !== "login") {
       window.location.href = "/#/login";
+      localStorage.clear();
     } else {
       showError(response.data.message);
     }

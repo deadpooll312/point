@@ -6,16 +6,10 @@ import {filterNames} from "../../../consts/filter.const";
 
 export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
-    const [regions, setRegions] = useState([]);
+    const [regions] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [region, setRegion] = useState();
     const [district, setDistrict] = useState();
-
-    useEffect(() => {
-      parks
-        .getFilters({group: filterNames.region})
-        .then((districts) => setRegions(setLabel(districts)));
-    }, []);
 
     useEffect(() => {
       setParams(setRegion, "regionCode");
