@@ -44,7 +44,7 @@ export const ParkInfo = inject("store")(
           </Col>
           <Col span={5}>
             <div>
-              <span>Статус</span>
+              <span>Положение ворот</span>
               <p>{data.availableName || "-"}</p>
             </div>
           </Col>
