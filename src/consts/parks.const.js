@@ -33,15 +33,13 @@ export const tableColumns = [
     dataIndex: "availableName",
     isActive: true,
     render: (value) => {
-      let icon;
       if (value === "Открыто") {
-        icon = <PositiveIcon />;
+        return <PositiveIcon />;
       } else if (value === "Закрыто") {
-        icon = <NegativeIcon />;
+        return <NegativeIcon />;
       } else {
-        icon = value;
+        return "-";
       }
-      return icon;
     },
   },
   {
