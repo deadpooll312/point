@@ -16,6 +16,7 @@ export const SelectComponent = ({
   value,
   labelInValue,
   width,
+  disabled,
   selectClassName,
 }) => {
   return (
@@ -27,6 +28,7 @@ export const SelectComponent = ({
       placeholder={placeholder}
       bordered={false}
       onChange={handleChange}
+      disabled={disabled}
       labelInValue={labelInValue}
     >
       {data.map((item) => (
