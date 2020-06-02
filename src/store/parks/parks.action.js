@@ -6,6 +6,10 @@ import {showSuccess} from "../../services/notifications.service";
 import {modalParkStatuses} from "../../consts/modal.const";
 
 export class ParksAction {
+  searchPark(params) {
+    return axiosInstance.get("search/park", {params}).then(({data}) => data);
+  }
+
   getParks() {
     if (this.isLoggedIn) {
       axiosInstance

@@ -154,3 +154,14 @@ export const clusterColumns = [
     render: (value, row) => `[${row.latitude}, ${row.longitude}]`,
   },
 ];
+
+export const parkSearchTypes = [
+  {
+    label: "По ID парка",
+    value: 0,
+  },
+  {
+    label: "По названию парка",
+    value: 1,
+  },
+];
