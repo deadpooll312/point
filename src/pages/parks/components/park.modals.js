@@ -56,7 +56,7 @@ export const ParkModals = inject("store")(
                 ? parks.selectedItems
                 : null
             }
-            text={"Вы собираетесь открыть территорию! Вы уверены?"}
+            text={"Вы собираетесь открыть территорию(ии)! Вы уверены?"}
           />
         </ModalComponent>
 
@@ -87,7 +87,7 @@ export const ParkModals = inject("store")(
                 ? parks.selectedItems
                 : null
             }
-            text={`Вы собираетесь закрыть территорию! Вы уверены?`}
+            text={`Вы собираетесь закрыть территорию(ии)! Вы уверены?`}
           />
         </ModalComponent>
       </>
