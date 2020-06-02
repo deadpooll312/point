@@ -33,15 +33,16 @@ export const ParksFilters = inject("store")(
     const setLabel = (data) => data.map((item) => ({...item, label: item.description}));
 
     const changeDistrict = useCallback(
-      (groupType) => {
-        parks.updateParams({districtCode: `${groupType}`});
+      (districtCode) => {
+        parks.updateParams({districtCode});
       },
       [parks]
     );
 
     const changeRegion = useCallback(
       (regionCode) => {
-        parks.updateParams({regionCode: `${regionCode}`});
+        parks.updateParams({regionCode});
+        parks.updateParams({districtCode: undefined});
         parks
           .getFilters({group: filterNames.district, type: regionCode})
           .then((districts) => setDistricts(setLabel(districts)));

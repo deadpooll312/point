@@ -1,7 +1,8 @@
 import React, {useCallback} from "react";
 import {Typography} from "antd";
-import {FilterOutlined, MoreOutlined} from "@ant-design/icons";
+import {MoreOutlined} from "@ant-design/icons";
 import {inject, observer} from "mobx-react";
+import {FilterIcon} from "../../../icons/filter.icon";
 const {Title} = Typography;
 
 export const ParksHeader = inject("store")(
@@ -18,7 +19,7 @@ export const ParksHeader = inject("store")(
       <div className="parks__title">
         <Title level={3}>{parks.activeFilter.description || "Все территории"}</Title>
         <div>
-          <FilterOutlined onClick={callMenuFilters} className="icon" />
+          <FilterIcon onClick={callMenuFilters} className="icon" />
           <MoreOutlined onClick={callMenu} className="icon" />
         </div>
       </div>
