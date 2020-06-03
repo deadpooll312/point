@@ -83,7 +83,17 @@ export const ParkInfo = inject("store")(
               <p>{data.ssum || "-"}</p>
             </div>
           </Col>
-          <Col span={9}>
+          <Col span={5}>
+            <div className="park-info__outline">
+              <span>FACT посетителей</span>
+              <p>
+                {data.percentInfo && data.percentInfo.entranceCount
+                  ? data.percentInfo.entranceCount
+                  : "-"}
+              </p>
+            </div>
+          </Col>
+          <Col span={4}>
             <div className="park-info__outline">
               <span>MAX посетителей</span>
               <p>{data.maxVisitor || "-"}</p>
