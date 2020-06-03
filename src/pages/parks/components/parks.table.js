@@ -5,7 +5,6 @@ import {emptyData} from "../../../consts/text.const";
 import {ModalComponent} from "../../../components/modal.component";
 import {sysViewNameNo} from "../../../consts/text.const";
 import {warningModalNames} from "../../../consts/modal.const";
-import {getStorage} from "../../../services/storage.service";
 import {ParkModalTab} from "./park.modal.tab";
 import {authRoles} from "../../../consts/auth.const";
 
@@ -16,9 +15,6 @@ export const ParksTable = inject("store")(
     const [item, setItem] = useState({});
 
     useEffect(() => {
-      if (getStorage("activeFilter")) {
-        parks.updateActiveFilter(getStorage("activeFilter"));
-      }
       parks.getParks();
       setInterval(() => {
         parks.getParks();

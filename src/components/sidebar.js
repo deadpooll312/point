@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect} from "react";
 import {inject, observer} from "mobx-react";
 import {Layout, Space, Divider} from "antd";
 import {Map} from "../icons/map";
@@ -15,30 +15,34 @@ import {green} from "../consts/colors.const";
 import {SidebarHeader} from "./sidebar-components/sidebar.header";
 import {SidebarSettings} from "./sidebar-components/sidebar.settings";
 import {SidebarExit} from "./sidebar-components/sidebar.exit";
-import {setStorage} from "../services/storage.service";
+import {getStorage} from "../services/storage.service";
 import {SidebarVersion} from "./sidebar-components/sidebar.verison";
 const {Sider} = Layout;
 
 export const Sidebar = inject("store")(
   observer(({store: {sidebar, auth, parks}}) => {
-    const [data, setData] = useState();
-
     useEffect(() => {
       const user = localStorage.userInfo;
       if (user) {
         auth.updateUser(JSON.parse(user));
-        parks.getFilters({group: parkFilterTypes.groupType}).then((res) => setData(res));
+        parks.getFilters({group: parkFilterTypes.groupType});
       }
     }, [auth, parks]);
 
+    useEffect(() => {
+      const type = getStorage("groupType");
+      if (type) {
+        const groupType = parseInt(type);
+        parks.updateParams({groupType});
+      }
+    }, []);
+
     const click = useCallback(
       (groupType) => {
-        const activeFilter = data.find((i) => i.sortOrder === groupType);
-        setStorage("activeFilter", activeFilter);
-        parks.updateActiveFilter(activeFilter);
+        parks.updateParams({groupType});
         parks.getParks();
       },
-      [data, parks]
+      [parks]
     );
 
     const isActive = useCallback(
@@ -69,8 +73,8 @@ export const Sidebar = inject("store")(
       <Sider className={sidebar.showBar ? "small" : ""} width={256}>
         <SidebarHeader auth={auth} parks={parks} />
         <div className="options">
-          {data &&
-            data.map(({sortOrder, description}) => (
+          {parks.filters &&
+            parks.filters.map(({sortOrder, description}) => (
               <Space key={sortOrder} onClick={() => click(sortOrder)}>
                 {getIcon(sortOrder)}
                 <span style={{color: isActive(sortOrder)}}>{description}</span>

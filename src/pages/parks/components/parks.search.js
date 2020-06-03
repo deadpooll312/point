@@ -1,12 +1,13 @@
 import React, {useCallback, useState} from "react";
 import {inject, observer} from "mobx-react";
-import {Button, Input, Tooltip} from "antd";
 import * as debounce from "lodash.debounce";
 // local files
 import {SelectComponent} from "../../../components/select";
 import {parkSearchTypes} from "../../../consts/parks.const";
-import {SearchSelect} from "../../../components/search.select";
-import {ReloadOutlined} from "@ant-design/icons";
+import {SearchButton} from "./search/search.button";
+import {SearchTooltip} from "./search/search.tooltip";
+import {SearchFindSelect} from "./search/search.find.select";
+import {SearchInput} from "./search/search.input";
 
 export const ParksSearch = inject("store")(
   observer(({store: {parks}}) => {
@@ -29,7 +30,8 @@ export const ParksSearch = inject("store")(
     );
 
     const submit = useCallback(() => {
-      parks.updateParams({id});
+      parks.resetParkParams();
+      parks.updateParams({id, groupType: 1});
       parks.getParks();
     }, [parks, id]);
 
@@ -51,37 +53,24 @@ export const ParksSearch = inject("store")(
           />
         </div>
 
-        {!parseInt(searchType.value) && (
-          <div className="search-input">
-            <Input
-              placeholder="Введите ID парка"
-              value={id}
-              onChange={({target}) => setId(target.value)}
-            />
-          </div>
-        )}
+        <SearchInput
+          value={!parseInt(searchType.value)}
+          id={id}
+          onChange={({target}) => setId(target.value)}
+        />
 
-        {!!parseInt(searchType.value) && (
-          <SearchSelect
-            placeholder={"Введите название парка"}
-            styles={{width: 300}}
-            data={data}
-            value={id}
-            handleSearch={handleSearch}
-            handleChange={(value) => setId(value)}
-          />
-        )}
+        <SearchFindSelect
+          value={parseInt(searchType.value)}
+          data={data}
+          id={id}
+          handleSearch={handleSearch}
+          handleChange={(value) => {
+            setId(value);
+          }}
+        />
 
-        <div>
-          <Button type="primary" onClick={submit}>
-            Найти
-          </Button>
-        </div>
-        {parks.params.id && (
-          <Tooltip color={"var(--blue)"} placement="top" title="Сбросить поиск">
-            <ReloadOutlined onClick={refresh} className="reload" />
-          </Tooltip>
-        )}
+        <SearchButton submit={submit} />
+        <SearchTooltip id={parks.params.id} refresh={refresh} />
       </div>
     );
   })

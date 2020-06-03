@@ -5,7 +5,7 @@ import {ForestIcon} from "../../icons/forest.icon";
 
 export const SidebarHeader = ({auth: {firstName, lastName}, parks}) => {
   const onClick = useCallback(() => {
-    parks.updateActiveFilter({sortOrder: 1});
+    parks.updateParams({groupType: 1});
     parks.getParks();
   }, [parks]);
 

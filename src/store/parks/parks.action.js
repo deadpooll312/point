@@ -1,6 +1,6 @@
 import axiosInstance from "../../api/api";
 import {tableColumns} from "../../consts/parks.const";
-import {getStorage} from "../../services/storage.service";
+import {getStorage, setStorage} from "../../services/storage.service";
 import {columns} from "../../consts/storage.conts";
 import {showSuccess} from "../../services/notifications.service";
 import {modalParkStatuses} from "../../consts/modal.const";
@@ -59,16 +59,21 @@ export class ParksAction {
   }
 
   updateParams(param) {
+    const {groupType} = param;
+    if (groupType) {
+      setStorage("groupType", groupType);
+    }
     this.params = {...this.params, ...param};
   }
 
-  updateActiveFilter(item) {
-    this.activeFilter = item;
-    this.updateParams({groupType: item.sortOrder, page: 0});
+  resetParkParams() {
+    this.params = {page: 0, size: 10};
   }
 
   getFilters(params) {
-    return axiosInstance.get("reference/filter", {params}).then(({data}) => data);
+    return axiosInstance
+      .get("reference/filter", {params})
+      .then(({data}) => (this.filters = data));
   }
 
   selectItems(items) {

@@ -10,7 +10,6 @@ class ParksStore extends ParksAction {
   selectedIds = [];
   selectedPark = {};
   singlePark = {};
-  activeFilter = {};
   clusters = [];
   warningModalName = null;
   hasParksNextPage = false;
@@ -18,6 +17,7 @@ class ParksStore extends ParksAction {
   isLoggedIn = false;
   isParkUpdated = null;
   columns = this.getColumns();
+  filters = [];
 
   get parkTableColumns() {
     return this.columns.filter((i) => i.isActive);
@@ -44,13 +44,13 @@ ParksStore = decorate(ParksStore, {
   selectedIds: observable,
   selectedPark: observable,
   singlePark: observable,
-  activeFilter: observable,
   clusters: observable,
   warningModalName: observable,
   hasParksNextPage: observable,
   hasClustersNextPage: observable,
   isParkUpdated: observable,
   isLoggedIn: observable,
+  filters: observable,
 });
 
 export default new ParksStore();
