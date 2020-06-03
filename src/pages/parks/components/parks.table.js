@@ -7,9 +7,10 @@ import {sysViewNameNo} from "../../../consts/text.const";
 import {warningModalNames} from "../../../consts/modal.const";
 import {getStorage} from "../../../services/storage.service";
 import {ParkModalTab} from "./park.modal.tab";
+import {authRoles} from "../../../consts/auth.const";
 
 export const ParksTable = inject("store")(
-  observer(({store: {parks}}) => {
+  observer(({store: {parks, auth}}) => {
     const [showModal, setModal] = useState(false);
     const [data, setData] = useState([]);
     const [item, setItem] = useState({});
@@ -42,7 +43,7 @@ export const ParksTable = inject("store")(
       selectedRowKeys: parks.selectedIds,
       onChange: (selectedRowKeys) => {
         // TODO hardcode сделать как будет массовое закрытие парка
-        const isSingle = true;
+        const isSingle = auth.authRole !== authRoles.parkGroup;
         if (isSingle) {
           selectSingle(selectedRowKeys);
         } else {

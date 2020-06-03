@@ -1,15 +1,15 @@
 import axiosInstance from "../../api/api";
 import {showError} from "../../services/notifications.service";
 import {loginError} from "../../consts/text.const";
+import {setStorage} from "../../services/storage.service";
 
 export class AuthAction {
   login(data) {
     axiosInstance
       .post("login", data)
-      .then(({data}) => data.userInfo)
-      .then((user) => {
-        this.user = user;
-        localStorage.setItem("userInfo", JSON.stringify(user));
+      .then(({data}) => {
+        this.user = data;
+        setStorage("userInfo", data);
         window.location.href = "/";
       })
       .catch(() => showError(loginError));
@@ -18,7 +18,7 @@ export class AuthAction {
   logout() {
     axiosInstance.post("logout").then(() => {
       this.user = {};
-      localStorage.removeItem("userInfo");
+      localStorage.clear();
       window.location.href = "/#/login";
     });
   }
