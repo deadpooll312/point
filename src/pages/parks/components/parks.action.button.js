@@ -36,7 +36,7 @@ export const ParksActionButtons = ({parks, onSelectedItems}) => {
         danger
         onClick={() => onSelectedItems(false)}
       >
-        Закрыть выбранные
+        Закрыть выбранное
       </Button>
     </Space>
   );

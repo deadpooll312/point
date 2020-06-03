@@ -25,7 +25,7 @@ export const ParkModals = inject("store")(
         >
           <ParkModalWarning
             parks={parks}
-            text={`Вы собираетесь изменить Состояние территорий Вы уверены?`}
+            text={`Вы собираетесь изменить Состояние (цвет) территории! Вы уверены?`}
           />
         </ModalComponent>
 

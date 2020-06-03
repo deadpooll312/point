@@ -7,11 +7,11 @@ html {
   --paginationColor: #333;
   --paginationActiveColor: #ecf2fa;
   --iconColor: #818e9b;
+  --headerIconColor: #fff;
   --modalBackground: #fff;
   --modalText: #818e9b;
   --modalSubHeader: #000;
   --tableHeader: #909090;
-  --iconColor: #818e9b;
   --checkboxColor: #3f7abf;
   --drawItemColor: #eef6e9;
   --filtersHeader: #000;
@@ -40,6 +40,7 @@ html[theme="dark"] {
   --tableHeader: #909090;
   --tableHeaderColor: #222222;
   --iconColor: #fff;
+  --headerIconColor: #fff;
   --checkboxColor: #3f7abf;
   --drawItemColor: #abd390;
   --filtersHeader: #fff;
@@ -59,6 +60,7 @@ html[theme="dark"] {
 $blue: var(--blue);
 $text: var(--text);
 $headerText: var(--headerText);
+$headerIconColor: var(--headerIconColor);
 $iconColor: var(--iconColor);
 $headerColor: var(--headerColor);
 $paginationColor: var(--paginationColor);
