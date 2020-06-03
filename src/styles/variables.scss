@@ -18,6 +18,7 @@ html {
   --tableRowGreen: #f2ffeb;
   --tableRowYellow: #fff9dc;
   --tableRowRed: #ffe9ea;
+  --tableRowGray: #efefef;
   --blue: #3f7abf;
   --white: #fff;
   --green: #58a621;
@@ -47,6 +48,7 @@ html[theme="dark"] {
   --tableRowGreen: #254200;
   --tableRowYellow: #453f07;
   --tableRowRed: #370e0e;
+  --tableRowGray: #555;
   --blue: #3f7abf;
   --white: #333333;
   --green: #58a621;
@@ -76,6 +78,7 @@ $filtersHeader: var(--filtersHeader);
 $tableRowGreen: var(--tableRowGreen);
 $tableRowYellow: var(--tableRowYellow);
 $tableRowRed: var(--tableRowRed);
+$tableRowGray: var(--tableRowGray);
 $bg: var(--bg);
 $white: var(--white);
 $green: var(--green);

@@ -38,13 +38,16 @@ body {
 
   .ant-table-tbody > tr.ant-table-row-selected.red > td {
     background-color: $tableRowRed;
-
     filter: brightness(0.85) saturate(4);
   }
 
   .ant-table-tbody > tr.ant-table-row-selected.yellow > td {
     background-color: $tableRowYellow;
+    filter: brightness(0.85) saturate(4);
+  }
 
+  .ant-table-tbody > tr.ant-table-row-selected.gray > td {
+    background-color: $tableRowGray;
     filter: brightness(0.85) saturate(4);
   }
 }
