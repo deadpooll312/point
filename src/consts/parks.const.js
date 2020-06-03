@@ -30,7 +30,7 @@ export const tableColumns = [
   {
     title: "Положение ворот",
     width: 80,
-    dataIndex: "availableName",
+    dataIndex: "gateOpenTagName",
     isActive: true,
     render: (value) => {
       if (value === "Открыто") {
