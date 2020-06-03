@@ -44,7 +44,7 @@ export const ParksTable = inject("store")(
       hideSelectAll: true,
       onChange: (selectedRowKeys) => {
         // TODO hardcode сделать как будет массовое закрытие парка
-        const isSingle = auth.authRole !== authRoles.parkGroup;
+        const isSingle = auth.authRole === authRoles.parkGroup;
         if (isSingle) {
           selectSingle(selectedRowKeys);
         } else {
