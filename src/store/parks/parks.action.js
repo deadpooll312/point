@@ -71,9 +71,11 @@ export class ParksAction {
   }
 
   getFilters(params) {
-    return axiosInstance
-      .get("reference/filter", {params})
-      .then(({data}) => (this.filters = data));
+    return axiosInstance.get("reference/filter", {params}).then(({data}) => data);
+  }
+
+  updateSidebarList(data) {
+    this.sidebarList = data;
   }
 
   selectItems(items) {

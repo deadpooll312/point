@@ -1,9 +1,9 @@
 const {createProxyMiddleware} = require("http-proxy-middleware");
 
 let target;
-if (process.env.REACT_APP_MODE === "dev") {
+if (process.env.NODE_ENV === "development") {
   target = "https://arm-park.gost-group.com/";
-} else if (process.env.REACT_APP_MODE === "preprod") {
+} else if (process.env.NODE_ENV === "preprod") {
   target = "https://park-mmonitor-test.mos.ru";
 }
 

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "REACT_APP_MODE=dev node scripts/start.js",
-    "start:preprod": "REACT_APP_MODE=preprod node scripts/start.js",
-    "start:prod": "REACT_APP_MODE=prod node scripts/start.js",
+    "start": "cross-env NODE_ENV=development node scripts/start.js",
+    "start:preprod": "cross-env NODE_ENV=preprod node scripts/start.js",
+    "start:prod": "cross-env NODE_ENV=prod node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint ./src",
@@ -126,6 +126,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "craco-alias": "^2.1.1",
+    "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",

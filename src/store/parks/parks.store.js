@@ -18,6 +18,7 @@ class ParksStore extends ParksAction {
   isParkUpdated = null;
   columns = this.getColumns();
   filters = [];
+  sidebarList = [];
 
   get parkTableColumns() {
     return this.columns.filter((i) => i.isActive);
@@ -51,6 +52,7 @@ ParksStore = decorate(ParksStore, {
   isParkUpdated: observable,
   isLoggedIn: observable,
   filters: observable,
+  sidebarList: observable,
 });
 
 export default new ParksStore();

@@ -25,7 +25,9 @@ export const Sidebar = inject("store")(
       const user = localStorage.userInfo;
       if (user) {
         auth.updateUser(JSON.parse(user));
-        parks.getFilters({group: parkFilterTypes.groupType});
+        parks
+          .getFilters({group: parkFilterTypes.groupType})
+          .then((data) => parks.updateSidebarList(data));
       }
     }, [auth, parks]);
 
@@ -73,13 +75,12 @@ export const Sidebar = inject("store")(
       <Sider className={sidebar.showBar ? "small" : ""} width={256}>
         <SidebarHeader auth={auth} parks={parks} />
         <div className="options">
-          {parks.filters &&
-            parks.filters.map(({sortOrder, description}) => (
-              <Space key={sortOrder} onClick={() => click(sortOrder)}>
-                {getIcon(sortOrder)}
-                <span style={{color: isActive(sortOrder)}}>{description}</span>
-              </Space>
-            ))}
+          {parks.sidebarList.map(({sortOrder, description}) => (
+            <Space key={sortOrder} onClick={() => click(sortOrder)}>
+              {getIcon(sortOrder)}
+              <span style={{color: isActive(sortOrder)}}>{description}</span>
+            </Space>
+          ))}
           <Divider />
           <SidebarSettings />
           <Space>

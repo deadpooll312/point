@@ -18,8 +18,12 @@ export const ParksHeader = inject("store")(
     }, [sidebar]);
 
     useEffect(() => {
-      setItem(parks.filters.find((item) => item.sortOrder === parks.params.groupType));
-    }, [parks.filters, parks.params.groupType, item]);
+      if (parks.sidebarList.length) {
+        setItem(
+          parks.sidebarList.find((item) => item.sortOrder === parks.params.groupType)
+        );
+      }
+    }, [parks.sidebarList, parks.params.groupType, item]);
 
     return (
       <div className="parks__title">
