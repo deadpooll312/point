@@ -7,9 +7,9 @@ import {filterNames} from "../../../consts/filter.const";
 export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
     const [regions, setRegions] = useState([]);
-    const [districts, setDistricts] = useState([]);
-
     const [region, setRegion] = useState();
+
+    const [districts, setDistricts] = useState([]);
     const [district, setDistrict] = useState();
 
     const [organizations, setOrganizations] = useState([]);
@@ -32,8 +32,8 @@ export const ParksFilters = inject("store")(
 
       if (!parks.params.regionCode) {
         setDistricts([]);
-        setOrganization([]);
-        setDepartment([]);
+        setOrganizations([]);
+        setDepartments([]);
       }
     }, [parks.params]);
 
