@@ -37,6 +37,10 @@
     background: $tableRowYellow;
   }
 
+  tr.gray {
+    background: $tableRowGray;
+  }
+
   h3 {
     color: $headerText;
   }
