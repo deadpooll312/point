@@ -53,7 +53,11 @@ export const ParksFilters = inject("store")(
     const changeRegion = useCallback(
       (regionCode) => {
         parks.updateParams({regionCode});
-        parks.updateParams({districtCode: undefined});
+        parks.updateParams({
+          districtCode: undefined,
+          organizationCode: undefined,
+          departmentCode: undefined,
+        });
         parks
           .getFilters({group: filterNames.district, type: regionCode})
           .then((districts) => setDistricts(setLabel(districts)));
