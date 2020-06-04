@@ -8,21 +8,32 @@ export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
+
     const [region, setRegion] = useState();
     const [district, setDistrict] = useState();
+
+    const [organizations, setOrganizations] = useState([]);
+    const [organization, setOrganization] = useState();
+
+    const [departments, setDepartments] = useState([]);
+    const [department, setDepartment] = useState();
 
     useEffect(() => {
       parks
         .getFilters({group: filterNames.region})
-        .then((districts) => setRegions(setLabel(districts)));
+        .then((organizations) => setRegions(setLabel(organizations)));
     }, []);
 
     useEffect(() => {
       setParams(setRegion, "regionCode");
       setParams(setDistrict, "districtCode");
+      setParams(setOrganization, "organizationCode");
+      setParams(setDepartment, "departmentCode");
 
       if (!parks.params.regionCode) {
         setDistricts([]);
+        setOrganization([]);
+        setDepartment([]);
       }
     }, [parks.params]);
 
@@ -46,6 +57,26 @@ export const ParksFilters = inject("store")(
         parks
           .getFilters({group: filterNames.district, type: regionCode})
           .then((districts) => setDistricts(setLabel(districts)));
+        parks
+          .getFilters({group: filterNames.organization, type: regionCode})
+          .then((districts) => setOrganizations(setLabel(districts)));
+        parks
+          .getFilters({group: filterNames.department, type: regionCode})
+          .then((districts) => setDepartments(setLabel(districts)));
+      },
+      [parks]
+    );
+
+    const changeOrganization = useCallback(
+      (organizationCode) => {
+        parks.updateParams({organizationCode});
+      },
+      [parks]
+    );
+
+    const changeDepartment = useCallback(
+      (departmentCode) => {
+        parks.updateParams({departmentCode});
       },
       [parks]
     );
@@ -71,6 +102,30 @@ export const ParksFilters = inject("store")(
             value={district}
             labelInValue={true}
             handleChange={({value}) => changeDistrict(value)}
+            placeholder="Выберите район"
+          />
+        </label>
+
+        <label>
+          <span>По балансодержателю</span>
+          <SelectComponent
+            disabled={!organizations.length}
+            data={organizations}
+            value={organization}
+            labelInValue={true}
+            handleChange={({value}) => changeOrganization(value)}
+            placeholder="Выберите район"
+          />
+        </label>
+
+        <label>
+          <span>По ОИВ</span>
+          <SelectComponent
+            disabled={!departments.length}
+            data={departments}
+            value={department}
+            labelInValue={true}
+            handleChange={({value}) => changeDepartment(value)}
             placeholder="Выберите район"
           />
         </label>
