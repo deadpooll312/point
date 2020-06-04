@@ -106,7 +106,9 @@ export const ParksTable = inject("store")(
 
         <Table
           scroll={{x: 2000}}
-          rowClassName={(record) => (record.available ? record.crowdColor : "gray")}
+          rowClassName={(record) =>
+            record.available === "true" ? record.crowdColor : "gray"
+          }
           rowSelection={rowSelection}
           columns={parks.parkTableColumns}
           locale={{emptyText: emptyData}}
