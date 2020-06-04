@@ -3,6 +3,7 @@ import {inject, observer} from "mobx-react";
 // local files
 import {SelectComponent} from "../../../components/select";
 import {filterNames} from "../../../consts/filter.const";
+import {Tooltip} from "antd";
 
 export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
@@ -99,14 +100,16 @@ export const ParksFilters = inject("store")(
 
         <label>
           <span>По району</span>
-          <SelectComponent
-            disabled={!districts.length}
-            data={districts}
-            value={district}
-            labelInValue={true}
-            handleChange={({value}) => changeDistrict(value)}
-            placeholder="Выберите район"
-          />
+          <Tooltip color={"var(--blue)"} placement="top" title="33333">
+            <SelectComponent
+              disabled={!districts.length}
+              data={districts}
+              value={district}
+              labelInValue={true}
+              handleChange={({value}) => changeDistrict(value)}
+              placeholder="Выберите район"
+            />
+          </Tooltip>
         </label>
 
         <label>
