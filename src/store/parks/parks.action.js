@@ -2,7 +2,7 @@ import axiosInstance from "../../api/api";
 import {tableColumns} from "../../consts/parks.const";
 import {getStorage, setStorage} from "../../services/storage.service";
 import {columns} from "../../consts/storage.conts";
-import {showSuccess} from "../../services/notifications.service";
+import {showError, showSuccess} from "../../services/notifications.service";
 import {modalParkStatuses} from "../../consts/modal.const";
 
 export class ParksAction {
@@ -108,13 +108,23 @@ export class ParksAction {
   }
 
   colorAccept() {
-    const {crowdColor} = this.singlePark;
     axiosInstance
-      .post("/park/color/accept", {
-        crowdColor,
-        territoryCode: this.selectedPark.id,
-      })
-      .then(() => showSuccess());
+      .post(
+        "/park/color/accept",
+        this.selectedItems.map(({crowdColor, id}) => ({
+          crowdColor,
+          territoryCode: id,
+        }))
+      )
+      .then(({data}) => {
+        const isFailed = data.some(({success}) => !success);
+        if (isFailed) {
+          const ids = data.map(({id}) => `#${id} \n`).join(" ");
+          showError(`Выполнено с ошибками: \n ${ids}`, 7);
+        } else {
+          showSuccess();
+        }
+      });
   }
 
   setWarningModalName(name) {

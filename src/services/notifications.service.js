@@ -1,8 +1,9 @@
 import {notification} from "antd";
 
-export const showError = (text) => {
+export const showError = (text, duration) => {
   notification["error"]({
     message: "Ошибка",
+    duration: duration || 4.5,
     description: text || "Что-то пошло не так...",
   });
 };
