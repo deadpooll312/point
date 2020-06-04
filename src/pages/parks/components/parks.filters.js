@@ -106,7 +106,7 @@ export const ParksFilters = inject("store")(
             value={district}
             labelInValue={true}
             handleChange={({value}) => changeDistrict(value)}
-            placeholder="Выберите район"
+            placeholder={region ? "Выберите район" : "Сначала выберите округ"}
           />
         </label>
 
@@ -118,7 +118,7 @@ export const ParksFilters = inject("store")(
             value={organization}
             labelInValue={true}
             handleChange={({value}) => changeOrganization(value)}
-            placeholder="Выберите район"
+            placeholder={region ? "Выберите балансодержателя" : "Сначала выберите округ"}
           />
         </label>
 
@@ -130,7 +130,7 @@ export const ParksFilters = inject("store")(
             value={department}
             labelInValue={true}
             handleChange={({value}) => changeDepartment(value)}
-            placeholder="Выберите район"
+            placeholder={region ? "Выберите ОИВ" : "Сначала выберите округ"}
           />
         </label>
       </div>
