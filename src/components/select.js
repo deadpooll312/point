@@ -1,5 +1,5 @@
 import React from "react";
-import {Select} from "antd";
+import {Select, Tooltip} from "antd";
 const {Option} = Select;
 
 /*
@@ -10,6 +10,7 @@ const {Option} = Select;
 
 export const SelectComponent = ({
   handleChange,
+  handleHover,
   placeholder,
   data,
   type,
@@ -19,23 +20,27 @@ export const SelectComponent = ({
   disabled,
   selectClassName,
 }) => {
+  const text = data.find((item) => value && item.value === value.value);
   return (
-    <Select
-      className={`simple-select ${selectClassName}`}
-      mode={type}
-      value={value}
-      style={{width: width || 240}}
-      placeholder={placeholder}
-      bordered={false}
-      onChange={handleChange}
-      disabled={disabled}
-      labelInValue={labelInValue}
-    >
-      {data.map((item) => (
-        <Option key={item.value} className={item.className}>
-          {item.label}
-        </Option>
-      ))}
-    </Select>
+    <Tooltip title={text ? text.description : null}>
+      <Select
+        className={`simple-select ${selectClassName}`}
+        mode={type}
+        value={value}
+        style={{width: width || 240}}
+        placeholder={placeholder}
+        bordered={false}
+        onChange={handleChange}
+        disabled={disabled}
+        labelInValue={labelInValue}
+        onMouseEnter={handleHover}
+      >
+        {data.map((item) => (
+          <Option key={item.value} className={item.className}>
+            {item.label}
+          </Option>
+        ))}
+      </Select>
+    </Tooltip>
   );
 };

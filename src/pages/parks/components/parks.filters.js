@@ -88,7 +88,6 @@ export const ParksFilters = inject("store")(
     return (
       <div className="park-filters">
         <label>
-          <span>По округу</span>
           <SelectComponent
             data={regions}
             value={region}
