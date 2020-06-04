@@ -25,18 +25,6 @@ export const ParksFilters = inject("store")(
     }, []);
 
     useEffect(() => {
-      parks
-        .getFilters({group: filterNames.organization})
-        .then((districts) => setOrganizations(setLabel(districts)));
-    }, []);
-
-    useEffect(() => {
-      parks
-        .getFilters({group: filterNames.department})
-        .then((districts) => setDepartments(setLabel(districts)));
-    }, []);
-
-    useEffect(() => {
       setParams(setRegion, "regionCode");
       setParams(setDistrict, "districtCode");
       setParams(setOrganization, "organizationCode");
@@ -44,6 +32,8 @@ export const ParksFilters = inject("store")(
 
       if (!parks.params.regionCode) {
         setDistricts([]);
+        setOrganization([]);
+        setDepartment([]);
       }
     }, [parks.params]);
 
@@ -67,6 +57,12 @@ export const ParksFilters = inject("store")(
         parks
           .getFilters({group: filterNames.district, type: regionCode})
           .then((districts) => setDistricts(setLabel(districts)));
+        parks
+          .getFilters({group: filterNames.organization, type: regionCode})
+          .then((districts) => setOrganizations(setLabel(districts)));
+        parks
+          .getFilters({group: filterNames.department, type: regionCode})
+          .then((districts) => setDepartments(setLabel(districts)));
       },
       [parks]
     );
