@@ -1,9 +1,9 @@
 import React, {useEffect, useCallback} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
-import {clusterColumns} from "../../../consts/parks.const";
-import {PaginateComponent} from "../../../components/paginate.component";
-import {getPageCount} from "../../../services/pagination.helper";
+import {clusterColumns} from "../../../../consts/parks.const";
+import {PaginateComponent} from "../../../../components/paginate.component";
+import {getPageCount} from "../../../../services/pagination.helper";
 
 export const ParkCluster = inject("store")(
   observer(({store: {parks}}) => {

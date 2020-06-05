@@ -89,6 +89,7 @@ export const ParksFilters = inject("store")(
     return (
       <div className="park-filters">
         <label>
+          <span>По округу</span>
           <SelectComponent
             data={regions}
             value={region}
@@ -97,6 +98,7 @@ export const ParksFilters = inject("store")(
             placeholder="Выберите округ"
           />
         </label>
+
         <label>
           <span>По району</span>
           <SelectComponent
@@ -105,9 +107,10 @@ export const ParksFilters = inject("store")(
             value={district}
             labelInValue={true}
             handleChange={({value}) => changeDistrict(value)}
-            placeholder="Выберите район"
+            placeholder={region ? "Выберите район" : "Сначала выберите округ"}
           />
         </label>
+
         <label>
           <span>По балансодержателю</span>
           <FilterTooltip data={organizations} value={organization}>
@@ -117,7 +120,9 @@ export const ParksFilters = inject("store")(
               value={organization}
               labelInValue={true}
               handleChange={({value}) => changeOrganization(value)}
-              placeholder="Выберите район"
+              placeholder={
+                region ? "Выберите балансодержателя" : "Сначала выберите округ"
+              }
             />
           </FilterTooltip>
         </label>
@@ -131,7 +136,7 @@ export const ParksFilters = inject("store")(
               value={department}
               labelInValue={true}
               handleChange={({value}) => changeDepartment(value)}
-              placeholder="Выберите район"
+              placeholder={region ? "Выберите ОИВ" : "Сначала выберите округ"}
             />
           </FilterTooltip>
         </label>
