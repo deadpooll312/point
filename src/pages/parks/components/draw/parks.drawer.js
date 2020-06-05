@@ -5,7 +5,7 @@ import update from "immutability-helper";
 import {Drawer} from "antd";
 import {inject, observer} from "mobx-react";
 // local files
-import {DragCard} from "../../../components/drag.card";
+import {DragCard} from "../../../../components/drag.card";
 import {ParkDrawButtons} from "./park.draw.buttons";
 
 export const ParksDrawer = inject("store")(

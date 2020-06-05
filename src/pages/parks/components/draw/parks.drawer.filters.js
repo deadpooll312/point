@@ -3,7 +3,7 @@ import {Drawer} from "antd";
 import {inject, observer} from "mobx-react";
 // local files
 import {ParkDrawButtonsFiltres} from "./park.draw.buttons.filters";
-import {ParksFilters} from "./parks.filters";
+import {ParksFilters} from "../parks.filters";
 
 export const ParksDrawerFilters = inject("store")(
   observer(({store: {sidebar, parks}}) => {
