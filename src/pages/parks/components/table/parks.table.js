@@ -1,12 +1,12 @@
 import React, {useCallback, useEffect, useState, Fragment} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
-import {emptyData} from "../../../consts/text.const";
-import {ModalComponent} from "../../../components/modal.component";
-import {sysViewNameNo} from "../../../consts/text.const";
-import {warningModalNames} from "../../../consts/modal.const";
-import {ParkModalTab} from "./park.modal.tab";
-import {authRoles} from "../../../consts/auth.const";
+import {emptyData} from "../../../../consts/text.const";
+import {ModalComponent} from "../../../../components/modal.component";
+import {sysViewNameNo} from "../../../../consts/text.const";
+import {warningModalNames} from "../../../../consts/modal.const";
+import {ParkModalTab} from "../tab/park.modal.tab";
+import {authRoles} from "../../../../consts/auth.const";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks, auth}}) => {

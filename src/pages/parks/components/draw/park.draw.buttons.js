@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {Button} from "antd";
-import {tableColumns} from "../../../consts/parks.const";
+import {tableColumns} from "../../../../consts/parks.const";
 
 export const ParkDrawButtons = ({parks, cards}) => {
   const redesign = useCallback(
