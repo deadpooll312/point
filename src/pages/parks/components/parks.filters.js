@@ -3,7 +3,7 @@ import {inject, observer} from "mobx-react";
 // local files
 import {SelectComponent} from "../../../components/select";
 import {filterNames} from "../../../consts/filter.const";
-import {Tooltip} from "antd";
+import {FilterTooltip} from "./filter.tooltip";
 
 export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
@@ -97,43 +97,43 @@ export const ParksFilters = inject("store")(
             placeholder="Выберите округ"
           />
         </label>
-
         <label>
           <span>По району</span>
-          <Tooltip color={"var(--blue)"} placement="top" title="33333">
-            <SelectComponent
-              disabled={!districts.length}
-              data={districts}
-              value={district}
-              labelInValue={true}
-              handleChange={({value}) => changeDistrict(value)}
-              placeholder="Выберите район"
-            />
-          </Tooltip>
-        </label>
-
-        <label>
-          <span>По балансодержателю</span>
           <SelectComponent
-            disabled={!organizations.length}
-            data={organizations}
-            value={organization}
+            disabled={!districts.length}
+            data={districts}
+            value={district}
             labelInValue={true}
-            handleChange={({value}) => changeOrganization(value)}
+            handleChange={({value}) => changeDistrict(value)}
             placeholder="Выберите район"
           />
+        </label>
+        <label>
+          <span>По балансодержателю</span>
+          <FilterTooltip data={organizations} value={organization}>
+            <SelectComponent
+              disabled={!organizations.length}
+              data={organizations}
+              value={organization}
+              labelInValue={true}
+              handleChange={({value}) => changeOrganization(value)}
+              placeholder="Выберите район"
+            />
+          </FilterTooltip>
         </label>
 
         <label>
           <span>По ОИВ</span>
-          <SelectComponent
-            disabled={!departments.length}
-            data={departments}
-            value={department}
-            labelInValue={true}
-            handleChange={({value}) => changeDepartment(value)}
-            placeholder="Выберите район"
-          />
+          <FilterTooltip data={departments} value={department}>
+            <SelectComponent
+              disabled={!departments.length}
+              data={departments}
+              value={department}
+              labelInValue={true}
+              handleChange={({value}) => changeDepartment(value)}
+              placeholder="Выберите район"
+            />
+          </FilterTooltip>
         </label>
       </div>
     );

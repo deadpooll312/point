@@ -19,13 +19,6 @@ export const SelectComponent = ({
   disabled,
   selectClassName,
 }) => {
-  // const text = data.find(
-  //   (item) =>
-  //     value &&
-  //     item.value === value.value &&
-  //     item.description &&
-  //     item.description.length > 32
-  // );
   return (
     <Select
       className={`simple-select ${selectClassName}`}
