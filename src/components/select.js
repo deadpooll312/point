@@ -32,7 +32,7 @@ export const SelectComponent = ({
       labelInValue={labelInValue}
     >
       {data.map((item) => (
-        <Option key={item.value} className={item.className}>
+        <Option key={item.value} className={item.className} title={item.label}>
           {item.label}
         </Option>
       ))}

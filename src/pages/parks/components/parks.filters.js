@@ -3,6 +3,7 @@ import {inject, observer} from "mobx-react";
 // local files
 import {SelectComponent} from "../../../components/select";
 import {filterNames} from "../../../consts/filter.const";
+import {FilterTooltip} from "./filter.tooltip";
 
 export const ParksFilters = inject("store")(
   observer(({store: {parks}}) => {
@@ -112,26 +113,32 @@ export const ParksFilters = inject("store")(
 
         <label>
           <span>По балансодержателю</span>
-          <SelectComponent
-            disabled={!organizations.length}
-            data={organizations}
-            value={organization}
-            labelInValue={true}
-            handleChange={({value}) => changeOrganization(value)}
-            placeholder={region ? "Выберите балансодержателя" : "Сначала выберите округ"}
-          />
+          <FilterTooltip data={organizations} value={organization}>
+            <SelectComponent
+              disabled={!organizations.length}
+              data={organizations}
+              value={organization}
+              labelInValue={true}
+              handleChange={({value}) => changeOrganization(value)}
+              placeholder={
+                region ? "Выберите балансодержателя" : "Сначала выберите округ"
+              }
+            />
+          </FilterTooltip>
         </label>
 
         <label>
           <span>По ОИВ</span>
-          <SelectComponent
-            disabled={!departments.length}
-            data={departments}
-            value={department}
-            labelInValue={true}
-            handleChange={({value}) => changeDepartment(value)}
-            placeholder={region ? "Выберите ОИВ" : "Сначала выберите округ"}
-          />
+          <FilterTooltip data={departments} value={department}>
+            <SelectComponent
+              disabled={!departments.length}
+              data={departments}
+              value={department}
+              labelInValue={true}
+              handleChange={({value}) => changeDepartment(value)}
+              placeholder={region ? "Выберите ОИВ" : "Сначала выберите округ"}
+            />
+          </FilterTooltip>
         </label>
       </div>
     );
