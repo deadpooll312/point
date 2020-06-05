@@ -41,7 +41,7 @@ export const Sidebar = inject("store")(
 
     const click = useCallback(
       (groupType) => {
-        parks.updateParams({groupType});
+        parks.updateParams({groupType, page: 0});
         parks.getParks();
       },
       [parks]
