@@ -148,10 +148,22 @@ export const clusterColumns = [
     dataIndex: "providerType",
   },
   {
-    title: "Геоданные",
-    key: "latitude",
-    dataIndex: "latitude",
-    render: (value, row) => `[${row.latitude}, ${row.longitude}]`,
+    title: "Дата",
+    key: "sourceDatetime",
+    dataIndex: "sourceDatetime",
+    render: (value) => {
+      if (value) {
+        return new Date(value).toLocaleString("ru", {
+          day: "numeric",
+          month: "numeric",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        });
+      } else {
+        return "-";
+      }
+    },
   },
 ];
 
