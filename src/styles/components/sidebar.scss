@@ -38,7 +38,7 @@ body {
       font-size: 17px;
       white-space: nowrap;
     }
-    span:first-child{
+    span:first-child {
       margin-top: 5px;
     }
   }
@@ -46,7 +46,6 @@ body {
   .user {
     display: flex;
     justify-content: left;
-
 
     .ant-avatar {
       border: 1px solid #fff;
@@ -61,7 +60,6 @@ body {
       white-space: nowrap;
       p {
         font-size: 10px;
-
       }
 
       h3 {
@@ -83,8 +81,6 @@ body {
     border-radius: 0 0 50px 50px;
     overflow: hidden;
   }
-
-
 
   .options {
     padding-left: 13px;
