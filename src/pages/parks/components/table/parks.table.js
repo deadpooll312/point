@@ -68,6 +68,7 @@ export const ParksTable = inject("store")(
       (record) => {
         setModal(true);
         setItem(record);
+        parks.selectItems([record]);
         parks.setSelectedPark(record);
       },
       [parks]
