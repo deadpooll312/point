@@ -1,0 +1,8 @@
+body {
+  .ant-spin {
+    color: $blue;
+    & i {
+      background-color: $blue;
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import React, {useEffect, useCallback} from "react";
-import {Table} from "antd";
+import React, {useCallback, useEffect} from "react";
+import {Spin, Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {clusterColumns} from "../../../../consts/parks.const";
 import {PaginateComponent} from "../../../../components/paginate.component";
@@ -24,24 +24,32 @@ export const ParkCluster = inject("store")(
 
     return (
       <div className="park-cluster">
-        <Table
-          columns={clusterColumns}
-          expandIconColumnIndex={-2}
-          expandIcon={() => null}
-          expandIconAsCell={false}
-          expandRowByClick={true}
-          defaultExpandAllRows={false}
-          // expandable={{
-          //   expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
-          //   onExpand: (e, record) => console.log(record.key),
-          // }}
-          dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
-          pagination={false}
-        />
-        <PaginateComponent
-          hasNextPage={parks.hasClustersNextPage}
-          onChange={onPaginate}
-        />
+        {parks.clustersIsLoading ? (
+          <>
+            <Table
+              columns={clusterColumns}
+              expandIconColumnIndex={-2}
+              expandIcon={() => null}
+              expandIconAsCell={false}
+              expandRowByClick={true}
+              defaultExpandAllRows={false}
+              // expandable={{
+              //   expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
+              //   onExpand: (e, record) => console.log(record.key),
+              // }}
+              dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
+              pagination={false}
+            />
+            <PaginateComponent
+              hasNextPage={parks.hasClustersNextPage}
+              onChange={onPaginate}
+            />
+          </>
+        ) : (
+          <div className="clusters-spin">
+            <Spin tip="Загрузка..." />
+          </div>
+        )}
       </div>
     );
   })
