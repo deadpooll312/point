@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback, useState} from "react";
+import React, {useCallback, useEffect} from "react";
 import {Spin, Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {clusterColumns} from "../../../../consts/parks.const";
@@ -7,16 +7,10 @@ import {getPageCount} from "../../../../services/pagination.helper";
 
 export const ParkCluster = inject("store")(
   observer(({store: {parks}}) => {
-    const [loading, setLoading] = useState(false);
-
     useEffect(() => {
       parks.updateClusterParams({id: parks.selectedPark.id});
       parks.getClusters();
     }, [parks]);
-
-    useEffect(() => {
-      setLoading(parks.clustersIsLoading);
-    }, [parks.clustersIsLoading]);
 
     const onPaginate = useCallback(
       (isNext) => {
@@ -30,7 +24,7 @@ export const ParkCluster = inject("store")(
 
     return (
       <div className="park-cluster">
-        {loading ? (
+        {parks.clustersIsLoading ? (
           <>
             <Table
               columns={clusterColumns}
