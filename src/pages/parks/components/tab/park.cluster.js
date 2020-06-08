@@ -1,5 +1,5 @@
-import React, {useEffect, useCallback} from "react";
-import {Table} from "antd";
+import React, {useEffect, useCallback, useState} from "react";
+import {Spin, Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {clusterColumns} from "../../../../consts/parks.const";
 import {PaginateComponent} from "../../../../components/paginate.component";
@@ -7,10 +7,16 @@ import {getPageCount} from "../../../../services/pagination.helper";
 
 export const ParkCluster = inject("store")(
   observer(({store: {parks}}) => {
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
       parks.updateClusterParams({id: parks.selectedPark.id});
       parks.getClusters();
     }, [parks]);
+
+    useEffect(() => {
+      setLoading(parks.clustersIsLoading);
+    }, [parks.clustersIsLoading]);
 
     const onPaginate = useCallback(
       (isNext) => {
@@ -24,24 +30,32 @@ export const ParkCluster = inject("store")(
 
     return (
       <div className="park-cluster">
-        <Table
-          columns={clusterColumns}
-          expandIconColumnIndex={-2}
-          expandIcon={() => null}
-          expandIconAsCell={false}
-          expandRowByClick={true}
-          defaultExpandAllRows={false}
-          // expandable={{
-          //   expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
-          //   onExpand: (e, record) => console.log(record.key),
-          // }}
-          dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
-          pagination={false}
-        />
-        <PaginateComponent
-          hasNextPage={parks.hasClustersNextPage}
-          onChange={onPaginate}
-        />
+        {loading ? (
+          <>
+            <Table
+              columns={clusterColumns}
+              expandIconColumnIndex={-2}
+              expandIcon={() => null}
+              expandIconAsCell={false}
+              expandRowByClick={true}
+              defaultExpandAllRows={false}
+              // expandable={{
+              //   expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
+              //   onExpand: (e, record) => console.log(record.key),
+              // }}
+              dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
+              pagination={false}
+            />
+            <PaginateComponent
+              hasNextPage={parks.hasClustersNextPage}
+              onChange={onPaginate}
+            />
+          </>
+        ) : (
+          <div className="clusters-spin">
+            <Spin tip="Загрузка..." />
+          </div>
+        )}
       </div>
     );
   })
