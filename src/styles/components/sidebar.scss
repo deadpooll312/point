@@ -96,6 +96,14 @@ body {
   }
 }
 
+.span-link{
+  color: $text;
+
+  &:hover{
+    color: $text;
+  }
+}
+
 .sidebar-theme-header {
   color: $filtersHeader;
 }

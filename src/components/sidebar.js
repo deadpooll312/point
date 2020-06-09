@@ -71,6 +71,19 @@ export const Sidebar = inject("store")(
       }
     };
 
+    // const download = (filename) => {
+    //   var element = document.createElement("a");
+    //   element.setAttribute("href", "../../static/user_guide_v1.1.pdf");
+    //   element.setAttribute("download", filename);
+    //
+    //   element.style.display = "none";
+    //   document.body.appendChild(element);
+    //
+    //   element.click();
+    //
+    //   document.body.removeChild(element);
+    // };
+
     return (
       <Sider className={sidebar.showBar ? "small" : ""} width={256}>
         <SidebarHeader auth={auth} parks={parks} />
@@ -85,7 +98,11 @@ export const Sidebar = inject("store")(
           <SidebarSettings />
           <Space>
             <InfoIcon />
-            <span>{sidebarOptions.INFO}</span>
+            <span>
+              <a className="span-link" href="/Инструкция Парки 1.1.pdf" download>
+                {sidebarOptions.INFO}
+              </a>
+            </span>
           </Space>
           <SidebarExit auth={auth} />
           <SidebarMenu sidebar={sidebar} />
