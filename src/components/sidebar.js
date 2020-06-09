@@ -85,7 +85,11 @@ export const Sidebar = inject("store")(
           <SidebarSettings />
           <Space>
             <InfoIcon />
-            <span>{sidebarOptions.INFO}</span>
+            <span>
+              <a className="span-link" href="/Инструкция Парки 1.1.pdf" download>
+                {sidebarOptions.INFO}
+              </a>
+            </span>
           </Space>
           <SidebarExit auth={auth} />
           <SidebarMenu sidebar={sidebar} />
