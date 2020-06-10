@@ -6,12 +6,13 @@ import {ParksDrawer} from "./components/draw/parks.drawer";
 import {ParkModals} from "./components/modals/park.modals";
 import {ParksDrawerFilters} from "./components/draw/parks.drawer.filters";
 import {ParksSearch} from "./components/parks.search";
+import {ParksMap} from "./components/map/parks.map";
 
 export const Parks = () => {
   return (
     <div className="parks">
       <ParkModals />
-      {/*<ParksMap />*/}
+      <ParksMap />
       <ParksHeader />
       <ParksSearch />
       <ParksActions />
