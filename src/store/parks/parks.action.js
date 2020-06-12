@@ -18,6 +18,10 @@ export class ParksAction {
           this.data = elements;
           this.hasParksNextPage = hasNextPage;
         });
+
+      axiosInstance.get("incident/forMap", {params: this.params}).then(({data}) => {
+        this.mapColors = data.data;
+      });
     }
   }
 

@@ -17,6 +17,7 @@ class ParksStore extends ParksAction {
   hasClustersNextPage = false;
   isLoggedIn = false;
   isParkUpdated = null;
+  mapColors = null;
   columns = this.getColumns();
   filters = [];
   sidebarList = [];
@@ -54,6 +55,7 @@ ParksStore = decorate(ParksStore, {
   isParkUpdated: observable,
   isLoggedIn: observable,
   filters: observable,
+  mapColors: observable,
   sidebarList: observable,
 });
 
