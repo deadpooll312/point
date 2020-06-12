@@ -3,10 +3,12 @@ import Map from "ol/Map";
 import View from "ol/View";
 import Zoom from "ol/control/Zoom";
 import XYZSource from "ol/source/XYZ";
+
 // local files
 import {
   center,
   destination,
+  mapStyles,
   minZoom,
   parkMap,
   source,
@@ -22,6 +24,7 @@ export const tileId = "tiles";
 function getWGSTiles(urlTemplate) {
   return createTiles2GIS(urlTemplate);
 }
+
 // создаем обновить данные с подложкой 2gis
 function switchMapSRS(map, urlTemplate) {
   setTileLayer(map, getWGSTiles(urlTemplate));
@@ -35,6 +38,7 @@ export function getLayerById(map, id) {
     .find((l) => l.get("id") === id);
 }
 
+// Создание слоя 2gis
 export function createTiles2GIS(urlTemplate) {
   return new TileLayer({
     id: tileId,
@@ -64,6 +68,8 @@ export const setPolygon = ({mapNew, data}) => {
 
   const vectorLayer = new VectorLayer({
     source: vectorSource,
+    // установка цвета от обьекта STYLES
+    style: (feature) => mapStyles[feature.get("color")],
   });
 
   mapNew.addLayer(vectorLayer);
@@ -73,8 +79,10 @@ export const setPolygon = ({mapNew, data}) => {
 export const createMap = () => {
   const mapNew = new Map({
     logo: false,
+    // убираем контроллеры кроме zoom
     controls: [new Zoom()],
     target: parkMap,
+    // высота и центр карты
     view: new View({center, minZoom, zoom}),
   });
 
@@ -83,4 +91,17 @@ export const createMap = () => {
   mapNew.updateSize();
 
   return mapNew;
+};
+
+// Преобразование данных из сервера для КАРТЫ
+export const updateMapDTO = (data, mapColors) => {
+  return data.map((item) => {
+    if (mapColors) {
+      const mapItem = mapColors.find((colorItem) => colorItem.id === parseInt(item.id));
+      const {crowdColor} = mapItem || {};
+      return Object.assign(item, {properties: {color: crowdColor || "grey"}});
+    } else {
+      return item;
+    }
+  });
 };
