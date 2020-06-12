@@ -11,6 +11,7 @@ class ParksStore extends ParksAction {
   selectedPark = {};
   singlePark = {};
   clusters = [];
+  clustersIsLoading = false;
   warningModalName = null;
   hasParksNextPage = false;
   hasClustersNextPage = false;
@@ -47,6 +48,7 @@ ParksStore = decorate(ParksStore, {
   selectedPark: observable,
   singlePark: observable,
   clusters: observable,
+  clustersIsLoading: observable,
   warningModalName: observable,
   hasParksNextPage: observable,
   hasClustersNextPage: observable,

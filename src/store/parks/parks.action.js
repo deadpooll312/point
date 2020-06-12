@@ -40,11 +40,13 @@ export class ParksAction {
   }
 
   getClusters() {
+    this.clustersIsLoading = false;
     axiosInstance
       .get("incident/clusters", {params: this.clusterParams})
       .then(({data: {elements, hasNextPage}}) => {
         this.clusters = elements;
         this.hasClustersNextPage = hasNextPage;
+        this.clustersIsLoading = true;
       });
   }
 
