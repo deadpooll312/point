@@ -1,12 +1,12 @@
-import React, {useCallback, useEffect, useState, Fragment} from "react";
+import React, {Fragment, useCallback, useEffect, useState} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
-import {emptyData} from "../../../../consts/text.const";
+import {emptyData, sysViewNameNo} from "../../../../consts/text.const";
 import {ModalComponent} from "../../../../components/modal.component";
-import {sysViewNameNo} from "../../../../consts/text.const";
 import {warningModalNames} from "../../../../consts/modal.const";
 import {ParkModalTab} from "../tab/park.modal.tab";
 import {authRoles} from "../../../../consts/auth.const";
+import {isHasRole} from "../../../../services/user.service";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks, auth}}) => {
@@ -86,7 +86,7 @@ export const ParksTable = inject("store")(
           handleCancel={() => setModal(false)}
           width={800}
           okText={
-            hideOkButton()
+            hideOkButton() || !isHasRole([authRoles.acceptPark])
               ? null
               : `${isAvailableToChange() ? "Закрыть" : "Открыть"} парк`
           }
