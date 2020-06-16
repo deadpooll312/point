@@ -106,7 +106,7 @@ export const ParksTable = inject("store")(
         </ModalComponent>
 
         <Table
-          scroll={{x: 2000}}
+          scroll={{x: 1000}}
           rowClassName={(record) =>
             record.available === "true" ? record.crowdColor : "gray"
           }
