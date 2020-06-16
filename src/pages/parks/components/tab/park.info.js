@@ -20,7 +20,6 @@ export const ParkInfo = inject("store")(
     }, []);
 
     useEffect(() => {
-      console.log(isHasRole(["repaintPark"]));
       setData(parks.singlePark);
       if (!value && parks.singlePark.crowdColor) {
         setValue({value: parks.singlePark.crowdColor});
@@ -66,7 +65,7 @@ export const ParkInfo = inject("store")(
                       parks.onParkUpdated(null);
                     }}
                     placeholder={data.crowdColorName}
-                    disabled={!isHasRole(["repaintPark2"])}
+                    disabled={!isHasRole(["repaintPark"])}
                   />
                 )}
               </div>
