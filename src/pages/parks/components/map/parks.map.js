@@ -1,17 +1,47 @@
 import React, {useEffect, useState} from "react";
 import "ol/ol.css";
-import {createMap, setPolygon, updateMapDTO} from "../../../../services/map.service";
+import {
+  createMap,
+  setClickEvent,
+  setPolygon,
+  setPolygonIcon,
+  updateMapDTO,
+} from "../../../../services/map.service";
 import {parkMap} from "../../../../consts/map.const";
 import {inject, observer} from "mobx-react";
 
 export const ParksMap = inject("store")(
   observer(({store: {map, parks}}) => {
     const [newMap, setMap] = useState();
+
     useEffect(() => {
-      setMap(createMap());
+      const newMap = createMap();
+      setMap(newMap);
       map.getGeometry();
       map.getMapColors();
+      setClickEvent({
+        map: newMap,
+        cb: (feature) => {
+          const id = feature.getId();
+          if (id) {
+            parks.updateClusterParams({id});
+            parks.getClusters();
+          } else {
+            console.log(`recordID = ${feature.get("id")}`);
+          }
+        },
+      });
     }, []);
+
+    useEffect(() => {
+      if (newMap) {
+        parks.clusters.forEach(({recordId, longitude, latitude}) => {
+          // const destination = [+longitude, +latitude];
+          const destination = [37.71306589, 55.62459861];
+          setPolygonIcon({map: newMap, destination, id: recordId});
+        });
+      }
+    }, [parks.clusters]);
 
     useEffect(() => {
       if (map.data) {

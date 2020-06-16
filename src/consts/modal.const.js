@@ -4,6 +4,7 @@ export const warningModalNames = {
   openCouple: "OPEN_COUPLE",
   open: "OPEN",
   edit: "EDIT",
+  openCard: "OPEN_CARD",
 };
 
 export const modalParkStatuses = {

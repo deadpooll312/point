@@ -6,15 +6,20 @@ import {inject, observer} from "mobx-react";
 const {TabPane} = Tabs;
 
 export const ParkModalTab = inject("store")(
-  observer(({store: {parks}}) => {
-    const activeTab = "1";
+  observer(({store: {parks}, props}) => {
+    const activeKey = (props && props.activeTab) || "1";
 
     useEffect(() => {
-      parks.getSinglePark();
-    }, [parks]);
+      if (parks.selectedPark && parks.selectedPark.id) {
+        parks.clearSinglePark();
+        parks.getCardById(parks.selectedPark.id).then((park) => {
+          parks.updateSinglePark(park);
+        });
+      }
+    }, [parks.selectedPark]);
 
     return (
-      <Tabs animated={false} defaultActiveKey={activeTab} className="park-modal-tabs">
+      <Tabs animated={false} defaultActiveKey={activeKey} className="park-modal-tabs">
         <TabPane tab="Сведения" key="1">
           <ParkInfo />
         </TabPane>

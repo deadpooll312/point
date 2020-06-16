@@ -3,7 +3,13 @@ import Map from "ol/Map";
 import View from "ol/View";
 import Zoom from "ol/control/Zoom";
 import XYZSource from "ol/source/XYZ";
-
+import Feature from "ol/Feature";
+import Point from "ol/geom/Point";
+import GeoJSON from "ol/format/GeoJSON";
+import VectorSource from "ol/source/Vector";
+import VectorLayer from "ol/layer/Vector";
+import {Icon, Style} from "ol/style";
+import {fromLonLat} from "ol/proj";
 // local files
 import {
   center,
@@ -15,10 +21,21 @@ import {
   urlTemplate,
   zoom,
 } from "../consts/map.const";
-import GeoJSON from "ol/format/GeoJSON";
-import VectorSource from "ol/source/Vector";
-import VectorLayer from "ol/layer/Vector";
+import Pointer from "../static/Pointer.svg";
+
 export const tileId = "tiles";
+
+// Стили для PIN иконки
+function createStyle(src) {
+  return new Style({
+    image: new Icon({
+      anchor: [0.5, 46],
+      src: src,
+      anchorXUnits: "fraction",
+      anchorYUnits: "pixels",
+    }),
+  });
+}
 
 // создаем подложку 2gis
 function getWGSTiles(urlTemplate) {
@@ -75,6 +92,23 @@ export const setPolygon = ({mapNew, data}) => {
   mapNew.addLayer(vectorLayer);
 };
 
+// Установка иконки ПОЛИГОНА
+export const setPolygonIcon = ({map, destination, id}) => {
+  // PIN icon
+  const iconFeature = new Feature({
+    geometry: new Point(fromLonLat(destination)),
+    id,
+  });
+  iconFeature.set("style", createStyle(Pointer));
+  const pinVector = new VectorLayer({
+    style: (feature) => feature.get("style"),
+    source: new VectorSource({features: [iconFeature]}),
+  });
+
+  pinVector.setZIndex(1001);
+  map.addLayer(pinVector);
+};
+
 // Выдача карты слоем 2gis
 export const createMap = () => {
   const mapNew = new Map({
@@ -102,6 +136,15 @@ export const updateMapDTO = (data, mapColors) => {
       return Object.assign(item, {properties: {color: crowdColor || "grey"}});
     } else {
       return item;
+    }
+  });
+};
+
+export const setClickEvent = ({map, cb}) => {
+  map.on("click", (evt) => {
+    const feature = map.forEachFeatureAtPixel(evt.pixel, (feature) => feature);
+    if (feature) {
+      cb(feature);
     }
   });
 };

@@ -2,17 +2,12 @@ import React, {useCallback, useEffect, useState, Fragment} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {emptyData} from "../../../../consts/text.const";
-import {ModalComponent} from "../../../../components/modal.component";
-import {sysViewNameNo} from "../../../../consts/text.const";
 import {warningModalNames} from "../../../../consts/modal.const";
-import {ParkModalTab} from "../tab/park.modal.tab";
 import {authRoles} from "../../../../consts/auth.const";
 
 export const ParksTable = inject("store")(
   observer(({store: {parks, auth}}) => {
-    const [showModal, setModal] = useState(false);
     const [data, setData] = useState([]);
-    const [item, setItem] = useState({});
 
     useEffect(() => {
       parks.getParks();
@@ -66,45 +61,15 @@ export const ParksTable = inject("store")(
 
     const onRow = useCallback(
       (record) => {
-        setModal(true);
-        setItem(record);
+        parks.setWarningModalName(warningModalNames.openCard);
         parks.selectItems([record]);
         parks.setSelectedPark(record);
       },
       [parks]
     );
 
-    const isAvailableToChange = () =>
-      parks.singlePark.sysViewName !== sysViewNameNo &&
-      parks.singlePark.crowdColor === "red";
-
-    const hideOkButton = () => parks.singlePark.sysViewName === sysViewNameNo;
-
     return (
       <Fragment>
-        <ModalComponent
-          handleCancel={() => setModal(false)}
-          width={800}
-          okText={
-            hideOkButton()
-              ? null
-              : `${isAvailableToChange() ? "Закрыть" : "Открыть"} парк`
-          }
-          handleOk={() => {
-            setModal(false);
-            if (parks.singlePark.crowdColor === "red") {
-              parks.setWarningModalName(warningModalNames.closed);
-            } else {
-              parks.setWarningModalName(warningModalNames.open);
-            }
-          }}
-          visible={showModal}
-          danger={isAvailableToChange()}
-          title={item.name || "title"}
-        >
-          <ParkModalTab />
-        </ModalComponent>
-
         <Table
           scroll={{x: 2000}}
           rowClassName={(record) =>

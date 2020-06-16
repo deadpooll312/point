@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Col, Row} from "antd";
 import {inject, observer} from "mobx-react";
 import {ProgressComponent} from "../../../../components/progress";
-import {SelectComponent} from "../../../../components/select";
 import {crowdColorNames} from "../../../../consts/parks.const";
 import {modalParkStatuses} from "../../../../consts/modal.const";
+import {SelectComponent} from "../../../../components/select";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = inject("store")(
@@ -15,19 +15,16 @@ export const ParkInfo = inject("store")(
     const colorClass = tempItem ? tempItem.className : "";
 
     useEffect(() => {
-      parks.clearSinglePark();
-    }, []);
-
-    useEffect(() => {
-      setData(parks.singlePark);
-      if (!value && parks.singlePark.crowdColor) {
-        setValue({value: parks.singlePark.crowdColor});
+      if (!value && data.crowdColor) {
+        setValue({value: data.crowdColor});
       }
-    }, [parks.singlePark]);
+
+      setData(parks.singlePark);
+    }, [data, parks.singlePark]);
 
     useEffect(() => {
-      if (parks.isParkUpdated === modalParkStatuses.canceled) {
-        setValue({value: parks.singlePark.crowdColor});
+      if (data && parks.isParkUpdated === modalParkStatuses.canceled) {
+        setValue({value: data.crowdColor});
       }
     }, [parks.isParkUpdated]);
 
@@ -55,7 +52,7 @@ export const ParkInfo = inject("store")(
                 {data.crowdColor && (
                   <SelectComponent
                     data={crowdColorNames}
-                    selectClassName={`simple-select-${value.value}`}
+                    selectClassName={`simple-select-${(value && value.value) || ""}`}
                     labelInValue={true}
                     value={value}
                     handleChange={({value}) => {

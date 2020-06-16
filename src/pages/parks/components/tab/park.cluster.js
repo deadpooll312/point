@@ -33,10 +33,11 @@ export const ParkCluster = inject("store")(
               expandIconAsCell={false}
               expandRowByClick={true}
               defaultExpandAllRows={false}
-              // expandable={{
-              //   expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
-              //   onExpand: (e, record) => console.log(record.key),
-              // }}
+              expandable={{
+                // eslint-disable-next-line react/display-name
+                expandedRowRender: (record) => <p style={{margin: 0}}>{record.name}</p>,
+                onExpand: (e, record) => console.log(record.key),
+              }}
               dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
               pagination={false}
             />
