@@ -5,6 +5,8 @@ import {ModalComponent} from "../../../../components/modal.component";
 import {modalParkStatuses, warningModalNames} from "../../../../consts/modal.const";
 import {ParkModalTab} from "../tab/park.modal.tab";
 import {sysViewNameNo} from "../../../../consts/text.const";
+import {isHasRole} from "../../../../services/user.service";
+import {authRoles} from "../../../../consts/auth.const";
 
 export const ParkModals = inject("store")(
   observer(({store: {parks}}) => {
@@ -18,7 +20,9 @@ export const ParkModals = inject("store")(
       <>
         {/*SINGLE CARD MODAL*/}
         <ModalComponent
-          handleCancel={() => parks.setWarningModalName(undefined)}
+          handleCancel={() =>
+            parks.setWarningModalName(undefined) || !isHasRole([authRoles.acceptPark])
+          }
           width={800}
           okText={
             hideOkButton()

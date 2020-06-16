@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState, Fragment} from "react";
+import React, {Fragment, useCallback, useEffect, useState} from "react";
 import {Table} from "antd";
 import {inject, observer} from "mobx-react";
 import {emptyData} from "../../../../consts/text.const";
@@ -71,7 +71,7 @@ export const ParksTable = inject("store")(
     return (
       <Fragment>
         <Table
-          scroll={{x: 2000}}
+          scroll={{x: 1000}}
           rowClassName={(record) =>
             record.available === "true" ? record.crowdColor : "gray"
           }

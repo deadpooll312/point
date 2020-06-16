@@ -5,6 +5,8 @@ import {ProgressComponent} from "../../../../components/progress";
 import {crowdColorNames} from "../../../../consts/parks.const";
 import {modalParkStatuses} from "../../../../consts/modal.const";
 import {SelectComponent} from "../../../../components/select";
+import {isHasRole} from "../../../../services/user.service";
+import {authRoles} from "../../../../consts/auth.const";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = inject("store")(
@@ -26,7 +28,7 @@ export const ParkInfo = inject("store")(
       if (data && parks.isParkUpdated === modalParkStatuses.canceled) {
         setValue({value: data.crowdColor});
       }
-    }, [parks.isParkUpdated]);
+    }, [data, parks.isParkUpdated]);
 
     return (
       <div className="park-info">
@@ -61,13 +63,14 @@ export const ParkInfo = inject("store")(
                       parks.onParkUpdated(null);
                     }}
                     placeholder={data.crowdColorName}
+                    disabled={!isHasRole([authRoles.repaintPark])}
                   />
                 )}
               </div>
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className="row-nomargin">
           <Col span={10}>
             <div className="park-info__outline">
               <span>Балансодержатель</span>
@@ -97,6 +100,18 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col offset={15} span={9}>
+            <div>
+              <span>Число скоплений</span>
+              <p>
+                {data.percentInfo && data.percentInfo.congestionCount
+                  ? data.percentInfo.congestionCount
+                  : "-"}
+              </p>
+            </div>
+          </Col>
+        </Row>
 
         <h2>Ответственные лица</h2>
         <Row>
@@ -117,9 +132,9 @@ export const ParkInfo = inject("store")(
         </Row>
 
         <h2>Оценка загруженности территории</h2>
-        <Row gutter={24}>
+        <Row gutter={24} className="row-nomargin">
           <Col span={8}>
-            <div className="park-info__outline">
+            <div>
               <span>Выявлено жителями</span>
               <p>
                 {(data.percentInfo && data.percentInfo.user.totalTags) || 0} сообщений
@@ -131,7 +146,7 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
           <Col span={8}>
-            <div className="park-info__outline">
+            <div>
               <span>Выявлено инспектором</span>
               <p>
                 {(data.percentInfo && data.percentInfo.inspector.totalTags) || 0}{" "}
@@ -144,7 +159,7 @@ export const ParkInfo = inject("store")(
             </div>
           </Col>
           <Col span={8}>
-            <div className="park-info__outline">
+            <div>
               <span>Выявлено сотрудником парка</span>
               <p>
                 {data.percentInfo && data.percentInfo.parkEmployee.totalTags} сообщений
@@ -153,28 +168,6 @@ export const ParkInfo = inject("store")(
                 left={data.percentInfo && data.percentInfo.parkEmployee.falsePercent}
                 right={data.percentInfo && data.percentInfo.parkEmployee.truePercent}
               />
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col span={12}>
-            <div>
-              <span>Выявлено камерами ИНС</span>
-              <p>
-                {data.percentInfo && data.percentInfo.camCount
-                  ? `${data.percentInfo.camCount} чел.`
-                  : "Данные отсутствуют"}{" "}
-              </p>
-            </div>
-          </Col>
-          <Col span={12}>
-            <div>
-              <span>Выявлено системой Об.Конт-ля</span>
-              <p>
-                {data.percentInfo && data.percentInfo.cellularCount
-                  ? `${data.percentInfo.cellularCount} чел.`
-                  : "Данные отсутствуют"}
-              </p>
             </div>
           </Col>
         </Row>
