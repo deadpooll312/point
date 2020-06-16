@@ -5,6 +5,7 @@ import {ProgressComponent} from "../../../../components/progress";
 import {SelectComponent} from "../../../../components/select";
 import {crowdColorNames} from "../../../../consts/parks.const";
 import {modalParkStatuses} from "../../../../consts/modal.const";
+import {isHasRole} from "../../../../services/user.service";
 
 // eslint-disable-next-line react/display-name
 export const ParkInfo = inject("store")(
@@ -19,6 +20,7 @@ export const ParkInfo = inject("store")(
     }, []);
 
     useEffect(() => {
+      console.log(isHasRole(["repaintPark"]));
       setData(parks.singlePark);
       if (!value && parks.singlePark.crowdColor) {
         setValue({value: parks.singlePark.crowdColor});
@@ -64,6 +66,7 @@ export const ParkInfo = inject("store")(
                       parks.onParkUpdated(null);
                     }}
                     placeholder={data.crowdColorName}
+                    disabled={!isHasRole(["repaintPark2"])}
                   />
                 )}
               </div>
