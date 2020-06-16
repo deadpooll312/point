@@ -44,6 +44,14 @@ export const ParksMap = inject("store")(
     }, [parks.clusters]);
 
     useEffect(() => {
+      if (newMap) {
+        newMap
+          .getLayers()
+          .getArray()
+          .filter((layer) => layer.get("name") === "Polygon")
+          .forEach((layer) => newMap.removeLayer(layer));
+      }
+
       if (map.data) {
         const features = updateMapDTO(map.data.features, parks.mapColors);
         setPolygon({data: {features, type: "FeatureCollection"}, mapNew: newMap});

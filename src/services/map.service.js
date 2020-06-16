@@ -88,6 +88,7 @@ export const setPolygon = ({mapNew, data}) => {
     // установка цвета от обьекта STYLES
     style: (feature) => mapStyles[feature.get("color")],
   });
+  vectorLayer.set("name", "Polygon");
 
   mapNew.addLayer(vectorLayer);
 };
