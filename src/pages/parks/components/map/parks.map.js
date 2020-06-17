@@ -36,8 +36,8 @@ export const ParksMap = inject("store")(
     useEffect(() => {
       if (newMap) {
         parks.clusters.forEach(({recordId, longitude, latitude}) => {
-          // const destination = [+longitude, +latitude];
-          const destination = [37.71306589, 55.62459861];
+          const destination = [+longitude, +latitude];
+          // const destination = [37.71306589, 55.62459861];
           setPolygonIcon({map: newMap, destination, id: recordId});
         });
       }
