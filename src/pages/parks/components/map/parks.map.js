@@ -24,8 +24,8 @@ export const ParksMap = inject("store")(
         map: newMap,
         cb: (feature) => {
           const id = feature.getId();
-          map.updateSearchPolygonId(id);
           if (id) {
+            map.updateSearchPolygonId(id);
             parks.updateClusterParams({id});
             parks.getClusters();
           } else {

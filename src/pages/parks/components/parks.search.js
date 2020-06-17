@@ -26,11 +26,9 @@ export const ParksSearch = inject("store")(
       if (map.searchPolygonId) {
         setSearchType(parkSearchTypes[0]);
         setId(`${map.searchPolygonId}`);
-        if (id) {
-          submit();
-        }
+        submit(map.searchPolygonId);
       }
-    }, [map.searchPolygonId, id]);
+    }, [map.searchPolygonId]);
 
     const updateSearchType = useCallback(
       (value) => {
@@ -39,11 +37,14 @@ export const ParksSearch = inject("store")(
       [searchType]
     );
 
-    const submit = useCallback(() => {
-      parks.resetParkParams();
-      parks.updateParams({id, groupType: 1});
-      parks.getParks();
-    }, [parks, id]);
+    const submit = useCallback(
+      (id) => {
+        parks.resetParkParams();
+        parks.updateParams({id, groupType: 1});
+        parks.getParks();
+      },
+      [parks]
+    );
 
     const refresh = useCallback(() => {
       parks.updateParams({id: undefined});
@@ -80,7 +81,7 @@ export const ParksSearch = inject("store")(
           }}
         />
 
-        <SearchButton submit={submit} />
+        <SearchButton submit={() => submit(id)} />
         <SearchTooltip id={parks.params.id} refresh={refresh} />
       </div>
     );
