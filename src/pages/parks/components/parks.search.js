@@ -26,7 +26,9 @@ export const ParksSearch = inject("store")(
       if (map.searchPolygonId) {
         setSearchType(parkSearchTypes[0]);
         setId(`${map.searchPolygonId}`);
-        submit();
+        if (id) {
+          submit();
+        }
       }
     }, [map.searchPolygonId, id]);
 
