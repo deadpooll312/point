@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {inject, observer} from "mobx-react";
 import * as debounce from "lodash.debounce";
 // local files
@@ -10,7 +10,7 @@ import {SearchFindSelect} from "./search/search.find.select";
 import {SearchInput} from "./search/search.input";
 
 export const ParksSearch = inject("store")(
-  observer(({store: {parks}}) => {
+  observer(({store: {parks, map}}) => {
     const [searchType, setSearchType] = useState(parkSearchTypes[0]);
     const [data, setData] = useState([]);
     const [id, setId] = useState();
@@ -21,6 +21,14 @@ export const ParksSearch = inject("store")(
         .then((data) => data.map((item) => ({...item, value: item.id})))
         .then((data) => setData(data));
     }, 300);
+
+    useEffect(() => {
+      if (map.searchPolygonId) {
+        setSearchType(parkSearchTypes[0]);
+        setId(`${map.searchPolygonId}`);
+        submit();
+      }
+    }, [map.searchPolygonId, id]);
 
     const updateSearchType = useCallback(
       (value) => {
@@ -37,6 +45,7 @@ export const ParksSearch = inject("store")(
 
     const refresh = useCallback(() => {
       parks.updateParams({id: undefined});
+      map.updateSearchPolygonId(undefined);
       setId(undefined);
       parks.getParks();
     }, [parks]);

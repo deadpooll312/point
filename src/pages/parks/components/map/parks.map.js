@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "ol/ol.css";
 import {
+  cleanDuplicatedMap,
   createMap,
   setClickEvent,
   setPolygon,
@@ -23,6 +24,7 @@ export const ParksMap = inject("store")(
         map: newMap,
         cb: (feature) => {
           const id = feature.getId();
+          map.updateSearchPolygonId(id);
           if (id) {
             parks.updateClusterParams({id});
             parks.getClusters();
@@ -44,13 +46,7 @@ export const ParksMap = inject("store")(
     }, [parks.clusters]);
 
     useEffect(() => {
-      if (newMap) {
-        newMap
-          .getLayers()
-          .getArray()
-          .filter((layer) => layer.get("name") === "Polygon")
-          .forEach((layer) => newMap.removeLayer(layer));
-      }
+      cleanDuplicatedMap({newMap, layerName: "Polygon"});
 
       if (map.data) {
         const features = updateMapDTO(map.data.features, parks.mapColors);

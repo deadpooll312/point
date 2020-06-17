@@ -2,14 +2,17 @@ import {decorate, observable} from "mobx";
 import {MapAction} from "./map.action";
 
 class MapStore extends MapAction {
-  data = null;
-  mapColors = null;
+  data = undefined;
+  mapColors = undefined;
+  searchPolygonId = undefined;
+  recordPinId = undefined;
 }
 
 // eslint-disable-next-line no-class-assign
 MapStore = decorate(MapStore, {
   data: observable,
-  mapColors: observable,
+  searchPolygonId: observable,
+  recordPinId: observable,
 });
 
 export default new MapStore();

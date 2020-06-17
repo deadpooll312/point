@@ -74,6 +74,16 @@ export function setTileLayer(map, layer) {
   return map;
 }
 
+export function cleanDuplicatedMap({newMap, layerName}) {
+  if (newMap) {
+    newMap
+      .getLayers()
+      .getArray()
+      .filter((layer) => layer.get("name") === "Polygon")
+      .forEach((layer) => newMap.removeLayer(layer));
+  }
+}
+
 // установка полигона для парков
 export const setPolygon = ({mapNew, data}) => {
   const features = new GeoJSON().readFeatures(data, {

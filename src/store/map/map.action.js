@@ -12,4 +12,8 @@ export class MapAction {
       this.mapColors = data.data;
     });
   }
+
+  updateSearchPolygonId(id) {
+    this.searchPolygonId = id;
+  }
 }
