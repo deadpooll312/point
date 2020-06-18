@@ -154,7 +154,7 @@ export const clusterColumns = [
     key: "recordId",
     dataIndex: "recordId",
     // eslint-disable-next-line react/display-name
-    render: () => <PhotoIcon />,
+    render: (value, row) => <PhotoIcon color={row.fileUrl ? "var(--green)" : null} />,
   },
   {
     title: "Источник",
