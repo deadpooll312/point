@@ -6,7 +6,7 @@ import {PhotoIcon} from "../icons/photo.icon";
 export const tableColumns = [
   {
     title: "Требует акцепта",
-    width: 80,
+    width: 120,
     dataIndex: "sysViewName",
     isActive: true,
     // eslint-disable-next-line react/display-name
@@ -28,8 +28,8 @@ export const tableColumns = [
     render: (value) => value || "-",
   },
   {
-    title: "Положение ворот",
-    width: 80,
+    title: "Ворота",
+    width: 90,
     dataIndex: "gateOpenTagName",
     isActive: true,
     render: (value) => {
@@ -58,35 +58,35 @@ export const tableColumns = [
   },
   {
     title: "Число скоплений",
-    width: 80,
+    width: 120,
     dataIndex: "congestionCount",
     isActive: true,
     render: (value) => value || "-",
   },
   {
     title: "FACT посетителей",
-    width: 80,
+    width: 100,
     dataIndex: "entranceCount",
     isActive: true,
     render: (value) => value || "-",
   },
   {
     title: "MAX посетителей",
-    width: 80,
+    width: 125,
     dataIndex: "maxVisitor",
     isActive: true,
     render: (value) => value || "-",
   },
   {
     title: "Тип объекта",
-    width: 80,
+    width: 100,
     dataIndex: "type",
     isActive: true,
     render: (value) => value || "-",
   },
   {
     title: "Наличие ограждений",
-    width: 80,
+    width: 120,
     dataIndex: "fence",
     isActive: true,
     // eslint-disable-next-line react/display-name
@@ -96,7 +96,7 @@ export const tableColumns = [
   },
   {
     title: "Возм. места скопления людей",
-    width: 80,
+    width: 150,
     dataIndex: "crowPoint",
     isActive: true,
     textWrap: "word-break",
@@ -107,7 +107,7 @@ export const tableColumns = [
   },
   {
     title: "Количество входов",
-    width: 70,
+    width: 120,
     dataIndex: "enterCount",
     isActive: true,
     render: (value) => value || "-",
