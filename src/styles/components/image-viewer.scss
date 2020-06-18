@@ -1,19 +1,18 @@
-.image-viewer-wrapper{
+.image-viewer-wrapper {
   position: relative;
   display: inline-block;
   cursor: pointer;
 
-  &:hover .image-viewer-overlay{
-    background: rgba(0,0,0, 0.2);
+  &:hover .image-viewer-overlay {
+    background: rgba(0, 0, 0, 0.2);
 
-    & span{
+    & span {
       opacity: 1;
-      transition: .5s;
-
+      transition: 0.5s;
     }
   }
 }
-.image-viewer-overlay{
+.image-viewer-overlay {
   position: absolute;
   left: 0;
   right: 0;
@@ -23,19 +22,20 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  transition: .3s;
+  transition: 0.3s;
 
-  & span{
+  & span {
     opacity: 0;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
 
-.image-viewer-big-img{
+.image-viewer-big-img {
   width: 100%;
   margin-top: 20px;
 }
 
-.image-viewer-big-img::selection, .image-viewer-content img::selection{
+.image-viewer-big-img::selection,
+.image-viewer-content img::selection {
   background-color: #fff;
 }

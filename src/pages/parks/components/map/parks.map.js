@@ -42,7 +42,7 @@ export const ParksMap = inject("store")(
       if (newMap) {
         parks.clusters.forEach(({recordId, longitude, latitude}) => {
           const destination = [+longitude, +latitude];
-          // const destination = [37.71306589, 55.62459861];
+          // const destination = [37.81306589, 55.72459861];
           setPolygonIcon({map: newMap, destination, id: recordId});
         });
       }
@@ -50,7 +50,7 @@ export const ParksMap = inject("store")(
 
     useEffect(() => {
       cleanDuplicatedMap({newMap, layerName: "Polygon"});
-
+      cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
       if (map.data) {
         const features = updateMapDTO(map.data.features, parks.mapColors);
         setPolygon({data: {features, type: "FeatureCollection"}, mapNew: newMap});

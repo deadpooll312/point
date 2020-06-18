@@ -53,11 +53,6 @@ export class ParksAction {
     return axiosInstance.get(`incident/card?id=${id}`).then(({data}) => data);
   }
 
-  // getSinglePark() {
-  //   // eslint-disable-next-line no-undef
-  //   this.getCardById(this.selectedPark.id).then((data) => (this.singlePark = data));
-  // }
-
   updateClusterParams(params) {
     this.clusterParams = {...this.clusterParams, ...params};
   }

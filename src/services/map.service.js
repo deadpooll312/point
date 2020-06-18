@@ -117,6 +117,7 @@ export const setPolygonIcon = ({map, destination, id}) => {
   });
 
   pinVector.setZIndex(1001);
+  pinVector.set("name", "VectorLayer");
   map.addLayer(pinVector);
 };
 
