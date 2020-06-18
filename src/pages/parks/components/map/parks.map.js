@@ -10,6 +10,7 @@ import {
 } from "../../../../services/map.service";
 import {parkMap} from "../../../../consts/map.const";
 import {inject, observer} from "mobx-react";
+import {warningModalNames} from "../../../../consts/modal.const";
 
 export const ParksMap = inject("store")(
   observer(({store: {map, parks}}) => {
@@ -27,9 +28,11 @@ export const ParksMap = inject("store")(
           if (id) {
             map.updateSearchPolygonId(id);
             parks.updateClusterParams({id});
+            parks.setSelectedPark({id});
             parks.getClusters();
           } else {
-            console.log(`recordID = ${feature.get("id")}`);
+            map.updatePolygonRecordId(feature.get("id"));
+            parks.setWarningModalName(warningModalNames.openCluster);
           }
         },
       });

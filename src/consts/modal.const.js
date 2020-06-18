@@ -5,6 +5,7 @@ export const warningModalNames = {
   open: "OPEN",
   edit: "EDIT",
   openCard: "OPEN_CARD",
+  openCluster: "OPEN_CLUSTER",
 };
 
 export const modalParkStatuses = {

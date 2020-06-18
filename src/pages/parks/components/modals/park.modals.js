@@ -37,11 +37,18 @@ export const ParkModals = inject("store")(
               parks.setWarningModalName(warningModalNames.open);
             }
           }}
-          visible={parks.warningModalName === warningModalNames.openCard}
+          visible={
+            parks.warningModalName === warningModalNames.openCard ||
+            parks.warningModalName === warningModalNames.openCluster
+          }
           danger={isAvailableToChange()}
           title={parks.singlePark.title || "title"}
         >
-          <ParkModalTab />
+          <ParkModalTab
+            activeTab={
+              parks.warningModalName === warningModalNames.openCluster ? "2" : "1"
+            }
+          />
         </ModalComponent>
 
         {/*SINGLE CARD MODAL*/}

@@ -16,4 +16,8 @@ export class MapAction {
   updateSearchPolygonId(id) {
     this.searchPolygonId = id;
   }
+
+  updatePolygonRecordId(id) {
+    this.polygonRecordId = id;
+  }
 }

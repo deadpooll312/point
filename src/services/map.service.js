@@ -79,7 +79,7 @@ export function cleanDuplicatedMap({newMap, layerName}) {
     newMap
       .getLayers()
       .getArray()
-      .filter((layer) => layer.get("name") === "Polygon")
+      .filter((layer) => layer.get("name") === layerName)
       .forEach((layer) => newMap.removeLayer(layer));
   }
 }

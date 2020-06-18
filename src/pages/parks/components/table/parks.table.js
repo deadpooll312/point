@@ -6,7 +6,7 @@ import {warningModalNames} from "../../../../consts/modal.const";
 import {authRoles} from "../../../../consts/auth.const";
 
 export const ParksTable = inject("store")(
-  observer(({store: {parks, auth}}) => {
+  observer(({store: {parks, auth, map}}) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -61,11 +61,12 @@ export const ParksTable = inject("store")(
 
     const onRow = useCallback(
       (record) => {
+        map.updatePolygonRecordId(undefined);
         parks.setWarningModalName(warningModalNames.openCard);
         parks.selectItems([record]);
         parks.setSelectedPark(record);
       },
-      [parks]
+      [parks, map]
     );
 
     return (

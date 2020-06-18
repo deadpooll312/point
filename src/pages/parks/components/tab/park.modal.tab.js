@@ -1,14 +1,13 @@
 import React, {useEffect} from "react";
 import {Tabs} from "antd";
-import {ParkCluster} from "./park.cluster";
-import {ParkInfo} from "./park.info";
 import {inject, observer} from "mobx-react";
 const {TabPane} = Tabs;
+// local files
+import {ParkCluster} from "./park.cluster";
+import {ParkInfo} from "./park.info";
 
 export const ParkModalTab = inject("store")(
-  observer(({store: {parks}, props}) => {
-    const activeKey = (props && props.activeTab) || "1";
-
+  observer(({activeTab, store: {parks}}) => {
     useEffect(() => {
       if (parks.selectedPark && parks.selectedPark.id) {
         parks.clearSinglePark();
@@ -19,7 +18,11 @@ export const ParkModalTab = inject("store")(
     }, [parks.selectedPark]);
 
     return (
-      <Tabs animated={false} defaultActiveKey={activeKey} className="park-modal-tabs">
+      <Tabs
+        animated={false}
+        defaultActiveKey={activeTab || "1"}
+        className="park-modal-tabs"
+      >
         <TabPane tab="Сведения" key="1">
           <ParkInfo />
         </TabPane>

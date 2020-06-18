@@ -8,7 +8,7 @@ import {ClusterLoader} from "./cluster-components/cluster.loader";
 import {ClusterImage} from "./cluster-components/cluster.image";
 
 export const ParkCluster = inject("store")(
-  observer(({store: {parks}}) => {
+  observer(({store: {parks, map}}) => {
     const [keys, setKeys] = useState();
 
     useEffect(() => {
@@ -17,11 +17,10 @@ export const ParkCluster = inject("store")(
     }, [parks]);
 
     useEffect(() => {
-      if (parks.clusters.length) {
-        // const clusterKeys = [parks.clusters[0].recordId];
-        // setKeys(clusterKeys);
+      if (map.polygonRecordId) {
+        setKeys([map.polygonRecordId]);
       }
-    }, [parks.clusters]);
+    }, [map.polygonRecordId]);
 
     const onPaginate = useCallback(
       (isNext) => {
@@ -47,7 +46,9 @@ export const ParkCluster = inject("store")(
                 expandedRowKeys: keys,
                 // eslint-disable-next-line react/display-name
                 expandedRowRender: (record) => <ClusterImage url={record.fileUrl} />,
-                onExpand: (e, record) => {},
+                onExpand: (e, record) => {
+                  setKeys([record.recordId]);
+                },
               }}
               dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
               pagination={false}

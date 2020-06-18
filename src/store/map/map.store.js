@@ -5,14 +5,14 @@ class MapStore extends MapAction {
   data = undefined;
   mapColors = undefined;
   searchPolygonId = undefined;
-  recordPinId = undefined;
+  polygonRecordId = undefined;
 }
 
 // eslint-disable-next-line no-class-assign
 MapStore = decorate(MapStore, {
   data: observable,
   searchPolygonId: observable,
-  recordPinId: observable,
+  polygonRecordId: observable,
 });
 
 export default new MapStore();
