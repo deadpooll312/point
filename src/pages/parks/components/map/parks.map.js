@@ -21,6 +21,8 @@ export const ParksMap = inject("store")(
 
     useEffect(() => {
       const newMap = createMap();
+
+      parks.clustersIsLoading = true;
       setMap(newMap);
       map.getGeometry();
       map.getMapColors();
@@ -77,7 +79,7 @@ export const ParksMap = inject("store")(
 
     return (
       <div id={parkMap} className="parks-map">
-        {loader && <Spin size={"large"} />}
+        {(loader || !parks.clustersIsLoading) && <Spin size={"large"} />}
       </div>
     );
   })
