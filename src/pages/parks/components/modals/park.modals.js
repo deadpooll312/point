@@ -13,8 +13,7 @@ export const ParkModals = inject("store")(
     const hideOkButton = () => parks.singlePark.sysView;
 
     const isAvailableToChange = () =>
-      parks.singlePark.sysViewName !== sysViewNameNo &&
-      parks.singlePark.crowdColor === "red";
+      !parks.singlePark.sysView && parks.singlePark.crowdColor === "red";
 
     return (
       <>
