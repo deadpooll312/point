@@ -46,7 +46,7 @@ export const ParksMap = inject("store")(
     useEffect(() => {
       if (newMap) {
         parks.clusters.forEach(({recordId, longitude, latitude}) => {
-          const destination = [+latitude, +longitude];
+          const destination = [+longitude, +latitude];
           setPolygonIcon({map: newMap, destination, id: recordId});
         });
       }
