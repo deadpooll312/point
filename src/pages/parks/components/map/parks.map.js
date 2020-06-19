@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Spin} from "antd";
 import {inject, observer} from "mobx-react";
 import "ol/ol.css";
+import axios from "axios";
 // local files
 import {
   cleanDuplicatedMap,
@@ -29,13 +30,14 @@ export const ParksMap = inject("store")(
       setClickEvent({
         map: newMap,
         cb: (feature) => {
+          parks.cancelClusterRequest = axios.CancelToken.source();
           const id = feature.getId();
           setLoader(true);
           if (id) {
             map.updateSearchPolygonId(id);
             parks.updateClusterParams({id});
             parks.setSelectedPark({id});
-            parks.getClusters();
+            parks.getClusters(parks.cancelClusterRequest);
           } else {
             setLoader(false);
             map.updatePolygonRecordId(feature.get("id"));
@@ -56,8 +58,10 @@ export const ParksMap = inject("store")(
 
     useEffect(() => {
       cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
-      if (!parks.params.id) {
-        cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
+      if (!parks.params.id && parks.cancelClusterRequest) {
+        setLoader(true);
+        parks.clustersIsLoading = true;
+        parks.cancelClusterRequest.cancel();
       }
     }, [parks.params]);
 

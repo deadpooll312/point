@@ -21,6 +21,7 @@ class ParksStore extends ParksAction {
   columns = this.getColumns();
   filters = [];
   sidebarList = [];
+  cancelClusterRequest = null;
 
   get parkTableColumns() {
     return this.columns.filter((i) => i.isActive);
@@ -57,6 +58,7 @@ ParksStore = decorate(ParksStore, {
   filters: observable,
   mapColors: observable,
   sidebarList: observable,
+  cancelClusterRequest: observable,
 });
 
 export default new ParksStore();

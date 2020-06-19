@@ -51,6 +51,9 @@ export const ParksSearch = inject("store")(
       map.updateSearchPolygonId(undefined);
       setId(undefined);
       parks.getParks();
+      if (parks.cancelClusterRequest) {
+        parks.cancelClusterRequest.cancel();
+      }
     }, [parks]);
 
     return (

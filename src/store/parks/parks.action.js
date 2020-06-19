@@ -38,10 +38,10 @@ export class ParksAction {
       .catch(() => this.onParkUpdated(modalParkStatuses.canceled));
   }
 
-  getClusters() {
+  getClusters(source = {}) {
     this.clustersIsLoading = false;
     axiosInstance
-      .get("incident/clusters", {params: this.clusterParams})
+      .get("incident/clusters", {params: this.clusterParams, cancelToken: source.token})
       .then(({data: {elements, hasNextPage}}) => {
         this.clusters = elements;
         this.hasClustersNextPage = hasNextPage;

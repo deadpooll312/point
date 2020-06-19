@@ -11,12 +11,12 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   ({response}) => {
-    const {status, config} = response;
+    const {status, config} = response || {};
     if (status === 401 && config.url !== "login") {
       window.location.href = "/#/login";
       localStorage.clear();
     } else {
-      showError(response.data.message);
+      response && showError(response.data.message);
     }
 
     return Promise.reject(response);
