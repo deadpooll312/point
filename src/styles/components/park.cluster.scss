@@ -12,7 +12,12 @@
   .parks-clusters-thumb {
     margin: 10px;
   }
+
   .clusters-img-empty {
     margin: 10px;
+  }
+
+  tr.gray {
+    background: $tableRowGray;
   }
 }
