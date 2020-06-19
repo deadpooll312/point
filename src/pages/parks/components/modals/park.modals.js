@@ -10,7 +10,7 @@ import {authRoles} from "../../../../consts/auth.const";
 
 export const ParkModals = inject("store")(
   observer(({store: {parks}}) => {
-    const hideOkButton = () => parks.singlePark.sysViewName === sysViewNameNo;
+    const hideOkButton = () => parks.singlePark.sysView;
 
     const isAvailableToChange = () =>
       parks.singlePark.sysViewName !== sysViewNameNo &&
@@ -20,12 +20,10 @@ export const ParkModals = inject("store")(
       <>
         {/*SINGLE CARD MODAL*/}
         <ModalComponent
-          handleCancel={() =>
-            parks.setWarningModalName(undefined) || !isHasRole([authRoles.acceptPark])
-          }
+          handleCancel={() => parks.setWarningModalName(undefined)}
           width={800}
           okText={
-            hideOkButton()
+            !isHasRole([authRoles.acceptPark]) || hideOkButton()
               ? null
               : `${isAvailableToChange() ? "Закрыть" : "Открыть"} парк`
           }
