@@ -52,6 +52,9 @@ export const ParkCluster = inject("store")(
               }}
               dataSource={parks.clusters.map((item) => ({...item, key: item.recordId}))}
               pagination={false}
+              rowClassName={(record) =>
+                new Date() > new Date(record.actualTo) ? "gray" : null
+              }
             />
             <PaginateComponent
               hasNextPage={parks.hasClustersNextPage}
