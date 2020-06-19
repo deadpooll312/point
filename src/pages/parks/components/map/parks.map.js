@@ -29,13 +29,13 @@ export const ParksMap = inject("store")(
         cb: (feature) => {
           const id = feature.getId();
           setLoader(true);
-          cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
           if (id) {
             map.updateSearchPolygonId(id);
             parks.updateClusterParams({id});
             parks.setSelectedPark({id});
             parks.getClusters();
           } else {
+            setLoader(false);
             map.updatePolygonRecordId(feature.get("id"));
             parks.setWarningModalName(warningModalNames.openCluster);
           }
@@ -51,6 +51,13 @@ export const ParksMap = inject("store")(
         });
       }
     }, [parks.clusters]);
+
+    useEffect(() => {
+      cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
+      if (!parks.params.id) {
+        cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
+      }
+    }, [parks.params]);
 
     useEffect(() => {
       cleanDuplicatedMap({newMap, layerName: "Polygon"});
