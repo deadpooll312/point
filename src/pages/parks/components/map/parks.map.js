@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from "react";
+import {Spin} from "antd";
+import {inject, observer} from "mobx-react";
 import "ol/ol.css";
+// local files
 import {
   cleanDuplicatedMap,
   createMap,
@@ -9,11 +12,11 @@ import {
   updateMapDTO,
 } from "../../../../services/map.service";
 import {parkMap} from "../../../../consts/map.const";
-import {inject, observer} from "mobx-react";
 import {warningModalNames} from "../../../../consts/modal.const";
 
 export const ParksMap = inject("store")(
   observer(({store: {map, parks}}) => {
+    const [loader, setLoader] = useState(true);
     const [newMap, setMap] = useState();
 
     useEffect(() => {
@@ -25,6 +28,8 @@ export const ParksMap = inject("store")(
         map: newMap,
         cb: (feature) => {
           const id = feature.getId();
+          setLoader(true);
+          cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
           if (id) {
             map.updateSearchPolygonId(id);
             parks.updateClusterParams({id});
@@ -41,8 +46,7 @@ export const ParksMap = inject("store")(
     useEffect(() => {
       if (newMap) {
         parks.clusters.forEach(({recordId, longitude, latitude}) => {
-          const destination = [+longitude, +latitude];
-          // const destination = [37.81306589, 55.72459861];
+          const destination = [+latitude, +longitude];
           setPolygonIcon({map: newMap, destination, id: recordId});
         });
       }
@@ -50,13 +54,24 @@ export const ParksMap = inject("store")(
 
     useEffect(() => {
       cleanDuplicatedMap({newMap, layerName: "Polygon"});
-      cleanDuplicatedMap({newMap, layerName: "VectorLayer"});
       if (map.data) {
         const features = updateMapDTO(map.data.features, parks.mapColors);
         setPolygon({data: {features, type: "FeatureCollection"}, mapNew: newMap});
+        newMap
+          .getLayers()
+          .getArray()
+          .map((item) => {
+            if (item.get("name") === "Polygon") {
+              setLoader(false);
+            }
+          });
       }
     }, [map.data, parks.mapColors, newMap]);
 
-    return <div id={parkMap} className="parks-map"></div>;
+    return (
+      <div id={parkMap} className="parks-map">
+        {loader && <Spin size={"large"} />}
+      </div>
+    );
   })
 );
