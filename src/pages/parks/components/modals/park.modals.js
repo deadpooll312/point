@@ -4,7 +4,6 @@ import {ParkModalWarning} from "./park.modal.warnning";
 import {ModalComponent} from "../../../../components/modal.component";
 import {modalParkStatuses, warningModalNames} from "../../../../consts/modal.const";
 import {ParkModalTab} from "../tab/park.modal.tab";
-import {sysViewNameNo} from "../../../../consts/text.const";
 import {isHasRole} from "../../../../services/user.service";
 import {authRoles} from "../../../../consts/auth.const";
 

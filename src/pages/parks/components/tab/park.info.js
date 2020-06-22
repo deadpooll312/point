@@ -75,7 +75,9 @@ export const ParkInfo = inject("store")(
               <span>FACT посетителей</span>
               <p>
                 {data.percentInfo && data.percentInfo.entranceCount
-                  ? data.percentInfo.entranceCount
+                  ? data.percentInfo.entranceCount >= 0
+                    ? data.percentInfo.entranceCount
+                    : "-"
                   : "-"}
               </p>
             </div>
