@@ -68,7 +68,7 @@ export const tableColumns = [
     width: 100,
     dataIndex: "entranceCount",
     isActive: true,
-    render: (value) => value || "-",
+    render: (value) => (value ? (value >= 0 ? value : "-") : "-"),
   },
   {
     title: "MAX посетителей",
