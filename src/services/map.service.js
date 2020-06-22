@@ -144,7 +144,8 @@ export const updateMapDTO = (data, mapColors) => {
   return data.map((item) => {
     if (mapColors) {
       const mapItem = mapColors.find(
-        (colorItem) => item.available === "true" && colorItem.id === parseInt(item.id)
+        (colorItem) =>
+          colorItem.available === "true" && colorItem.id === parseInt(item.id)
       );
       const {crowdColor} = mapItem || {};
       return Object.assign(item, {properties: {color: crowdColor || "grey"}});
