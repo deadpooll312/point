@@ -3,7 +3,6 @@ import {Col, Row} from "antd";
 import {inject, observer} from "mobx-react";
 import {ProgressComponent} from "../../../../components/progress";
 import {crowdColorNames} from "../../../../consts/parks.const";
-import {modalParkStatuses} from "../../../../consts/modal.const";
 import {SelectComponent} from "../../../../components/select";
 import {isHasRole} from "../../../../services/user.service";
 import {authRoles} from "../../../../consts/auth.const";
@@ -12,23 +11,12 @@ import {authRoles} from "../../../../consts/auth.const";
 export const ParkInfo = inject("store")(
   observer(({store: {parks}}) => {
     const [data, setData] = useState({});
-    const [value, setValue] = useState();
     const tempItem = crowdColorNames.find((value) => value.value === data.crowdColor);
     const colorClass = tempItem ? tempItem.className : "";
 
     useEffect(() => {
-      if (!value && data.crowdColor) {
-        setValue({value: data.crowdColor});
-      }
-
       setData(parks.singlePark);
     }, [data, parks.singlePark]);
-
-    useEffect(() => {
-      if (data && parks.isParkUpdated === modalParkStatuses.canceled) {
-        setValue({value: data.crowdColor});
-      }
-    }, [data, parks.isParkUpdated]);
 
     return (
       <div className="park-info">
@@ -54,11 +42,10 @@ export const ParkInfo = inject("store")(
                 {data.crowdColor && (
                   <SelectComponent
                     data={crowdColorNames}
-                    selectClassName={`simple-select-${(value && value.value) || ""}`}
+                    selectClassName={`simple-select-${data.crowdColor || ""}`}
                     labelInValue={true}
-                    value={value}
+                    value={{value: data.crowdColor}}
                     handleChange={({value}) => {
-                      setValue({value});
                       parks.updateCrowdColorName(value);
                       parks.onParkUpdated(null);
                     }}
