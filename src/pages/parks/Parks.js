@@ -5,7 +5,6 @@ import {ParksTable} from "./components/table/parks.table";
 import {ParksDrawer} from "./components/draw/parks.drawer";
 import {ParkModals} from "./components/modals/park.modals";
 import {ParksDrawerFilters} from "./components/draw/parks.drawer.filters";
-import {ParksSearch} from "./components/parks.search";
 import {ParksMap} from "./components/map/parks.map";
 import {ModalImageViewer} from "../../components/image-viewer";
 
@@ -15,7 +14,6 @@ export const Parks = () => {
       <ParkModals />
       <ParksMap />
       <ParksHeader />
-      <ParksSearch />
       <ParksActions />
       <ParksTable />
       <ParksDrawer />
