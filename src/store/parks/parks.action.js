@@ -137,4 +137,8 @@ export class ParksAction {
   getColumns() {
     return getStorage(columns) || tableColumns;
   }
+
+  updateReportDate(params) {
+    this.reportDate = {...this.reportDate, ...params};
+  }
 }

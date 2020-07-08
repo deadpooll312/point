@@ -10,4 +10,8 @@ export class SidebarAction {
   toggleDrawerFilters(value) {
     this.showDrawerFilters = value;
   }
+
+  toggleModalReport(value) {
+    this.showModalReport = value;
+  }
 }

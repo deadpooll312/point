@@ -5,6 +5,7 @@ import {inject, observer} from "mobx-react";
 // local files
 const {Title} = Typography;
 import {FilterIcon} from "../../../icons/filter.icon";
+import {ReportIcon} from "../../../icons/report.icon";
 
 export const ParksHeader = inject("store")(
   observer(({store: {sidebar, parks}}) => {
@@ -15,6 +16,10 @@ export const ParksHeader = inject("store")(
 
     const callMenuFilters = useCallback(() => {
       sidebar.toggleDrawerFilters(true);
+    }, [sidebar]);
+
+    const callModalReport = useCallback(() => {
+      sidebar.toggleModalReport(true);
     }, [sidebar]);
 
     useEffect(() => {
@@ -28,7 +33,8 @@ export const ParksHeader = inject("store")(
     return (
       <div className="parks__title">
         <Title level={3}>{(item && item.description) || "Все территории"}</Title>
-        <div>
+        <div className="icons-wrapper">
+          <ReportIcon onClick={callModalReport} className="icon icon-report" />
           <FilterIcon onClick={callMenuFilters} className="icon" />
           <MoreOutlined onClick={callMenu} className="icon" />
         </div>

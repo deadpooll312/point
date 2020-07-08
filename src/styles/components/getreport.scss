@@ -1,0 +1,44 @@
+body .get-report{
+  padding-top: 20px;
+
+
+  &__calendar{
+    margin-top: 20px;
+    height: 0;
+    transition: .5s;
+    overflow: hidden;
+
+    &.show{
+      height: 275px;
+    }
+  }
+
+  h4{
+    color: $text;
+  }
+
+  .ant-radio-group{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ant-radio-wrapper{
+    color: $text;
+  }
+
+  .icon {
+    margin-left: 10px;
+    font-size: 22px;
+    color: $iconColor;
+    & path{
+      stroke: $iconColor;
+    }
+    transform: scale(0.8) translateY(4px);
+
+    &:hover{
+      & path{
+        stroke: $headerText;
+      }
+    }
+  }
+}
