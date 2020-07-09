@@ -21,9 +21,7 @@
     color: $paginationColor;
   }
 
-  .ant-typography-disabled {
-    span {
-      color: #bfbfbf;
-    }
+  .ant-typography-disabled, .ant-typography-disabled span {
+    color: $paginationColorDisabled;
   }
 }
