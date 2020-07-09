@@ -15,8 +15,18 @@ export const GetReport = inject("store")(
     const [endDate, setEndDate] = useState();
 
     const initDate = useCallback(() => {
-      const dateFrom = new Date();
-      const dateTo = new Date();
+      const today = new Date();
+      const date =
+        today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+      const dateFrom = date + " 00:00:00";
+      const dateTo =
+        date +
+        " " +
+        today.getHours() +
+        ":" +
+        today.getMinutes() +
+        ":" +
+        today.getSeconds();
 
       parks.updateReportDate({dateFrom, dateTo});
     }, []);
@@ -74,12 +84,26 @@ export const GetReport = inject("store")(
             startDate={startDate}
             endDate={endDate}
             handleChangeStart={(date) => {
+              const dateFrom =
+                date.getFullYear() +
+                "-" +
+                (date.getMonth() + 1) +
+                "-" +
+                date.getDate() +
+                " 00:00:00";
               setStartDate(date);
-              parks.updateReportDate({dateFrom: date});
+              parks.updateReportDate({dateFrom});
             }}
             handleChangeEnd={(date) => {
+              const dateTo =
+                date.getFullYear() +
+                "-" +
+                (date.getMonth() + 1) +
+                "-" +
+                date.getDate() +
+                " 23:59:59";
               setEndDate(date);
-              parks.updateReportDate({dateTo: date});
+              parks.updateReportDate({dateTo});
             }}
             inline
           />

@@ -51,7 +51,7 @@
     justify-content: space-between;
     align-items: center;
 
-    .icons-wrapper{
+    .icons-wrapper {
       display: flex;
       align-items: center;
     }
@@ -60,12 +60,12 @@
       margin-left: 10px;
       font-size: 22px;
       color: $iconColor;
-      & path{
+      & path {
         stroke: $iconColor;
       }
     }
 
-    .icon-report{
+    .icon-report {
       margin-top: 2px;
       margin-right: 3px;
     }

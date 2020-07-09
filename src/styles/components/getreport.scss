@@ -1,28 +1,27 @@
-body .get-report{
+body .get-report {
   padding-top: 20px;
 
-
-  &__calendar{
+  &__calendar {
     margin-top: 20px;
     height: 0;
-    transition: .5s;
+    transition: 0.5s;
     overflow: hidden;
 
-    &.show{
+    &.show {
       height: 275px;
     }
   }
 
-  h4{
+  h4 {
     color: $text;
   }
 
-  .ant-radio-group{
+  .ant-radio-group {
     display: flex;
     flex-direction: column;
   }
 
-  .ant-radio-wrapper{
+  .ant-radio-wrapper {
     color: $text;
   }
 
@@ -30,13 +29,13 @@ body .get-report{
     margin-left: 10px;
     font-size: 22px;
     color: $iconColor;
-    & path{
+    & path {
       stroke: $iconColor;
     }
     transform: scale(0.8) translateY(4px);
 
-    &:hover{
-      & path{
+    &:hover {
+      & path {
         stroke: $headerText;
       }
     }
