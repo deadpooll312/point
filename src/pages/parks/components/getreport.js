@@ -6,7 +6,7 @@ import {RangeComponent} from "../../../components/date-range";
 import {ResetIcon} from "../../../icons/reset.icon";
 
 export const GetReport = inject("store")(
-  observer(({store: {sidebar, parks}}) => {
+  observer(({store: {parks}}) => {
     const periodName = "За период";
     const [type, setType] = useState(1);
     const [nameCurrentType, setNameCurrentType] = useState(periodName);
