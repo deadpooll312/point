@@ -27,6 +27,7 @@ html {
   --light-grey: #818e9b;
   --red: #f26161;
   --contentColor: #e6ede0;
+  --dateRangeBg: #f7f7f7;
 }
 // DARK THEME
 html[theme="dark"] {
@@ -58,6 +59,7 @@ html[theme="dark"] {
   --light-grey: #818e9b;
   --red: #f26161;
   --contentColor: #000;
+  --dateRangeBg: #f7f7f7;
 }
 
 // COLORS
@@ -91,6 +93,7 @@ $grey: var(--grey);
 $light-grey: var(--light-grey);
 $red: var(--red);
 $contentColor: var(--contentColor);
+$dateRangeBg: var(--dateRangeBg);
 $color-low: #58a621;
 $color-middle: #f2994a;
 $color-critical: #f26161;

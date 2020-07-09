@@ -7,6 +7,7 @@ import {ParkModals} from "./components/modals/park.modals";
 import {ParksDrawerFilters} from "./components/draw/parks.drawer.filters";
 import {ParksMap} from "./components/map/parks.map";
 import {ModalImageViewer} from "../../components/image-viewer";
+import {ReportModal} from "./components/modals/report.modals";
 
 export const Parks = () => {
   return (
@@ -19,6 +20,7 @@ export const Parks = () => {
       <ParksDrawer />
       <ParksDrawerFilters />
       <ModalImageViewer />
+      <ReportModal />
     </div>
   );
 };
