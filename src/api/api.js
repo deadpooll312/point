@@ -1,6 +1,6 @@
 import axios from "axios";
 import {showError} from "../services/notifications.service";
-const baseURL = `${window.location.origin}/rest`;
+const baseURL = `https://localhost:8080/`;
 
 const axiosInstance = axios.create({
   baseURL,

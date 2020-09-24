@@ -1,6 +1,6 @@
 import React from "react";
 import {Provider} from "mobx-react";
-import {HashRouter, Switch, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import {App} from "./App";
 import store from "../store";
 import {Login} from "../pages/login/Login";
@@ -19,7 +19,7 @@ function PrivateRoute({children, ...props}) {
 export default function Routes() {
   return (
     <Provider store={store}>
-      <HashRouter hashType="slash">
+      <Router>
         <Switch>
           <PrivateRoute exact path="/">
             <App />
@@ -28,7 +28,7 @@ export default function Routes() {
             <Login />
           </Route>
         </Switch>
-      </HashRouter>
+      </Router>
     </Provider>
   );
 }
