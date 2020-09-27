@@ -1,0 +1,15 @@
+.main-screen {
+  display: flex;
+  &__challenges {
+    width: 32%;
+    padding: 25px 15px 25px 30px;
+  }
+  &__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      font-size: 18px;
+    }
+  }
+}
