@@ -109,6 +109,11 @@ body {
   margin: 0;
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+}
+
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
 .radius3 {
   border-radius: $radius3;

@@ -1,6 +1,5 @@
 import React from "react";
 //local
-import logoIcon from "../img/svg/logo-small.svg";
 import policeIcon from "../img/svg/police.svg";
 import searchIcon from "../img/svg/search.svg";
 import securityIcon from "../img/svg/security-logo.svg";
@@ -9,7 +8,7 @@ export const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
-        <img src={logoIcon} alt="" />
+        <button />
         <span>11:27 PM</span>
       </div>
       <div className="sidebar__nav">

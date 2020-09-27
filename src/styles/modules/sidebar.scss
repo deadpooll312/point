@@ -13,7 +13,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    img {
+    button {
+      background: transparent url("../../img/svg/logo-small.svg") no-repeat;
+      width: 53px;
+      height: 59px;
+      border: none;
       margin-bottom: 10px;
     }
     span {
@@ -37,8 +41,6 @@
       padding: 10px 3px;
       border: none;
       margin-bottom: 39px;
-      outline: none;
-      cursor: pointer;
     }
   }
   &__exit {
