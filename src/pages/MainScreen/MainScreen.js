@@ -43,6 +43,27 @@ const MainScreen = () => {
             crewId="CHT345"
             disabled
           />
+          <CrewCard
+            id="893BS"
+            time="11:19:25"
+            address="Лётчика Бабушкина 10"
+            crewId="CHT345"
+            disabled
+          />
+          <CrewCard
+            id="893BS"
+            time="11:19:25"
+            address="Лётчика Бабушкина 10"
+            crewId="CHT345"
+            disabled
+          />
+          <CrewCard
+            id="893BS"
+            time="11:19:25"
+            address="Лётчика Бабушкина 10"
+            crewId="CHT345"
+            disabled
+          />
         </div>
       </div>
       <img className="main-screen__map" src={map} alt="" />
