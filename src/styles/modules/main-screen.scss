@@ -1,5 +1,6 @@
 .main-screen {
   display: flex;
+  background: #F5FAFF;
   &__challenges {
     width: 32%;
     padding: 25px 15px 25px 30px;
@@ -8,8 +9,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
     h3 {
       font-size: 18px;
     }
+  }
+  &__cards {
+    height: 90%;
+    overflow: scroll;
+  }
+  &__map {
+    width: 59%;
   }
 }
