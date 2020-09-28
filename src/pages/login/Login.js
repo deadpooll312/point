@@ -11,14 +11,16 @@ export const Login = () => {
 
   return (
     <div className="login-form-wrap-container">
-      <h4>Для входа введите Ваши логин и пароль</h4>
-      <Formik
-        initialValues={loginValues}
-        validationSchema={schema}
-        onSubmit={onSubmitForm}
-      >
-        <LoginForm />
-      </Formik>
+      <div className="login">
+        <h4 className="login__title">Для входа введите Ваши логин и пароль</h4>
+        <Formik
+          initialValues={loginValues}
+          validationSchema={schema}
+          onSubmit={onSubmitForm}
+        >
+          <LoginForm />
+        </Formik>
+      </div>
     </div>
   );
 };
