@@ -24,6 +24,9 @@ export const LoginForm = inject("store")(
             errorName="password"
             addClass="login-form-container__input"
           />
+          <span className="login-form-container__error-text">
+            Неверный логин или пароль
+          </span>
           <Button type="submit" name="Далее" addClass="login-form-container__button" />
           <Link to="/" className="login-form-container__support">
             Обратиться в службу поддержки
