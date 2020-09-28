@@ -1,0 +1,21 @@
+.search {
+  background: #e4e8f7;
+  border-radius: 10px;
+  position: relative;
+  input {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    color: #bdc1e6;
+    width: 75%;
+    &::placeholder {
+      color: #bdc1e6;
+    }
+  }
+  img {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

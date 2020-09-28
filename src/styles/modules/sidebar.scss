@@ -1,0 +1,58 @@
+.sidebar {
+  background: #464ab3;
+  width: 5%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  span {
+    color: #ffffff;
+  }
+  &__logo {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      background: transparent url("../../img/svg/logo-small.svg") no-repeat;
+      width: 53px;
+      height: 59px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: 8px;
+      display: block;
+    }
+    img {
+      margin-bottom: 10px;
+    }
+    button {
+      background: transparent;
+      border-radius: 10px;
+      width: 100%;
+      padding: 10px 3px;
+      border: none;
+      margin-bottom: 39px;
+    }
+  }
+  &__exit {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    button {
+      border: none;
+      background: url("../../img/svg/exit.svg") no-repeat;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

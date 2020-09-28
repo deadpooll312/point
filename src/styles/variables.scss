@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 // LIGHT THEME
 html {
   --bg: #fff;
@@ -103,7 +106,12 @@ $radius3: 3px;
 $radius5: 5px;
 
 body {
-  background-color: $contentColor !important;
+  margin: 0;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
 }
 
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
