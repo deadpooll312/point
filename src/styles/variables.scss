@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 // LIGHT THEME
 html {
   --bg: #fff;
@@ -32,6 +33,7 @@ html {
   --contentColor: #e6ede0;
   --dateRangeBg: #f7f7f7;
 }
+
 // DARK THEME
 html[theme="dark"] {
   --bg: #2c5586;
@@ -112,6 +114,15 @@ body {
 button {
   outline: none;
   cursor: pointer;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 // =============== КЛАССЫ ДЛЯ ЦВЕТ ТЕКСТА ============ //
