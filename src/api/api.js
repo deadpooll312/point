@@ -1,6 +1,5 @@
 import axios from "axios";
-import {showError} from "../services/notifications.service";
-const baseURL = `https://localhost:8080/`;
+const baseURL = `http://test.guardpoint.ru/`;
 
 const axiosInstance = axios.create({
   baseURL,
@@ -15,8 +14,6 @@ axiosInstance.interceptors.response.use(
     if (status === 401 && config.url !== "login") {
       window.location.href = "/#/login";
       localStorage.clear();
-    } else {
-      response && showError(response.data.message);
     }
 
     return Promise.reject(response);

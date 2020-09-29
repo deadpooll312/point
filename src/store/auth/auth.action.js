@@ -1,18 +1,25 @@
 import axiosInstance from "../../api/api";
-import {showError} from "../../services/notifications.service";
-import {loginError} from "../../consts/text.const";
 import {setStorage} from "../../services/storage.service";
 
 export class AuthAction {
   login(data) {
+    const body = {
+      mode: "raw",
+      raw: JSON.stringify(data),
+      options: {
+        raw: {
+          language: "json",
+        },
+      },
+    };
     axiosInstance
-      .post("login", data)
+      .post("v1/login", body)
       .then(({data}) => {
-        this.user = data;
+        this.updateUser(data);
         setStorage("userInfo", data);
         window.location.href = "/";
       })
-      .catch(() => showError(loginError));
+      .catch();
   }
 
   logout() {

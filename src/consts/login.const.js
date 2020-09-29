@@ -1,4 +1,4 @@
 export const loginValues = {
-  login: "",
-  password: "",
+  login: "awfawfawf",
+  password: "123124124",
 };

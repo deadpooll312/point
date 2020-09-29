@@ -13,7 +13,7 @@ export const App = () => {
       <Provider store={store}>
         <Router>
           <Switch>
-            <PrivateRouter path={MAIN_SCREEN} component={MainScreen} />
+            <PrivateRouter exact path={MAIN_SCREEN} component={MainScreen} />
             <PrivateRouter path={LOGIN} component={Login} />
           </Switch>
         </Router>

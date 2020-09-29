@@ -1,8 +1,8 @@
-// import AuthStore from "./auth/auth.store";
+import AuthStore from "./auth/auth.store";
 
 class RootStore {
   constructor() {
-    // this.auth = AuthStore;
+    this.auth = AuthStore;
   }
 }
 
