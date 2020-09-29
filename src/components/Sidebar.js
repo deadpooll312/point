@@ -1,11 +1,22 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 //local
 import {Tab} from "./Tabs";
 import {sidebarTabs} from "../consts/tabs.const";
+import {useLocation} from "react-router-dom";
 
 export const Sidebar = () => {
   const [active, setActive] = useState(0);
   const openTab = (id) => setActive(id);
+  const params = useLocation();
+
+  useEffect(() => {
+    sidebarTabs.forEach((item) => {
+      if (item.hash === params.hash) {
+        setActive(item.id);
+      }
+    });
+  }, [params.hash]);
+
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
@@ -26,9 +37,7 @@ export const Sidebar = () => {
           );
         })}
       </div>
-      <div className="sidebar__exit">
-        <button />
-      </div>
+      <button className="sidebar__exit" />
     </div>
   );
 };
