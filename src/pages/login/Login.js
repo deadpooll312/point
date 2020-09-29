@@ -5,9 +5,7 @@ import schema from "../../yup/login.yup";
 import {LoginForm} from "./components/login.form";
 
 export const Login = () => {
-  const onSubmitForm = (values) => {
-    console.log(values);
-  };
+  const onSubmitForm = () => {};
 
   return (
     <div className="login-form-wrap-container">
