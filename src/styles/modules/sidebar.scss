@@ -27,21 +27,6 @@
   &__nav {
     display: flex;
     flex-direction: column;
-    span {
-      font-size: 8px;
-      display: block;
-    }
-    img {
-      margin-bottom: 10px;
-    }
-    button {
-      background: transparent;
-      border-radius: 10px;
-      width: 100%;
-      padding: 10px 3px;
-      border: none;
-      margin-bottom: 39px;
-    }
   }
   &__exit {
     position: absolute;
